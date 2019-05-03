@@ -19,6 +19,7 @@
 }
 
 .branding {
+  color: var(--color-brand);
   font-size: inherit;
   margin: 0;
   flex: 1;
