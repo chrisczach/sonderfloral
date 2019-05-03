@@ -1,5 +1,9 @@
 :root {
-  --color-black: #222;
-  --color-white: #fff;
-  --color-accent: #f43;
+  --sans-serif: 'Montserrat', sans-serif;
+    --serif: 'Playfair Display', serif;
+  --color-main-light: #F7F7F7;
+  --color-accent-light: #E69294;
+  --color-main-dark: #2E3747;
+  --color-accent-dark: #D5303F;
+  --color-brand: #DAB43A;
 }

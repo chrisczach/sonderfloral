@@ -6,13 +6,14 @@ import { cn } from '../lib/helpers'
 import styles from './header.module.css'
 
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
-  <div className={styles.root}>
-    <div className={styles.wrapper}>
-      <h1 className={styles.branding}>
-        <Link to='/'>{siteTitle}</Link>
-      </h1>
+  <div id='outer-container'>
+    <div className={styles.root}>
+      <div className={styles.wrapper}>
+        <h1 className={styles.branding}>
+          <Link to='/'>{siteTitle}</Link>
+        </h1>
 
-      <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
+        {/* <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
         <Icon symbol='hamburger' />
       </button>
 
@@ -31,7 +32,8 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
             <Link to='/contact/'>Contact</Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
+      </div>
     </div>
   </div>
 )
