@@ -1,11 +1,11 @@
 import React from 'react'
-import { slide as Menu } from 'react-burger-menu'
+import { elastic as Menu } from 'react-burger-menu'
 import { Link } from 'gatsby'
 import styles from './burger-menu.module.css'
 
 export default function burgerMenu () {
   return (
-    <Menu right>
+    <Menu right pageWrapId={ "page-wrap" } >
       <Link id='about' className='menu-item' to='/about'>
         About
       </Link>
