@@ -6,7 +6,6 @@ import { cn } from '../lib/helpers'
 import styles from './header.module.css'
 
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
-  <div id='outer-container'>
     <div className={styles.root}>
       <div className={styles.wrapper}>
         <h1 className={styles.branding}>
@@ -35,7 +34,6 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
       </nav> */}
       </div>
     </div>
-  </div>
 )
 
 export default Header
