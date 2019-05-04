@@ -6,7 +6,7 @@ import styles from './layout.module.css'
 
 const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
-    <BurgerMenu />
+    <BurgerMenu siteTitle={siteTitle} />
     <div id='page-wrap'>
       <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
       <div className={styles.content}>{children}</div>
