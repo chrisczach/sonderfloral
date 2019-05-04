@@ -7,7 +7,7 @@ import BlockText from './block-text'
 import styles from './blog-post-preview.module.css'
 import { responsiveTitle3 } from './typography.module.css'
 
-function BlogPostPreview (props) {
+function BlogPostPreview(props) {
   return (
     <Link className={styles.root} to={getBlogUrl(props.publishedAt, props.slug.current)}>
       <div className={styles.leadMediaThumb}>

@@ -4,11 +4,11 @@ import { imageUrlFor } from '../lib/image-url'
 
 import styles from './role-list.module.css'
 
-function ucfirst (str) {
+function ucfirst(str) {
   return `${str.substr(0, 1).toUpperCase()}${str.substr(1)}`
 }
 
-function RoleList ({ items, title }) {
+function RoleList({ items, title }) {
   return (
     <div className={styles.root}>
       <h2 className={styles.headline}>{title}</h2>
@@ -24,7 +24,7 @@ function RoleList ({ items, title }) {
                       .height(100)
                       .fit('crop')
                       .url()}
-                    alt=''
+                    alt=""
                   />
                 )}
               </div>

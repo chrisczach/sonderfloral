@@ -1,3 +1,3 @@
-export default function resolveProductionUrl (document) {
-  return `https://sonderfloral.netlify.com/preview?document=${document._id}`
+export default function resolveProductionUrl(document) {
+  return `https://sonderfloral.netlify.com/preview?document=${document._id}`;
 }

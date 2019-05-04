@@ -9,7 +9,7 @@ import RoleList from './role-list'
 
 import styles from './project.module.css'
 
-function Project (props) {
+function Project(props) {
   const { _rawBody, title, categories, mainImage, members, publishedAt, relatedProjects } = props
   return (
     <article className={styles.root}>
@@ -39,7 +39,7 @@ function Project (props) {
                   : format(new Date(publishedAt), 'MMMM Do YYYY')}
               </div>
             )}
-            {members && <RoleList items={members} title='Authors' />}
+            {members && <RoleList items={members} title="Authors" />}
             {categories && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
