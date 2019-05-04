@@ -1,10 +1,10 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
-  width: 36px;
-  height: 30px;
-  right: 36px;
-  top: 36px;
+  width: var(--burger-size);
+  height: calc(var(--burger-size)/6*5);
+  right: var(--burger-size);
+  top: var(--burger-size);
 }
 
 /* Color/shape of burger icon bars */
@@ -68,10 +68,19 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .bm-item:hover {
-  background: var(--color-main-dark);
+  background: var(--color-accent-dark);
+  transition: var(--transition-short);
 }
 
 /* Styling of overlay */
 .bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
+
+}
+.bm-overlay::before {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  content: "";
+  background: var(--color-main-dark);
+  opacity: 0.3;
 }

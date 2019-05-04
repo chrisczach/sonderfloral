@@ -6,4 +6,6 @@
   --color-main-dark: #5c4841;
   --color-accent-dark: #b87c6e;
   --color-brand: #E1C6D2;
+  --burger-size: 26px;
+  --transition-short: all 0.3s ease;
 }
