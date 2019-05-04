@@ -23,7 +23,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: [ 'Montserrat', 'Playfair Display']
+          families: ['Lato', 'Playfair Display']
         }
       }
     }

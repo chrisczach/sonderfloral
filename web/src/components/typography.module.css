@@ -16,7 +16,7 @@
   --font-title3-line-height: calc(28 / 24);
   --font-title2-size: calc(32 / var(--base-unit) * 1rem);
   --font-title2-line-height: calc(36 / 32);
-  --font-title1-size: calc(44 / var(--base-unit) * 1rem);
+  --font-title1-size: calc(40 / var(--base-unit) * 1rem);
   --font-title1-line-height: calc(56 / 44);
 }
 
@@ -89,7 +89,8 @@
 }
 
 .responsiveTitle1 {
-  font-weight: 900;
+  font-weight: 400;
+  font-family: var(--serif);
   font-size: var(--font-title3-size);
   line-height: var(--font-title3-line-height);
   margin: 1rem 0 2rem;
@@ -106,7 +107,7 @@
 }
 
 .responsiveTitle2 {
-  font-weight: 900;
+  font-weight: 400;
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);
   margin: 1.5rem 0 0.5rem;

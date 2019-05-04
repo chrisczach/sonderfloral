@@ -11,7 +11,7 @@
   top: 0;
   position: sticky;
   box-sizing: border-box;
-  height: 102px;
+  height: calc(var(--burger-size)/6*5 + var(--burger-size)*2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,8 +22,7 @@
 
   @media screen and (orientation: portrait) {
    justify-content: flex-start;
-   just-items: center;
-   padding: 36px;
+   left:0;
   }
 }
 
@@ -32,6 +31,8 @@
   height: 100%;
   width: 100%;
   position: absolute;
+  top:0;
+  left:0;
   background: var(--color-main-light);
   opacity: 0.90;
 }
@@ -41,9 +42,12 @@
   font-weight: 100;
   z-index: 105;
   opacity: 1;
-  color: var(--color-brand);
+  color: var(--color-main-dark);
   font-size: 1.5em;
   margin: 0;
+    @media screen and (orientation: portrait) {
+    padding: var(--burger-size);
+  }
 
 
   @nest & a {
