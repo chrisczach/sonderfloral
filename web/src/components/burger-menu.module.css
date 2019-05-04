@@ -1,5 +1,5 @@
 .branding {
-  color: var(--color-accent-dark) !important;
+  color: var(--color-brand) !important;
   font-family: var(--serif);
   position: absolute;
   bottom: 0;

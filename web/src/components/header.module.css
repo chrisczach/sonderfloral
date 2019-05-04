@@ -22,7 +22,7 @@
 
   @media screen and (orientation: portrait) {
    justify-content: flex-start;
-   just-items: center;
+   left:0;
    padding: 36px;
   }
 }
@@ -32,6 +32,8 @@
   height: 100%;
   width: 100%;
   position: absolute;
+  top:0;
+  left:0;
   background: var(--color-main-light);
   opacity: 0.90;
 }
@@ -41,7 +43,7 @@
   font-weight: 100;
   z-index: 105;
   opacity: 1;
-  color: var(--color-brand);
+  color: var(--color-main-dark);
   font-size: 1.5em;
   margin: 0;
 
