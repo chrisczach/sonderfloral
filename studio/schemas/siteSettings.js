@@ -1,36 +1,36 @@
-import MdSettings from 'react-icons/lib/md/settings'
+import MdSettings from "react-icons/lib/md/settings";
 
 export default {
-  name: 'siteSettings',
-  title: 'Site Settings',
-  type: 'document',
+  name: "siteSettings",
+  title: "Site Settings",
+  type: "document",
   liveEdit: false,
-  __experimental_actions: ['update', 'publish', /*'create', 'delete'*/],
+  __experimental_actions: ["update", "publish" /*'create', 'delete'*/],
   icon: MdSettings,
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string'
+      name: "title",
+      title: "Title",
+      type: "string"
     },
     {
-      name: 'description',
-      title: 'Description',
-      type: 'text'
+      name: "description",
+      title: "Description",
+      type: "text"
     },
     {
-      name: 'keywords',
-      title: 'Keywords',
-      type: 'array',
-      of: [{ type: 'string' }],
+      name: "keywords",
+      title: "Keywords",
+      type: "array",
+      of: [{ type: "string" }],
       options: {
-        layout: 'tags'
+        layout: "tags"
       }
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'string'
+      name: "author",
+      title: "Author",
+      type: "string"
     }
   ]
-}
+};

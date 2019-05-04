@@ -18,12 +18,12 @@ const query = graphql`
   }
 `
 
-function LayoutContainer (props) {
+function LayoutContainer(props) {
   const [showNav, setShowNav] = useState(false)
-  function handleShowNav () {
+  function handleShowNav() {
     setShowNav(true)
   }
-  function handleHideNav () {
+  function handleHideNav() {
     setShowNav(false)
   }
   return (

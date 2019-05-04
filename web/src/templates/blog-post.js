@@ -80,7 +80,7 @@ const BlogPostTemplate = props => {
   // console.log(JSON.stringify(data.post, null, 2))
   return (
     <Layout>
-      {errors && <SEO title='GraphQL Error' />}
+      {errors && <SEO title="GraphQL Error" />}
       {post && <SEO title={post.title || 'Untitled'} />}
 
       {errors && (

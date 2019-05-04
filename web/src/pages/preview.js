@@ -9,7 +9,7 @@ const clientForPreview = sanityClient({
   withCredentials: true
 })
 
-export default function preview () {
+export default function preview() {
   const [previewData, setPreviewData] = useState(null)
   previewData ||
     clientForPreview.getDocument(getUrlParameter('document')).then(post => setPreviewData({ post }))
@@ -19,9 +19,11 @@ export default function preview () {
 
 const getUrlParameter = name => {
   try {
-    name = name.replace( /[\[]/, '\\[' ).replace( /[\]]/, '\\]' )
-    var regex = new RegExp( '[\\?&]' + name + '=([^&#]*)' )
-    var results = regex.exec( location.search )
-    return results === null ? '' : decodeURIComponent( results[ 1 ].replace( /\+/g, ' ' ) )
-  } catch (err) { console.log('try catch to prevent build error')}
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]')
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)')
+    var results = regex.exec(location.search)
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '))
+  } catch (err) {
+    console.log('try catch to prevent build error')
+  }
 }

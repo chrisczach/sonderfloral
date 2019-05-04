@@ -8,7 +8,7 @@ import RoleList from './role-list'
 
 import styles from './blog-post.module.css'
 
-function BlogPost (props) {
+function BlogPost(props) {
   const { _rawBody, authors, categories, title, mainImage, publishedAt } = props
   return (
     <article className={styles.root}>
@@ -38,7 +38,7 @@ function BlogPost (props) {
                   : format(new Date(publishedAt), 'MMMM Do YYYY')}
               </div>
             )}
-            {authors && <RoleList items={authors} title='Authors' />}
+            {authors && <RoleList items={authors} title="Authors" />}
             {categories && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>

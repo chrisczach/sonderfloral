@@ -7,7 +7,7 @@ import styles from './layout.module.css'
 const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
     <BurgerMenu siteTitle={siteTitle} />
-    <div id='page-wrap'>
+    <div id="page-wrap">
       <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
       <div className={styles.content}>{children}</div>
       <footer className={styles.footer}>
@@ -32,10 +32,10 @@ const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitl
           </div>
 
           <div className={styles.siteInfo}>
-            © {new Date().getFullYear()}, Built with <a href='https://www.sanity.io'>Sanity</a>{' '}
+            © {new Date().getFullYear()}, Built with <a href="https://www.sanity.io">Sanity</a>{' '}
             &amp;
             {` `}
-            <a href='https://www.gatsbyjs.org'>Gatsby</a>
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
           </div>
         </div>
       </footer>
