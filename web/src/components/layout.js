@@ -4,11 +4,11 @@ import BurgerMenu from './burger-menu'
 import '../styles/layout.css'
 import styles from './layout.module.css'
 
-const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitle }) => (
+const Layout = ({ children, companyInfo, siteTitle }) => (
   <>
     <BurgerMenu siteTitle={siteTitle} />
     <div id="page-wrap">
-      <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
+      <Header siteTitle={siteTitle} />
       <div className={styles.content}>{children}</div>
       <footer className={styles.footer}>
         <div className={styles.footerWrapper}>
