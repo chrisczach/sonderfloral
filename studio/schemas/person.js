@@ -1,44 +1,44 @@
-import MdPerson from 'react-icons/lib/md/person'
+import MdPerson from "react-icons/lib/md/person";
 
 export default {
-  name: 'person',
-  title: 'Person',
-  type: 'document',
+  name: "person",
+  title: "Person",
+  type: "document",
   icon: MdPerson,
   liveEdit: false,
   fields: [
     {
-      name: 'name',
-      title: 'Name',
-      type: 'string'
+      name: "name",
+      title: "Name",
+      type: "string"
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      description: 'Some frontend will require a slug to be set to be able to show the person',
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      description: "Some frontend will require a slug to be set to be able to show the person",
       options: {
-        source: 'name',
+        source: "name",
         maxLength: 96
       }
     },
     {
-      name: 'image',
-      title: 'Image',
-      type: 'image',
+      name: "image",
+      title: "Image",
+      type: "image",
       options: {
         hotspot: true
       }
     },
     {
-      name: 'bio',
-      title: 'Bio',
-      type: 'array',
+      name: "bio",
+      title: "Bio",
+      type: "array",
       of: [
         {
-          title: 'Block',
-          type: 'block',
-          styles: [{ title: 'Normal', value: 'normal' }],
+          title: "Block",
+          type: "block",
+          styles: [{ title: "Normal", value: "normal" }],
           lists: []
         }
       ]
@@ -46,8 +46,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'name',
-      media: 'image'
+      title: "name",
+      media: "image"
     }
   }
-}
+};

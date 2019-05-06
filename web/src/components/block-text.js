@@ -5,7 +5,7 @@ import typography from './typography.module.css'
 
 const serializers = {
   types: {
-    block (props) {
+    block(props) {
       switch (props.node.style) {
         default:
           return <p className={typography.paragraph}>{props.children}</p>

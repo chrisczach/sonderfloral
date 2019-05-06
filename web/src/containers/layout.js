@@ -6,6 +6,21 @@ const query = graphql`
   query SiteTitleQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
+      primaryLight {
+        hex
+      }
+      accentLight {
+        hex
+      }
+      brandAccent {
+        hex
+      }
+      accentDark {
+        hex
+      }
+      primaryDark {
+        hex
+      }
     }
     companyInfo: sanityCompanyInfo(_id: { regex: "/(drafts.|)companyInfo/" }) {
       name
@@ -18,14 +33,7 @@ const query = graphql`
   }
 `
 
-function LayoutContainer (props) {
-  const [showNav, setShowNav] = useState(false)
-  function handleShowNav () {
-    setShowNav(true)
-  }
-  function handleHideNav () {
-    setShowNav(false)
-  }
+function LayoutContainer(props) {
   return (
     <StaticQuery
       query={query}
@@ -43,11 +51,9 @@ function LayoutContainer (props) {
         return (
           <Layout
             {...props}
-            showNav={showNav}
             companyInfo={data.companyInfo}
             siteTitle={data.site.title}
-            onHideNav={handleHideNav}
-            onShowNav={handleShowNav}
+            siteSettings={data.site}
           />
         )
       }}

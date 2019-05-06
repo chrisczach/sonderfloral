@@ -35,7 +35,7 @@
 
 .mainContent {
   @nest & a {
-    color: var(--color-accent);
+    color: var(--color-accent-dark);
 
     @media (hover: hover) {
       @nest &:hover {
