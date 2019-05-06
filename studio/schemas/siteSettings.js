@@ -5,7 +5,7 @@ export default {
   title: "Site Settings",
   type: "document",
   liveEdit: false,
-  __experimental_actions: ["update", "publish" /*'create', 'delete'*/],
+  __experimental_actions: ["update", "publish" /* 'create', 'delete' */],
   icon: MdSettings,
   fields: [
     {
@@ -31,6 +31,46 @@ export default {
       name: "author",
       title: "Author",
       type: "string"
+    },
+    {
+      name: "primaryLight",
+      title: "Primary Light",
+      type: "color",
+      options: {
+        disableAlpha: true
+      }
+    },
+    {
+      name: "accentLight",
+      title: "Accent Light",
+      type: "color",
+      options: {
+        disableAlpha: true
+      }
+    },
+    {
+      name: "brandAccent",
+      title: "Brand Accent",
+      type: "color",
+      options: {
+        disableAlpha: true
+      }
+    },
+    {
+      name: "accentDark",
+      title: "Accent Dark",
+      type: "color",
+      options: {
+        disableAlpha: true
+      }
+    },
+    {
+      name: "primaryDark",
+      title: "Primary Dark",
+      type: "color",
+      options: {
+        disableAlpha: true
+      }
     }
   ]
 };

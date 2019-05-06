@@ -6,6 +6,21 @@ const query = graphql`
   query SiteTitleQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
+      primaryLight {
+        hex
+      }
+      accentLight {
+        hex
+      }
+      brandAccent {
+        hex
+      }
+      accentDark {
+        hex
+      }
+      primaryDark {
+        hex
+      }
     }
     companyInfo: sanityCompanyInfo(_id: { regex: "/(drafts.|)companyInfo/" }) {
       name
@@ -33,7 +48,14 @@ function LayoutContainer(props) {
             'Missing "Company info". Open the studio at http://localhost:3333 and add "Company info" data'
           )
         }
-        return <Layout {...props} companyInfo={data.companyInfo} siteTitle={data.site.title} />
+        return (
+          <Layout
+            {...props}
+            companyInfo={data.companyInfo}
+            siteTitle={data.site.title}
+            siteSettings={data.site}
+          />
+        )
       }}
     />
   )
