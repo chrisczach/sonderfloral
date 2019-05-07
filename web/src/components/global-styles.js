@@ -1,14 +1,17 @@
 import React from 'react'
 
 export default function GlobalStyles({ children, siteSettings }) {
-  const {
-    primaryLight = '#F1F2F1',
-    accentLight = '#F7F5F1',
-    brandAccent = '#E1C6D2',
-    accentDark = '#b87c6e',
-    primaryDark = '#5c4841'
-  } = siteSettings
+  try {
+    var { primaryLight, accentLight, brandAccent, accentDark, primaryDark } = siteSettings
+  } catch (err) {
+    var primaryLight = '#F1F2F1'
+    var accentLight = '#F7F5F1'
+    var brandAccent = '#E1C6D2'
+    var accentDark = '#b87c6e'
+    var primaryDark = '#5c4841'
+  }
   const getHex = ({ hex }) => hex
+
   const globalColors = {
     '--color-main-light': getHex(primaryLight),
     '--color-accent-light': getHex(accentLight),
@@ -18,6 +21,7 @@ export default function GlobalStyles({ children, siteSettings }) {
     background: 'var(--color-main-light)',
     color: 'var(--color-main-dark)'
   }
+
   return (
     <div style={globalColors}>
       <>{children}</>
