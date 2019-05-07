@@ -1,12 +1,33 @@
 import { graphql, StaticQuery } from 'gatsby'
 import React, { useState } from 'react'
 import Layout from '../components/layout'
-import GlobalStyles from '../components/global-styles'
 
 const query = graphql`
   query SiteTitleQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
+      logo {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+        }
+        alt
+      }
       primaryLight {
         hex
       }

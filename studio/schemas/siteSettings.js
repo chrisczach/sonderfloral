@@ -32,8 +32,8 @@ export default {
       type: "string"
     },
     {
-      name: "mainImage",
-      title: "Main image",
+      name: "logo",
+      title: "Logo",
       type: "mainImage"
     },
     {
@@ -76,22 +76,5 @@ export default {
         disableAlpha: true
       }
     }
-  ],
-
-  preview: {
-    select: {
-      title: "title",
-      publishedAt: "publishedAt",
-      image: "mainImage"
-    },
-    prepare({ title = "No title", publishedAt, image }) {
-      return {
-        title,
-        subtitle: publishedAt
-          ? new Date(publishedAt).toLocaleDateString()
-          : "Missing publishing date",
-        media: image
-      };
-    }
-  }
+  ]
 };
