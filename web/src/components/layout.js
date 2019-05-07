@@ -3,14 +3,11 @@ import Header from './header'
 import BurgerMenu from './burger-menu'
 import '../styles/layout.css'
 import styles from './layout.module.css'
+import GlobalStyles from './global-styles'
 
 const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
-  const { primaryLight, accentLight, brandAccent, accentDark, primaryDark } = siteSettings
-  const getHex = ({ hex }) => hex
-  console.log(getHex(primaryLight))
-  // Still need to provide global style variables for colors
   return (
-    <>
+    <GlobalStyles siteSettings={siteSettings}>
       <BurgerMenu siteTitle={siteTitle} />
       <div id="page-wrap">
         <Header siteTitle={siteTitle} />
@@ -45,7 +42,7 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
           </div>
         </footer>
       </div>
-    </>
+    </GlobalStyles>
   )
 }
 

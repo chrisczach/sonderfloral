@@ -1,6 +1,7 @@
 import { graphql, StaticQuery } from 'gatsby'
 import React, { useState } from 'react'
 import Layout from '../components/layout'
+import GlobalStyles from '../components/global-styles'
 
 const query = graphql`
   query SiteTitleQuery {
