@@ -11,7 +11,6 @@ export default function GlobalStyles({
     primaryDark: { hex: '#5c4841' }
   }
 }) {
-  console.log(siteSettings)
   var { primaryLight, accentLight, brandAccent, accentDark, primaryDark } = siteSettings
 
   const getHex = ({ hex }) => hex

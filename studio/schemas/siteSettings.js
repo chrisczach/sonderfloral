@@ -4,8 +4,7 @@ export default {
   name: "siteSettings",
   title: "Site Settings",
   type: "document",
-  liveEdit: false,
-  __experimental_actions: ["update", "publish" /* 'create', 'delete' */],
+  // __experimental_actions: ["update", "publish" /* 'create', 'delete' */],
   icon: MdSettings,
   fields: [
     {
@@ -31,6 +30,11 @@ export default {
       name: "author",
       title: "Author",
       type: "string"
+    },
+    {
+      name: "mainImage",
+      title: "Main image",
+      type: "mainImage"
     },
     {
       name: "primaryLight",
@@ -72,5 +76,22 @@ export default {
         disableAlpha: true
       }
     }
-  ]
+  ],
+
+  preview: {
+    select: {
+      title: "title",
+      publishedAt: "publishedAt",
+      image: "mainImage"
+    },
+    prepare({ title = "No title", publishedAt, image }) {
+      return {
+        title,
+        subtitle: publishedAt
+          ? new Date(publishedAt).toLocaleDateString()
+          : "Missing publishing date",
+        media: image
+      };
+    }
+  }
 };

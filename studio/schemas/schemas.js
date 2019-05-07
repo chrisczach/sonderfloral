@@ -29,12 +29,13 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
+    mainImage,
     blockContent,
     blockText,
     category,
     companyInfo,
     figure,
-    mainImage,
+
     page,
     person,
     post,
