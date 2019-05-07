@@ -23,7 +23,5 @@ const getUrlParameter = name => {
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)')
     var results = regex.exec(location.search)
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '))
-  } catch (err) {
-    console.log('try catch to prevent build error')
-  }
+  } catch (err) {}
 }

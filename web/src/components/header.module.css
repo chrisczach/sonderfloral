@@ -2,7 +2,6 @@
 @import '../styles/vars.css';
 
 .root {
-
 }
 
 .wrapper {
@@ -11,7 +10,7 @@
   top: 0;
   position: sticky;
   box-sizing: border-box;
-  height: calc(var(--burger-size)/6*5 + var(--burger-size)*2);
+  height: calc(var(--burger-size) / 6 * 5 + var(--burger-size) * 2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,20 +20,20 @@
   }
 
   @media screen and (orientation: portrait) {
-   justify-content: flex-start;
-   left:0;
+    justify-content: flex-start;
+    left: 0;
   }
 }
 
 .wrapper::after {
-  content: "";
+  content: '';
   height: 100%;
   width: 100%;
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   background: var(--color-main-light);
-  opacity: 0.90;
+  opacity: 0.9;
 }
 
 .branding {
@@ -45,10 +44,9 @@
   color: var(--color-main-dark);
   font-size: 1.5em;
   margin: 0;
-    @media screen and (orientation: portrait) {
+  @media screen and (orientation: portrait) {
     padding: var(--burger-size);
   }
-
 
   @nest & a {
     display: inline-block;
@@ -61,6 +59,17 @@
       }
     }
   }
+}
+
+.logo {
+  position: relative;
+  z-index: 200;
+  transform: translate(-33%, 33%);
+}
+
+.logoText {
+  position: relative;
+  z-index: 250;
 }
 
 .toggleNavButton {

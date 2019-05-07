@@ -6,7 +6,6 @@ import styles from './layout.module.css'
 import GlobalStyles from './global-styles'
 
 const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
-  console.log(siteSettings.logo)
   return (
     <GlobalStyles siteSettings={siteSettings}>
       <BurgerMenu siteTitle={siteTitle} />
