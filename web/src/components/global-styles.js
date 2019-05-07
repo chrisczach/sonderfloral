@@ -1,15 +1,19 @@
 import React from 'react'
 
-export default function GlobalStyles({ children, siteSettings }) {
-  try {
-    var { primaryLight, accentLight, brandAccent, accentDark, primaryDark } = siteSettings
-  } catch (err) {
-    var primaryLight = '#F1F2F1'
-    var accentLight = '#F7F5F1'
-    var brandAccent = '#E1C6D2'
-    var accentDark = '#b87c6e'
-    var primaryDark = '#5c4841'
+export default function GlobalStyles({
+  children,
+  siteSettings = {
+    title: 'Sonder Floral',
+    primaryLight: { hex: '#f1f2f1' },
+    accentLight: { hex: '#f7f5f1' },
+    brandAccent: { hex: '#e1c6d2' },
+    accentDark: { hex: '#b87c6e' },
+    primaryDark: { hex: '#5c4841' }
   }
+}) {
+  console.log(siteSettings)
+  var { primaryLight, accentLight, brandAccent, accentDark, primaryDark } = siteSettings
+
   const getHex = ({ hex }) => hex
 
   const globalColors = {
