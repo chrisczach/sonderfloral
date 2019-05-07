@@ -14,10 +14,13 @@ const Header = ({ siteTitle, logo }) => (
       </Link>
       <img
         className={styles.logo}
-        src={imageUrlFor(buildImageObj(logo))
-          .height(40)
-          .fit('crop')
-          .url()}
+        src={
+          logo &&
+          imageUrlFor(buildImageObj(logo))
+            .height(40)
+            .fit('crop')
+            .url()
+        }
       />
     </h1>
   </div>
