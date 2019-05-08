@@ -12,8 +12,13 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
   let logo
   let title = ''
   try {
-    logo = siteSettings.logo
     title = siteTitle
+  } catch (err) {
+    console.log('prevent build error')
+  }
+
+  try {
+    logo = siteSettings.logo
   } catch (err) {
     console.log('prevent build error')
   }
