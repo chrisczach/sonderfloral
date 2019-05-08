@@ -32,7 +32,8 @@
     "react": "^16.8.6",
     "react-burger-menu": "^2.6.10",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-svg": "^9.0.4"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

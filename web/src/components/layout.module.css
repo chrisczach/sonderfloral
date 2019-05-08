@@ -10,10 +10,17 @@
 }
 
 .footer {
+}
 
+.svgWrapper svg,
+path {
+  height: 120px;
+  width: auto;
+  fill: var(--color-main-dark);
 }
 
 .footerWrapper {
+  font-family: var(--serif);
   box-sizing: border-box;
   max-width: 960px;
   padding: 1.5em;

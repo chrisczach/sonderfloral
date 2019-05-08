@@ -8,3 +8,9 @@
   opacity: 0.3;
   background: transparent !important;
 }
+
+.svgWrapper svg,
+path {
+  height: 120px;
+  width: auto;
+}

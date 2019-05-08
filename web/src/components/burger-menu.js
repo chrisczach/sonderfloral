@@ -2,8 +2,11 @@ import React from 'react'
 import { elastic as Menu } from 'react-burger-menu'
 import { Link } from 'gatsby'
 import styles from './burger-menu.module.css'
+import ReactSVG from 'react-svg'
+import { buildImageObj } from '../lib/helpers'
+import { imageUrlFor } from '../lib/image-url'
 
-export default function burgerMenu({ siteTitle }) {
+export default function burgerMenu({ siteTitle, logo }) {
   return (
     <Menu right pageWrapId={'page-wrap'}>
       <Link id="about" className="menu-item" to="/about">
@@ -18,7 +21,14 @@ export default function burgerMenu({ siteTitle }) {
       <Link id="contact" className="menu-item" to="/contact">
         Contact
       </Link>
-      <h4 className={styles.branding}>{siteTitle}</h4>
+      <div className={styles.branding}>
+        <ReactSVG
+          svgStyle={{ fill: 'var(--color-brand) !important' }}
+          className={styles.svgWrapper}
+          src={logo && imageUrlFor(buildImageObj(logo)).url()}
+        />
+        <h4>{siteTitle}</h4>
+      </div>
     </Menu>
   )
 }

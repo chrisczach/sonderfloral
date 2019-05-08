@@ -62,9 +62,21 @@
 }
 
 .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
   position: relative;
   z-index: 200;
-  transform: translate(-33%, 33%);
+  transform: translate(-33%, 50%);
+  height: 30px;
+}
+
+.svgWrapper svg,
+path {
+  height: 45px;
+  width: auto;
+  fill: var(--color-main-dark);
 }
 
 .logoText {

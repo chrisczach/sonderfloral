@@ -1,9 +1,12 @@
 import React from 'react'
+import ReactSVG from 'react-svg'
 import Header from './header'
 import BurgerMenu from './burger-menu'
 import '../styles/layout.css'
 import styles from './layout.module.css'
 import GlobalStyles from './global-styles'
+import { buildImageObj } from '../lib/helpers'
+import { imageUrlFor } from '../lib/image-url'
 
 const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
   let logo
@@ -16,7 +19,7 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
 
   return (
     <GlobalStyles siteSettings={siteSettings}>
-      <BurgerMenu siteTitle={siteTitle} />
+      <BurgerMenu siteTitle={siteTitle} logo={logo} />
       <div id="page-wrap">
         <Header siteTitle={siteTitle} logo={logo} />
         <div className={styles.content}>{children}</div>
@@ -37,6 +40,10 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
                   )}
                   {companyInfo.zipCode} {companyInfo.city}
                   {companyInfo.country && <span>, {companyInfo.country}</span>}
+                  <ReactSVG
+                    className={styles.svgWrapper}
+                    src={logo && imageUrlFor(buildImageObj(logo)).url()}
+                  />
                 </div>
               )}
             </div>
