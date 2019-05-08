@@ -1,8 +1,15 @@
 @import './vars.css';
 @import './hamburgerhelper.css';
+@font-face {
+  font-family: 'dk_lampionregular';
+  src: url('dk_lampion-webfont.woff2') format('woff2'),
+    url('dk_lampion-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 html {
-  font-family: var(--sans-serif);
+  font-family: var(--font-main);
   font-size: var(--font-base-size);
   line-height: var(--font-base-line-height);
 }

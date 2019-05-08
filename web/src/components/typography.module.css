@@ -20,8 +20,6 @@
   --font-title1-line-height: calc(56 / 44);
 }
 
-
-
 /*
  * Statically sized elements
  */
@@ -62,8 +60,6 @@
   text-transform: uppercase;
 }
 
-
-
 /*
  * Responsively sized elements
  */
@@ -90,7 +86,7 @@
 
 .responsiveTitle1 {
   font-weight: 400;
-  font-family: var(--serif);
+  font-family: var(--font-secondary);
   font-size: var(--font-title3-size);
   line-height: var(--font-title3-line-height);
   margin: 1rem 0 2rem;

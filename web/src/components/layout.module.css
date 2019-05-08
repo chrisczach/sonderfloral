@@ -20,7 +20,7 @@ path {
 }
 
 .footerWrapper {
-  font-family: var(--serif);
+  font-family: var(--font-brand);
   box-sizing: border-box;
   max-width: 960px;
   padding: 1.5em;
@@ -34,7 +34,8 @@ path {
 .companyInfo {
   text-align: center;
   margin: 0 0 1rem;
-  font-size: 1.25em;
+  font-size: 2.5em;
+  font-weight: 500;
 }
 
 .siteInfo {

@@ -11,7 +11,7 @@ const Header = ({ siteTitle, logo }) => (
   <div className={styles.wrapper}>
     <h1 className={styles.branding}>
       <Link className={styles.logoText} to="/">
-        {siteTitle}{' '}
+        {siteTitle.toUpperCase()}{' '}
       </Link>
       <div className={styles.logo}>
         <ReactSVG

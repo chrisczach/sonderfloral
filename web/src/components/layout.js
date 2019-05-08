@@ -19,7 +19,7 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
 
   return (
     <GlobalStyles siteSettings={siteSettings}>
-      <BurgerMenu siteTitle={siteTitle} logo={logo} />
+      <BurgerMenu siteTitle={siteTitle.toUpperCase()} logo={logo} />
       <div id="page-wrap">
         <Header siteTitle={siteTitle} logo={logo} />
         <div className={styles.content}>{children}</div>
@@ -28,7 +28,6 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
             <div className={styles.companyInfo}>
               {companyInfo && (
                 <div>
-                  {companyInfo.name}
                   {/* <br />
                   {companyInfo.address1}
                   <br />
@@ -44,6 +43,7 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
                     className={styles.svgWrapper}
                     src={logo && imageUrlFor(buildImageObj(logo)).url()}
                   />
+                  {companyInfo.name.toUpperCase()}
                 </div>
               )}
             </div>

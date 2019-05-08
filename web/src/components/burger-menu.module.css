@@ -1,6 +1,7 @@
 .branding {
-  color: var(--color-brand) !important;
-  font-family: var(--serif);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -9,9 +10,17 @@
   background: transparent !important;
 }
 
+.logo {
+  font-size: 2em;
+  color: var(--color-brand) !important;
+  font-family: var(--font-brand);
+  font-weight: 500 !important;
+}
+
 .svgStyle {
   height: 120px;
   width: auto;
+  transform: translateY(36px);
 }
 
 .svgStyle > g > path {
