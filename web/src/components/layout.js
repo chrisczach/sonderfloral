@@ -10,18 +10,19 @@ import { imageUrlFor } from '../lib/image-url'
 
 const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
   let logo
-
+  let title = ''
   try {
     logo = siteSettings.logo
+    title = siteTitle
   } catch (err) {
     console.log('prevent build error')
   }
 
   return (
     <GlobalStyles siteSettings={siteSettings}>
-      <BurgerMenu siteTitle={siteTitle.toUpperCase()} logo={logo} />
+      <BurgerMenu siteTitle={title} logo={logo} />
       <div id="page-wrap">
-        <Header siteTitle={siteTitle} logo={logo} />
+        <Header siteTitle={title} logo={logo} />
         <div className={styles.content}>{children}</div>
         <footer className={styles.footer}>
           <div className={styles.footerWrapper}>
