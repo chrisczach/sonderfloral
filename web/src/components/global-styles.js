@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './global-styles.module.css'
 
 export default function GlobalStyles({
   children,
@@ -26,7 +27,7 @@ export default function GlobalStyles({
   }
 
   return (
-    <div style={globalColors}>
+    <div style={globalColors} className={styles.scroll}>
       <>{children}</>
     </div>
   )
