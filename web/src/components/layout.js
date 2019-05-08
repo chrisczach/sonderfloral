@@ -12,7 +12,7 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
   let logo
   let title = ''
   try {
-    title = siteTitle
+    title = siteTitle.toUpperCase()
   } catch (err) {
     console.log('prevent build error')
   }
