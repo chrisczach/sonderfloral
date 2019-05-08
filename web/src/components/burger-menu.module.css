@@ -9,8 +9,11 @@
   background: transparent !important;
 }
 
-.svgWrapper svg,
-path {
+.svgStyle {
   height: 120px;
   width: auto;
+}
+
+.svgStyle > g > path {
+  fill: white !important;
 }

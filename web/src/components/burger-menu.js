@@ -23,7 +23,7 @@ export default function burgerMenu({ siteTitle, logo }) {
       </Link>
       <div className={styles.branding}>
         <ReactSVG
-          svgStyle={{ fill: 'var(--color-brand) !important' }}
+          svgClassName={styles.svgStyle}
           className={styles.svgWrapper}
           src={logo && imageUrlFor(buildImageObj(logo)).url()}
         />
