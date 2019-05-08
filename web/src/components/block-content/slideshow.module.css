@@ -3,10 +3,15 @@
 
 .root {
   background: var(--color-main-dark);
-  color: var(--color-main-light);
+  color: var(--color-accent-light);
   margin: 2rem -1.5rem;
   overflow: hidden;
   padding: 1rem;
+
+  @media (--media-min-medium) {
+    background: var(--color-accent-light);
+    color: var(--color-accent-dark);
+  }
 
   @media (--media-min-small) {
     margin: 2rem -2rem;
