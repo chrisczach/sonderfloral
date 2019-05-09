@@ -1,6 +1,8 @@
 .scroll {
-  overflow: auto;
-  height: 100%;
+  overflow: overlay;
+  height: 100vh;
+  width: 100vw;
+  scroll-behavior: smooth;
 }
 
 @media screen and (orientation: landscape) {
