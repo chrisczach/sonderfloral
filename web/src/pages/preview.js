@@ -25,7 +25,7 @@ export default function preview() {
   let PreviewTemplate = () => <div>data not loaded</div>
   try {
     type = previewData._type
-    PreviewTemplate = templates[type]
+    PreviewTemplate = templates[`${type}`]
   } catch (err) {
     return 'data not loaded'
   }
