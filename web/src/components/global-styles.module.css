@@ -1,3 +1,8 @@
+.scroll {
+  overflow: auto;
+  height: 100%;
+}
+
 @media screen and (orientation: landscape) {
   .scroll {
     overflow: overlay;
