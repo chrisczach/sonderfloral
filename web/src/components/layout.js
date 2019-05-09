@@ -12,8 +12,15 @@ import Transition from './page-transition'
 const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) => {
   let logo
   let title = ''
+  let pathname = ''
   try {
     title = siteTitle.toUpperCase()
+  } catch (err) {
+    console.log('prevent build error')
+  }
+
+  try {
+    pathname = location.pathname
   } catch (err) {
     console.log('prevent build error')
   }
@@ -30,7 +37,7 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
       <div id="page-wrap">
         <Header siteTitle={title} logo={logo} />
 
-        <Transition location={location}>
+        <Transition location={{ pathname }}>
           <>
             <div className={styles.content}>{children}</div>
           </>
