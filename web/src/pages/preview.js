@@ -21,13 +21,15 @@ export default function preview() {
     clientForPreview
       .getDocument(getUrlParameter('document'))
       .then(post => console.log(post) || setPreviewData({ post }))
+  let type
+  let PreviewTemplate = () => <div>data not loaded</div>
   try {
-    const type = previewData._type
-    const PreviewTempate = templates[type]
-    return <PreviewTempate data={previewData} />
+    type = previewData._type
+    PreviewTemplate = templates[type]
   } catch (err) {
     return 'data not loaded'
   }
+  return <PreviewTemplate data={previewData} />
 }
 
 const getUrlParameter = name => {
