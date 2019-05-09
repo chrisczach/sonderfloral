@@ -33,7 +33,9 @@
     "react-burger-menu": "^2.6.10",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
-    "react-svg": "^9.0.4"
+    "react-svg": "^9.0.4",
+    "gatsby-plugin-layout": "^1.0.15",
+    "react-transition-group": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

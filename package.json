@@ -20,9 +20,5 @@
   "devDependencies": {
     "lerna": "^3.13.1",
     "rimraf": "^2.6.3"
-  },
-  "dependencies": {
-    "gatsby-plugin-layout": "^1.0.15",
-    "react-transition-group": "^4.0.0"
   }
 }
