@@ -2,7 +2,7 @@
 .bm-burger-button {
   position: fixed;
   width: var(--burger-size);
-  height: calc(var(--burger-size)/6*5);
+  height: calc(var(--burger-size) / 6 * 5);
   right: var(--burger-size);
   top: var(--burger-size);
 }
@@ -10,6 +10,7 @@
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: var(--color-main-dark);
+  transition: var(--transition-short);
 }
 
 /* Color/shape of burger icon bars on hover*/
@@ -44,8 +45,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-size: 1.15em;
 }
 
-
-
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
   fill: var(--color-main-dark);
@@ -64,7 +63,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   text-decoration: none;
   color: var(--color-main-light);
   outline: none;
-  
 }
 
 .bm-item:hover {
@@ -74,13 +72,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Styling of overlay */
 .bm-overlay {
-
 }
 .bm-overlay::before {
   height: 100%;
   width: 100%;
   position: absolute;
-  content: "";
+  content: '';
   background: var(--color-main-dark);
   opacity: 0.3;
 }
