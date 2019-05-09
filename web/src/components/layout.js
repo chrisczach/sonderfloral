@@ -9,7 +9,7 @@ import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import Transition from './page-transition'
 
-const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
+const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) => {
   let logo
   let title = ''
   try {
