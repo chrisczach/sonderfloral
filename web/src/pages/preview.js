@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import sanityClient from '@sanity/client'
-import BlogPostTemplate, { query } from '../templates/blog-post'
+import BlogPostTemplate from '../templates/blog-post'
+import ProjectTemplate from '../templates/project'
 
 const clientForPreview = sanityClient({
   projectId: 'z8zw1m88',
@@ -9,14 +10,20 @@ const clientForPreview = sanityClient({
   withCredentials: true
 })
 
+const templates = {
+  post: BlogPostTemplate,
+  project: ProjectTemplate
+}
+
 export default function preview() {
   const [previewData, setPreviewData] = useState(null)
   previewData ||
     clientForPreview
       .getDocument(getUrlParameter('document'))
       .then(post => console.log(post) || setPreviewData({ post }))
-
-  return <BlogPostTemplate data={previewData} />
+  const type = previewData._type
+  const PreviewTempate = tempates[type]
+  return <PreviewTempate data={previewData} />
 }
 
 const getUrlParameter = name => {
