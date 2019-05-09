@@ -27,17 +27,21 @@ export default function GlobalStyles({
   }
 
   const scrollDiv = createRef()
-  if (window) {
-    setTimeout(
-      () => (
-        scrollDiv.current.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: 'smooth'
-        }),
-        0
+  try {
+    if (window) {
+      setTimeout(
+        () => (
+          scrollDiv.current.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          }),
+          0
+        )
       )
-    )
+    }
+  } catch (err) {
+    console.log('prevent build error when window is undefined')
   }
 
   return (
