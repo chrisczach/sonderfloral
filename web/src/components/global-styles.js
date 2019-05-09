@@ -27,7 +27,7 @@ export default function GlobalStyles({
   }
 
   const scrollDiv = createRef()
-  try {
+  if (window) {
     setTimeout(
       () => (
         scrollDiv.current.scrollTo({
@@ -38,7 +38,7 @@ export default function GlobalStyles({
         0
       )
     )
-  } catch (err) {}
+  }
 
   return (
     <div ref={scrollDiv} style={globalColors} className={styles.scroll}>
