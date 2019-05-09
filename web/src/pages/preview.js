@@ -22,7 +22,7 @@ export default function preview() {
       .getDocument(getUrlParameter('document'))
       .then(post => console.log(post) || setPreviewData({ post }))
   const type = previewData._type
-  const PreviewTempate = tempates[type]
+  const PreviewTempate = templates[type] || 'no data loaded'
   return <PreviewTempate data={previewData} />
 }
 
