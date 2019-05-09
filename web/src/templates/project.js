@@ -85,7 +85,7 @@ const ProjectTemplate = props => {
   const { data, errors } = props
   const project = data && data.project
   return (
-    <Layout>
+    <>
       {errors && <SEO title="GraphQL Error" />}
       {project && <SEO title={project.title || 'Untitled'} />}
 
@@ -95,7 +95,7 @@ const ProjectTemplate = props => {
         </Container>
       )}
       {project && <Project {...project} />}
-    </Layout>
+    </>
   )
 }
 

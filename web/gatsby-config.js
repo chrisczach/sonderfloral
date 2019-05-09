@@ -26,6 +26,12 @@ module.exports = {
           families: ['Lato', 'Playfair Display']
         }
       }
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/containers/layout.js`)
+      }
     }
   ]
 }

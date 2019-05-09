@@ -35,22 +35,18 @@ export const query = graphql`
 const ProjectsPage = props => {
   const { data, errors } = props
   if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    )
+    return <GraphQLErrorList errors={errors} />
   }
   const projectNodes =
     data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
   return (
-    <Layout>
+    <>
       <SEO title="Projects" />
       <Container>
         <h1 className={responsiveTitle1}>Projects</h1>
         {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
       </Container>
-    </Layout>
+    </>
   )
 }
 

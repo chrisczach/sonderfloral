@@ -39,11 +39,7 @@ const AboutPage = props => {
   const { data, errors } = props
 
   if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    )
+    return <GraphQLErrorList errors={errors} />
   }
 
   const page = data && data.page
@@ -57,14 +53,14 @@ const AboutPage = props => {
   }
 
   return (
-    <Layout>
+    <>
       <SEO title={page.title} />
       <Container>
         <h1 className={responsiveTitle1}>{page.title}</h1>
         <BlockContent blocks={page._rawBody || []} />
         {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title="People" />}
       </Container>
-    </Layout>
+    </>
   )
 }
 

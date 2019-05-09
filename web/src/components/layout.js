@@ -7,6 +7,7 @@ import styles from './layout.module.css'
 import GlobalStyles from './global-styles'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
+import Transition from './page-transition'
 
 const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
   let logo
@@ -28,7 +29,13 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings }) => {
       <BurgerMenu siteTitle={title} logo={logo} />
       <div id="page-wrap">
         <Header siteTitle={title} logo={logo} />
-        <div className={styles.content}>{children}</div>
+
+        <Transition location={location}>
+          <>
+            <div className={styles.content}>{children}</div>
+          </>
+        </Transition>
+
         <footer className={styles.footer}>
           <div className={styles.footerWrapper}>
             <div className={styles.companyInfo}>

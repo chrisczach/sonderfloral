@@ -93,11 +93,7 @@ const IndexPage = props => {
   const { data, errors } = props
 
   if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    )
+    return <GraphQLErrorList errors={errors} />
   }
 
   const site = (data || {}).site
@@ -115,7 +111,7 @@ const IndexPage = props => {
   }
 
   return (
-    <Layout>
+    <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
@@ -134,7 +130,7 @@ const IndexPage = props => {
           />
         )}
       </Container>
-    </Layout>
+    </>
   )
 }
 

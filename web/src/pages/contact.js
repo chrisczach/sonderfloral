@@ -21,11 +21,7 @@ const ContactPage = props => {
   const { data, errors } = props
 
   if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    )
+    return <GraphQLErrorList errors={errors} />
   }
 
   const page = data.page
@@ -37,13 +33,13 @@ const ContactPage = props => {
   }
 
   return (
-    <Layout>
+    <>
       <SEO title={page.title} />
       <Container>
         <h1 className={responsiveTitle1}>{page.title}</h1>
         <BlockContent blocks={page._rawBody || []} />
       </Container>
-    </Layout>
+    </>
   )
 }
 ContactPage.defaultProps = {

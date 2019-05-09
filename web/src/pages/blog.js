@@ -37,23 +37,19 @@ const BlogPage = props => {
   const { data, errors } = props
 
   if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    )
+    return <GraphQLErrorList errors={errors} />
   }
 
   const postNodes = data && data.posts && mapEdgesToNodes(data.posts)
 
   return (
-    <Layout>
+    <>
       <SEO title="Blog" />
       <Container>
         <h1 className={responsiveTitle1}>Blog</h1>
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
-    </Layout>
+    </>
   )
 }
 
