@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createRef } from 'react'
 import styles from './global-styles.module.css'
 
 export default function GlobalStyles({
@@ -26,8 +26,22 @@ export default function GlobalStyles({
     color: 'var(--color-main-dark)'
   }
 
+  const scrollDiv = createRef()
+  try {
+    setTimeout(
+      () => (
+        scrollDiv.current.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        }),
+        0
+      )
+    )
+  } catch (err) {}
+
   return (
-    <div style={globalColors} className={styles.scroll}>
+    <div ref={scrollDiv} style={globalColors} className={styles.scroll}>
       <>{children}</>
     </div>
   )
