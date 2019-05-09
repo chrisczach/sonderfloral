@@ -12,7 +12,9 @@ const clientForPreview = sanityClient({
 export default function preview() {
   const [previewData, setPreviewData] = useState(null)
   previewData ||
-    clientForPreview.getDocument(getUrlParameter('document')).then(post => setPreviewData({ post }))
+    clientForPreview
+      .getDocument(getUrlParameter('document'))
+      .then(post => console.log(post) || setPreviewData({ post }))
 
   return <BlogPostTemplate data={previewData} />
 }
