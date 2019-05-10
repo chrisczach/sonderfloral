@@ -8,6 +8,18 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Sonder Floral',
+        short_name: 'Sonder Floral',
+        start_url: '/',
+        background_color: '#F1F2F1',
+        theme_color: '#B87C6E',
+        display: 'standalone',
+        icon: 'src/images/logo.png' // This path is relative to the root of the site.
+      }
+    },
+    {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId,
@@ -32,7 +44,8 @@ module.exports = {
       options: {
         component: require.resolve(`./src/containers/layout.js`)
       }
-    }
+    },
+    'gatsby-plugin-offline'
   ]
 }
 

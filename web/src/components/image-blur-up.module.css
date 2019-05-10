@@ -1,10 +1,12 @@
-img {
+.base {
   transition: var(--transition-short);
+  opacity: 0.5;
+  filter: blur(8px) grayscale(50%);
 }
 
 .beforeLoad {
   opacity: 0.5;
-  filter: blur(6px) grayscale(50%);
+  filter: blur(16px) grayscale(50%);
 }
 
 .afterLoaded {

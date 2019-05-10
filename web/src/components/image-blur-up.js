@@ -5,15 +5,21 @@ import styles from './image-blur-up.module.css'
 export default function ImageBlurUp({ src, placeholder, alt, className }) {
   return (
     <ProgressiveImage src={src} placeholder={placeholder || src}>
-      {(imagSrc, loading) => (
+      {(imageSrc, loading) => (
         <>
           <img
-            className={`${className} ${loading ? styles.beforeLoad : styles.afterLoaded}`}
-            src={imagSrc}
+            className={`${className} ${styles.base} ${
+              loading ? styles.beforeLoad : styles.afterLoaded
+            }`}
+            src={imageSrc}
             alt={alt}
           />
           <noscript>
-            <img className={className} src={src} />
+            <img
+              className={`${className} ${styles.base}  ${styles.afterLoaded}`}
+              src={src}
+              alt={alt}
+            />
           </noscript>
         </>
       )}
