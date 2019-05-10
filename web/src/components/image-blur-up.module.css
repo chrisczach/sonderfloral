@@ -1,0 +1,13 @@
+img {
+  transition: var(--transition-short);
+}
+
+.beforeLoad {
+  opacity: 0.5;
+  filter: blur(6px) grayscale(50%);
+}
+
+.afterLoaded {
+  opacity: 1;
+  filter: blur(0px) grayscale(0%);
+}
