@@ -25,6 +25,9 @@ export const query = graphql`
           image {
             asset {
               _id
+              metadata {
+                lqip
+              }
             }
           }
           name

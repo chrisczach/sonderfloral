@@ -39,6 +39,9 @@ export const query = graphql`
             }
             asset {
               _id
+              metadata {
+                lqip
+              }
             }
             alt
           }
@@ -75,6 +78,9 @@ export const query = graphql`
             }
             asset {
               _id
+              metadata {
+                lqip
+              }
             }
             alt
           }

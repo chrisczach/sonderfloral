@@ -18,6 +18,9 @@ export const query = graphql`
           mainImage {
             asset {
               _id
+              metadata {
+                lqip
+              }
             }
             alt
           }
