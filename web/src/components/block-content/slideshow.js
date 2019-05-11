@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { buildImageObj } from '../../lib/helpers'
 import { imageUrlFor } from '../../lib/image-url'
+import Image from '../image'
 import ImageBlurUp from '../image-blur-up'
 import styles from './slideshow.module.css'
 
@@ -35,17 +36,9 @@ function Slideshow(props) {
         {props.slides.map(slide => (
           <li key={slide._key} className={styles.slide}>
             {slide.asset && (
-              <ImageBlurUp
-                src={imageUrlFor(buildImageObj(slide))
-                  .width(1200)
-                  .height(Math.floor((9 / 16) * 1200))
-                  .fit('crop')
-                  .url()}
-                placeholder={imageUrlFor(buildImageObj(slide))
-                  .width(60)
-                  .height(Math.floor((9 / 16) * 60))
-                  .fit('crop')
-                  .url()}
+              <Image
+                asset={slide.asset}
+                args={{ maxWidth: 2400, maxHeight: Math.floor((9 / 16) * 2400) }}
               />
             )}
           </li>

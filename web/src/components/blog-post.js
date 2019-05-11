@@ -5,7 +5,7 @@ import { imageUrlFor } from '../lib/image-url'
 import BlockContent from './block-content'
 import Container from './container'
 import RoleList from './role-list'
-import ImageBlurUp from '../components/image-blur-up'
+import Image from './image'
 import styles from './blog-post.module.css'
 
 function BlogPost(props) {
@@ -13,21 +13,10 @@ function BlogPost(props) {
   return (
     <article className={styles.root}>
       {mainImage && mainImage.asset && (
-        <div className={styles.mainImage}>
-          <ImageBlurUp
-            src={imageUrlFor(buildImageObj(mainImage))
-              .width(1200)
-              .height(Math.floor((9 / 16) * 1200))
-              .fit('crop')
-              .url()}
-            placeholder={imageUrlFor(buildImageObj(mainImage))
-              .width(60)
-              .height(Math.floor((9 / 16) * 60))
-              .fit('crop')
-              .url()}
-            alt={mainImage.alt}
-          />
-        </div>
+        <Image
+          asset={mainImage}
+          args={{ maxWidth: 2400, maxHeight: Math.floor((9 / 16) * 2400) }}
+        />
       )}
       <Container>
         <div className={styles.grid}>

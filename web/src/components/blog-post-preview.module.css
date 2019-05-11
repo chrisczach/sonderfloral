@@ -4,21 +4,6 @@
   text-decoration: none;
 }
 
-.leadMediaThumb {
-  position: relative;
-  padding-bottom: 66.666%;
-  background: #eee;
-
-  @nest & img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
 .title {
   font-size: 1.25em;
   font-family: var(--font-secondary);
