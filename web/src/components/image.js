@@ -9,6 +9,7 @@ export default function Image({ asset, args, fixed = false, ...props }) {
   const imgProps = fixed
     ? getFixedGatsbyImage(asset, imageArgs, sanityConfig.api)
     : getFluidGatsbyImage(asset, imageArgs, sanityConfig.api)
+  console.log(imgProps)
   if (fixed) {
     return <Img fixed={imgProps} alt={asset.alt} {...props} />
   } else {
