@@ -13,7 +13,7 @@ function ProjectPreview(props) {
       {props.mainImage && props.mainImage.asset && (
         <Image
           asset={props.mainImage}
-          args={{ maxWidth: 1200, maxHeight: Math.floor((9 / 16) * 1200) }}
+          args={{ maxWidth: 600, maxHeight: Math.floor((9 / 16) * 600) }}
         />
       )}
       <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
