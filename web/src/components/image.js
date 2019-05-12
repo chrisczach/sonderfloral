@@ -5,10 +5,12 @@ import sanityConfig from '../../../studio/sanity.json'
 import { imageUrlFor } from '../lib/image-url'
 import { buildImageObj } from '../lib/helpers'
 
-export default function Image({ asset, args, fixed = false, ...props }) {
-  const imageArgs =
-    args || (fixed ? { width: 1200, height: Math.floor((9 / 16) * 1200) } : { maxWidth: 1200 })
-
+export default function Image({
+  asset,
+  args: { width = 1200, height = Math.floor((9 / 16) * 1200), maxWidth = 1200, maxHeight = null },
+  fixed = false,
+  ...props
+}) {
   let base64 = ''
 
   try {
@@ -17,9 +19,9 @@ export default function Image({ asset, args, fixed = false, ...props }) {
     console.log(err)
   }
   const imgProps = fixed
-    ? getFixedGatsbyImage(asset, imageArgs, sanityConfig.api)
-    : getFluidGatsbyImage(asset, imageArgs, sanityConfig.api)
-  // console.log(imgProps)
+    ? getFixedGatsbyImage(asset, { width, height }, sanityConfig.api)
+    : getFluidGatsbyImage(asset, { maxWidth, maxHeight }, sanityConfig.api)
+  console.log(imgProps)
   if (fixed) {
     return <Img fixed={{ ...imgProps, base64 }} alt={asset.alt} {...props} />
   } else {
