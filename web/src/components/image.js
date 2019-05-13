@@ -10,12 +10,6 @@ export default function Image({ asset, args, fixed = false, ...props }) {
   // console.log('asset', asset)
   const imageArgs =
     args || (fixed ? { width: 1200, height: Math.floor((9 / 16) * 1200) } : { maxWidth: 1200 })
-  const processedImg = imageUrlFor(asset)
-    .width(args.maxWidth || args.width || null)
-    .height(args.maxHeight || args.height || null)
-    .url()
-  const url = processedImg.split('?')[0] + '?'
-  const urlWithRect = processedImg.split('&')[0] + '&'
 
   const imgProps = fixed
     ? getFixedGatsbyImage(asset, imageArgs, sanityConfig.api)
@@ -27,11 +21,35 @@ export default function Image({ asset, args, fixed = false, ...props }) {
     console.log(err)
   }
 
+  let processedImg = imageUrlFor(asset)
+  if (fixed) {
+    processedImg = processedImg
+      .width(args.width)
+      .height(args.height)
+      .url()
+  } else {
+    imgProps.aspectRatio = imageArgs.maxWidth / imageArgs.maxHeight
+    const fluidHeight = 1000
+    const fluidWidth = 1000 * imgProps.aspectRatio
+    if (imageArgs.maxWidth && imageArgs.maxHeight) {
+      processedImg = processedImg
+        .width(fluidWidth)
+        .height(fluidHeight)
+        .url()
+    } else {
+      processedImg = processedImg.url()
+    }
+  }
+
+  const url = processedImg.split('?')[0] + '?'
+  const urlWithRect = processedImg.split('&')[0] + '&'
+
   const addRect = srcToAddRect => srcToAddRect.split(url).join(urlWithRect)
   imgProps.src = addRect(imgProps.src)
   imgProps.srcSet = addRect(imgProps.srcSet)
   imgProps.srcWebp = addRect(imgProps.srcWebp)
   imgProps.srcSetWebp = addRect(imgProps.srcSetWebp)
+
   if (fixed) {
     return <Img fixed={{ ...imgProps }} alt={asset.alt} {...props} />
   } else {
