@@ -20,25 +20,19 @@ export default function Image({ asset, args, fixed = false, ...props }) {
   } catch (err) {
     console.log(err)
   }
-
+  console.log(imageArgs)
   let processedImg = imageUrlFor(asset)
   if (fixed) {
-    processedImg = processedImg
-      .width(args.width)
-      .height(args.height)
-      .url()
+    processedImg = processedImg.width(args.width).height(args.height)
   } else {
-    imgProps.aspectRatio = imageArgs.maxWidth / imageArgs.maxHeight
-    const fluidHeight = 1000
-    const fluidWidth = 1000 * imgProps.aspectRatio
-    if (imageArgs.maxWidth && imageArgs.maxHeight) {
-      processedImg = processedImg
-        .width(fluidWidth)
-        .height(fluidHeight)
-        .url()
-    } else {
-      processedImg = processedImg.url()
-    }
+    console.log(imgProps)
+    processedImg = processedImg.width(imageArgs.maxWidth)
+
+    // if (!imageArgs.maxHeight) {
+    //   imageArgs.maxHeight = imageArgs.maxWidth * imageArgs.aspectRatio
+    // }
+    processedImg = processedImg.height(imageArgs.maxHeight)
+    processedImg = processedImg.url()
   }
 
   const url = processedImg.split('?')[0] + '?'
