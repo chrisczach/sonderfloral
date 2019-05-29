@@ -18,8 +18,8 @@ export default function burgerMenu({ siteTitle, logo }) {
       <Link id="projects" className="menu-item" to="/projects" onClick={closeMenu}>
         Projects
       </Link>
-      <Link id="blog" className="menu-item" to="/blog" onClick={closeMenu}>
-        Blog
+      <Link id="portfolio" className="menu-item" to="/portfolio" onClick={closeMenu}>
+        Portfolio
       </Link>
       <Link id="contact" className="menu-item" to="/contact" onClick={closeMenu}>
         Contact

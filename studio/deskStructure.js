@@ -40,9 +40,9 @@ export default () =>
         .schemaType("project")
         .child(S.documentTypeList("project")),
       S.listItem()
-        .title("Blog posts")
+        .title("Portfolio posts")
         .schemaType("post")
-        .child(S.documentTypeList("post").title("Blog posts")),
+        .child(S.documentTypeList("post").title("Portfolio posts")),
       S.listItem()
         .title("Pages")
         .child(
