@@ -1,5 +1,15 @@
 import React from 'react'
 
 export default function PortfolioMasonryTile(props) {
-  return <div style={{ overflow: 'hidden' }}>{JSON.stringify(props)}</div>
+  const { columns, rows } = props
+  return (
+    <div
+      style={{
+        overflow: 'hidden',
+        gridArea: `span ${columns || 1} / span ${rows || 1}`
+      }}
+    >
+      {JSON.stringify(props)}
+    </div>
+  )
 }

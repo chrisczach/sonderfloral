@@ -25,6 +25,8 @@ export const query = graphql`
             alt
           }
           title
+          columns
+          rows
           _rawExcerpt
           slug {
             current

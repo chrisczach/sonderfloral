@@ -19,6 +19,20 @@ export default {
       }
     },
     {
+      name: "columns",
+      title: "Columns",
+      description:
+        "The portfolio is setup to be 8 columns wide. This field is to choose how many columns this image will occupy. It is recommended to use columns widths of 1, 2, 4, or 8",
+      type: "number"
+    },
+    {
+      name: "rows",
+      title: "Rows",
+      description:
+        "The portfolio is setup to be grid 8 columns wide. This field is to choose how many rows this image will occupy. Use columns and rows to determine aspect ratio, eg 4 columns and 4 rows will be a square aspect ratio",
+      type: "number"
+    },
+    {
       name: "mainImage",
       title: "Main image",
       type: "mainImage"

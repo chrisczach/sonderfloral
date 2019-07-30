@@ -148,7 +148,12 @@ const IndexPage = props => {
 
   const logoRef = useRef()
   const [logoSize, setLogoSize] = useState(200)
-  let [landscape, setLandscape] = useState(window.innerWidth > window.innerHeight)
+  let temp
+  try {
+    temp = window.innerWidth > window.innerHeight
+  } catch (e) {}
+
+  let [landscape, setLandscape] = useState(temp)
 
   if (landscape) {
     useEffect(() => {
