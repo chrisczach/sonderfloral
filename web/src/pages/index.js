@@ -1,12 +1,17 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
+import { graphql, Link } from 'gatsby'
+import { mapEdgesToNodes, filterOutDocsWithoutSlugs, buildImageObj } from '../lib/helpers'
 import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import Image from '../components/image'
+import ReactSVG from 'react-svg'
+import styles from './index.module.css'
+import { imageUrlFor } from '../lib/image-url'
+import headerStyles from '../components/header.module.css'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -14,6 +19,28 @@ export const query = graphql`
       title
       description
       keywords
+      logo {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+        }
+        alt
+      }
     }
 
     projects: allSanityProject(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
@@ -121,6 +148,19 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
+        <div className={styles.bannerWrapper}>
+          <h1 className={headerStyles.branding}>
+            <Link className={headerStyles.logoText} to="/">
+              {site.title.toUpperCase()}{' '}
+            </Link>
+            <div className={headerStyles.logo}>
+              <ReactSVG
+                className={headerStyles.svgWrapper}
+                src={site.logo && imageUrlFor(buildImageObj(site.logo)).url()}
+              />
+            </div>
+          </h1>
+        </div>
         {projectNodes && (
           <ProjectPreviewGrid
             title="Sonder Series"

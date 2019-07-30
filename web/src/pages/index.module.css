@@ -1,0 +1,17 @@
+.svgWrapper svg,
+path {
+  height: 120px;
+  width: auto;
+  fill: var(--color-main-dark);
+}
+
+.bannerWrapper {
+  z-index: 200;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.75em;
+  margin: 2.5em auto 5em auto;
+}
