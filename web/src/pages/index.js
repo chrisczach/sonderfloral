@@ -147,7 +147,7 @@ const IndexPage = props => {
   const scrollDivRef = useContext(ScrollRefContext)
 
   const logoRef = useRef()
-  const [logoSize, setLogoSize] = useState(1)
+  const [logoSize, setLogoSize] = useState(200)
 
   useEffect(() => {
     const { y: logoRectY } =
@@ -170,7 +170,7 @@ const IndexPage = props => {
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
         <div className={styles.bannerWrapper} ref={logoRef}>
-          <h1 className={headerStyles.branding}>
+          <h1 style={{ transform: `scale(${logoSize / 100})` }} className={headerStyles.branding}>
             <Link className={headerStyles.logoText} to="/">
               {site.title.toUpperCase()}{' '}
             </Link>
