@@ -13,6 +13,7 @@ import styles from './index.module.css'
 import { imageUrlFor } from '../lib/image-url'
 import headerStyles from '../components/header.module.css'
 import { ScrollRefContext } from '../components/global-styles'
+import { Match } from '@reach/router'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -146,7 +147,7 @@ const IndexPage = props => {
   const scrollDivRef = useContext(ScrollRefContext)
 
   const logoRef = useRef()
-  const [logoSize, setLogoSize] = useState({})
+  const [logoSize, setLogoSize] = useState(1)
 
   useEffect(() => {
     const { y: logoRectY } =
@@ -154,11 +155,12 @@ const IndexPage = props => {
       logoRef.current.getBoundingClientRect &&
       logoRef.current.getBoundingClientRect()
 
-    const handle = ({ target: { scrollTop } }) => setLogoSize({ scrollTop, logoRectY })
+    const handle = ({ target: { scrollTop } }) =>
+      setLogoSize(parseInt(((logoRectY - Math.min(scrollTop, logoRectY)) / logoRectY + 1) * 100))
 
     scrollDivRef.current.addEventListener('scroll', handle)
 
-    return () => scrollDivRef.current.removeEventListener('scroll', handle)
+    // return () => scrollDivRef.current.removeEventListener('scroll', handle)
   }, [])
 
   console.log(logoSize)
