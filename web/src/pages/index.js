@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useContext, useEffect, useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs, buildImageObj } from '../lib/helpers'
 import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
@@ -12,6 +12,7 @@ import ReactSVG from 'react-svg'
 import styles from './index.module.css'
 import { imageUrlFor } from '../lib/image-url'
 import headerStyles from '../components/header.module.css'
+import { ScrollRefContext } from '../components/global-styles'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -142,13 +143,31 @@ const IndexPage = props => {
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
     )
   }
+  const scrollDivRef = useContext(ScrollRefContext)
 
+  const logoRef = useRef()
+  const [logoSize, setLogoSize] = useState({})
+
+  useEffect(() => {
+    const { y: logoRectY } =
+      logoRef.current &&
+      logoRef.current.getBoundingClientRect &&
+      logoRef.current.getBoundingClientRect()
+
+    const handle = ({ target: { scrollTop } }) => setLogoSize({ scrollTop, logoRectY })
+
+    scrollDivRef.current.addEventListener('scroll', handle)
+
+    return () => scrollDivRef.current.removeEventListener('scroll', handle)
+  }, [])
+
+  console.log(logoSize)
   return (
     <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        <div className={styles.bannerWrapper}>
+        <div className={styles.bannerWrapper} ref={logoRef}>
           <h1 className={headerStyles.branding}>
             <Link className={headerStyles.logoText} to="/">
               {site.title.toUpperCase()}{' '}

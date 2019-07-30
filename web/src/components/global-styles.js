@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from 'react'
+import React, { createRef, createContext } from 'react'
 import styles from './global-styles.module.css'
 
 export default function GlobalStyles({
@@ -43,19 +43,14 @@ export default function GlobalStyles({
   } catch (err) {
     console.log('prevent build error when window is undefined')
   }
-  const [positionY, setPositionY] = useState()
-
-  useEffect(() => {
-    const updateY = ({ target }) => setPositionY(target.scrollTop)
-    scrollDiv.current.addEventListener('scroll', updateY)
-    return () => {
-      scrollDiv.current.removeEventListener('scroll', updateY)
-    }
-  }, [])
 
   return (
     <div ref={scrollDiv} style={globalColors} className={styles.scroll}>
-      <>{console.log(positionY) || children}</>
+      <ScrollRefContext.Provider value={scrollDiv}>
+        <> {children}</>
+      </ScrollRefContext.Provider>
     </div>
   )
 }
+
+export const ScrollRefContext = createContext()
