@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import BlogPostPreview from './blog-post-preview'
+import Masonry from 'react-masonry-component'
 
 import styles from './blog-post-preview-grid.module.css'
 

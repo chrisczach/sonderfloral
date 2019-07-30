@@ -18,14 +18,14 @@ export default function Image({ asset, args, fixed = false, ...props }) {
   try {
     imgProps.base64 = asset.asset.metadata.lqip
   } catch (err) {
-    console.log(err)
+    // console.log(err)
   }
-  console.log(imageArgs)
+  // console.log(imageArgs)
   let processedImg = imageUrlFor(asset)
   if (fixed) {
     processedImg = processedImg.width(args.width).height(args.height)
   } else {
-    console.log(imgProps)
+    // console.log(imgProps)
     processedImg = processedImg.width(imageArgs.maxWidth)
 
     // if (!imageArgs.maxHeight) {
