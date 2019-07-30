@@ -10,7 +10,7 @@ import styles from './header.module.css'
 const Header = ({ siteTitle, logo }) => {
   let isHome = false
   try {
-    isHome = window.location.pathname === '/'
+    isHome = window.location.pathname === '/' && window.innerWidth > window.innerHeight
   } catch (e) {
     console.log(e)
   }

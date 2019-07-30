@@ -148,20 +148,23 @@ const IndexPage = props => {
 
   const logoRef = useRef()
   const [logoSize, setLogoSize] = useState(200)
+  let [landscape, setLandscape] = useState(window.innerWidth > window.innerHeight)
 
-  useEffect(() => {
-    const { y: logoRectY } =
-      logoRef.current &&
-      logoRef.current.getBoundingClientRect &&
-      logoRef.current.getBoundingClientRect()
+  if (landscape) {
+    useEffect(() => {
+      const { y: logoRectY } =
+        logoRef.current &&
+        logoRef.current.getBoundingClientRect &&
+        logoRef.current.getBoundingClientRect()
 
-    const handle = ({ target: { scrollTop } }) =>
-      setLogoSize(parseInt(((logoRectY - Math.min(scrollTop, logoRectY)) / logoRectY + 1) * 100))
+      const handle = ({ target: { scrollTop } }) =>
+        setLogoSize(parseInt(((logoRectY - Math.min(scrollTop, logoRectY)) / logoRectY + 1) * 100))
 
-    scrollDivRef.current.addEventListener('scroll', handle)
+      scrollDivRef.current.addEventListener('scroll', handle)
 
-    // return () => scrollDivRef.current.removeEventListener('scroll', handle)
-  }, [])
+      // return () => scrollDivRef.current.removeEventListener('scroll', handle)
+    }, [])
+  }
 
   console.log(logoSize)
   return (
@@ -169,19 +172,21 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        <div className={styles.bannerWrapper} ref={logoRef}>
-          <h1 style={{ transform: `scale(${logoSize / 100})` }} className={headerStyles.branding}>
-            <Link className={headerStyles.logoText} to="/">
-              {site.title.toUpperCase()}{' '}
-            </Link>
-            <div className={headerStyles.logo}>
-              <ReactSVG
-                className={headerStyles.svgWrapper}
-                src={site.logo && imageUrlFor(buildImageObj(site.logo)).url()}
-              />
-            </div>
-          </h1>
-        </div>
+        {landscape && (
+          <div className={styles.bannerWrapper} ref={logoRef}>
+            <h1 style={{ transform: `scale(${logoSize / 100})` }} className={headerStyles.branding}>
+              <Link className={headerStyles.logoText} to="/">
+                {site.title.toUpperCase()}{' '}
+              </Link>
+              <div className={headerStyles.logo}>
+                <ReactSVG
+                  className={headerStyles.svgWrapper}
+                  src={site.logo && imageUrlFor(buildImageObj(site.logo)).url()}
+                />
+              </div>
+            </h1>
+          </div>
+        )}
         {projectNodes && (
           <ProjectPreviewGrid
             title="Sonder Series"
