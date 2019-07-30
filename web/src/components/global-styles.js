@@ -43,17 +43,19 @@ export default function GlobalStyles({
   } catch (err) {
     console.log('prevent build error when window is undefined')
   }
+  const [positionY, setPositionY] = useState()
 
   useEffect(() => {
-    scrollDiv.current.addEventListener('scroll', ({ target }) => console.log(target.scrollTop))
+    const updateY = ({ target }) => setPositionY(target.scrollTop)
+    scrollDiv.current.addEventListener('scroll', updateY)
     return () => {
-      scrollDiv.current.removeEventListener('scroll', ({ target }) => console.log(target.scrollTop))
+      scrollDiv.current.removeEventListener('scroll', updateY)
     }
-  }, [scrollDiv])
+  }, [])
 
   return (
     <div ref={scrollDiv} style={globalColors} className={styles.scroll}>
-      <>{children}</>
+      <>{console.log(positionY) || children}</>
     </div>
   )
 }
