@@ -16,20 +16,19 @@ export default function PortfolioMasonryTile({ columns, rows, mainImage }) {
 
   const [listener, { width, height }] = ResizeAware()
   const size = Math.ceil(Math.max(width, height) / 300) * 300
-  console.log(size)
   return (
     <div
       style={{
         overflow: 'hidden',
         position: 'relative',
         gridArea: `span ${rows || 1} / span ${columns || 1}`,
-        margin: '2px'
+        margin: '0.25em'
       }}
     >
       {listener}
       <Image
         asset={mainImage}
-        args={{ maxWidth: size, maxHeight: Math.floor((rows / columns) * size) }}
+        args={{ maxWidth: size, maxHeight: Math.ceil((rows / columns) * size + 10) }}
       />
     </div>
   )

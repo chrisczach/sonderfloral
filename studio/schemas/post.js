@@ -22,14 +22,14 @@ export default {
       name: "columns",
       title: "Columns",
       description:
-        "The portfolio is setup to be 8 columns wide. This field is to choose how many columns this image will occupy. It is recommended to use columns widths of 1, 2, 4, or 8",
+        "The portfolio is setup to be 12 columns wide. This field is to choose how many columns this image will occupy. It is recommended to use columns widths of 1, 2, 3, 6, or 12",
       type: "number"
     },
     {
       name: "rows",
       title: "Rows",
       description:
-        "The portfolio is setup to be grid 8 columns wide. This field is to choose how many rows this image will occupy. Use columns and rows to determine aspect ratio, eg 4 columns and 4 rows will be a square aspect ratio",
+        "The portfolio is setup to be grid 12 columns wide. This field is to choose how many rows this image will occupy. Use columns and rows to determine aspect ratio, eg 4 columns and 4 rows will be a square aspect ratio and a regular photo can by 2 x 3, 4 x 6, or 8 x 12 sizes",
       type: "number"
     },
     {

@@ -14,6 +14,7 @@ import { imageUrlFor } from '../lib/image-url'
 import headerStyles from '../components/header.module.css'
 import { ScrollRefContext } from '../components/global-styles'
 import { Match } from '@reach/router'
+import PortfolioMasonryGrid from '../components/portfolio-masonry-grid'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -83,28 +84,11 @@ export const query = graphql`
       }
     }
 
-    posts: allSanityPost(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
+    posts: allSanityPost(limit: 12, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
-          id
-          publishedAt
+          _id
           mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
             asset {
               _id
               metadata {
@@ -114,6 +98,8 @@ export const query = graphql`
             alt
           }
           title
+          columns
+          rows
           _rawExcerpt
           slug {
             current
@@ -199,9 +185,7 @@ const IndexPage = props => {
             browseMoreHref="/projects/"
           />
         )}
-        {postNodes && (
-          <BlogPostPreviewGrid title="Portfolio" nodes={postNodes} browseMoreHref="/portfolio/" />
-        )}
+        {postNodes && <PortfolioMasonryGrid nodes={postNodes} />}
       </Container>
     </>
   )

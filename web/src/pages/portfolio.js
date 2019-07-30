@@ -49,7 +49,7 @@ const PortfolioPage = props => {
   return (
     <>
       <SEO title="Portfolio" />
-      <div style={{ minHeight: '100vh', padding: '1.5em' }}>
+      <div style={{ minHeight: '100vh', padding: '.5em' }}>
         <h1 className={responsiveTitle1}>Portfolio</h1>
         {postNodes && postNodes.length > 0 && <PortfolioMasonryGrid nodes={postNodes} />}
       </div>
