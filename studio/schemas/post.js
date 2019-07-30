@@ -19,26 +19,14 @@ export default {
       }
     },
     {
-      name: "publishedAt",
-      title: "Published at",
-      description: "You can use this field to schedule post where you show them",
-      type: "datetime"
+      name: "mainImage",
+      title: "Main image",
+      type: "mainImage"
     },
     {
       name: "excerpt",
       title: "Excerpt",
       type: "blockText"
-    },
-    {
-      name: "authors",
-      title: "Authors",
-      type: "array",
-      of: [{ type: "postAuthor" }]
-    },
-    {
-      name: "mainImage",
-      title: "Main image",
-      type: "mainImage"
     },
     {
       name: "categories",

@@ -6,7 +6,7 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-
+import PortfolioMasonryGrid from '../components/portfolio-masonry-grid'
 import { responsiveTitle1 } from '../components/typography.module.css'
 
 export const query = graphql`
@@ -14,8 +14,7 @@ export const query = graphql`
     posts: allSanityPost(limit: 12, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
-          id
-          publishedAt
+          _id
           mainImage {
             asset {
               _id
@@ -36,7 +35,7 @@ export const query = graphql`
   }
 `
 
-const BlogPage = props => {
+const PortfolioPage = props => {
   const { data, errors } = props
 
   if (errors) {
@@ -48,12 +47,12 @@ const BlogPage = props => {
   return (
     <>
       <SEO title="Portfolio" />
-      <Container>
+      <div style={{ minHeight: '100vh', padding: '1.5em' }}>
         <h1 className={responsiveTitle1}>Portfolio</h1>
-        {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
-      </Container>
+        {postNodes && postNodes.length > 0 && <PortfolioMasonryGrid nodes={postNodes} />}
+      </div>
     </>
   )
 }
 
-export default BlogPage
+export default PortfolioPage
