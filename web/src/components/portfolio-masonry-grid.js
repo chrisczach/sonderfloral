@@ -5,13 +5,13 @@ import ResizeAware from 'react-resize-aware'
 
 export default function PortfolioMasonryGrid({ nodes }) {
   const [listener, { width }] = ResizeAware()
-  const size = width / 8
+  const size = width / 12
   return (
     <div style={{ position: 'relative' }}>
       {listener}
       <div
         className={styles.grid}
-        style={{ gridAutoRows: `${size}px`, gridTemplateColumns: `repeat(8, ${size}px)` }}
+        style={{ gridAutoRows: `${size}px`, gridTemplateColumns: `repeat(12, ${size}px)` }}
       >
         {nodes.map(PortfolioMasonryTile)}
       </div>
