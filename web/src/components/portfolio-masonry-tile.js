@@ -6,7 +6,8 @@ export default function PortfolioMasonryTile(props) {
     <div
       style={{
         overflow: 'hidden',
-        gridArea: `span ${columns || 1} / span ${rows || 1}`
+        gridArea: `span ${rows || 1} / span ${columns || 1}`,
+        margin: '2px'
       }}
     >
       {JSON.stringify(props)}
