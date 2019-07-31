@@ -11,8 +11,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
 .imageWrapper {

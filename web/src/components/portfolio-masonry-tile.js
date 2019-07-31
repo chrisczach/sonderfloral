@@ -11,17 +11,6 @@ export default function PortfolioMasonryTile({
   setModalImage,
   setAspect
 }) {
-  let isPortrait
-
-  try {
-    isPortrait = window.innerWidth < window.innerHeight
-  } catch (e) {}
-
-  if (isPortrait && columns <= 6) {
-    columns *= 2
-    rows *= 2
-  }
-
   const [listener, { width, height }] = ResizeAware()
   const size = Math.ceil(Math.max(width, height) / 300) * 300
 
@@ -40,9 +29,11 @@ export default function PortfolioMasonryTile({
     >
       {listener}
       <Image
-        style={{ top: '-5px' }}
         asset={mainImage}
-        args={{ maxWidth: size, maxHeight: Math.ceil((rows / columns) * size * 1.05) }}
+        args={{
+          maxWidth: size,
+          maxHeight: Math.ceil((rows / columns) * size * (rows > columns ? 1.1 : 1))
+        }}
       />
     </div>
   )

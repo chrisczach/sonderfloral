@@ -32,7 +32,7 @@ export default function PortfolioMasonryModal({
       <div onClick={toggleModal} className={styles.modal}>
         <div style={{ width: `${width}px`, height: `${height}px` }} className={styles.imageWrapper}>
           <Image
-            style={{ top: '-5px' }}
+            style={{ top: '-5px', width: '100%', height: '100%' }}
             asset={modalImage}
             args={{ maxWidth: width, maxHeight: height }}
           />
