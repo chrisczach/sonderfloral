@@ -35,6 +35,7 @@
     "pretty-quick": "^1.11.1",
     "react": "^16.8.6",
     "react-burger-menu": "^2.6.10",
+    "react-div-100vh": "^0.3.4",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-masonry-component": "^6.2.1",
