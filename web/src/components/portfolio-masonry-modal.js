@@ -31,7 +31,11 @@ export default function PortfolioMasonryModal({
     modalShown && (
       <div onClick={toggleModal} className={modalShown ? styles.shown : styles.hidden}>
         <div style={{ width: `${width}px`, height: `${height}px` }} className={styles.imageWrapper}>
-          <Image asset={modalImage} args={{ maxWidth: width, maxHeight: height }} />
+          <Image
+            style={{ top: '-5px' }}
+            asset={modalImage}
+            args={{ maxWidth: width, maxHeight: height }}
+          />
         </div>
       </div>
     )

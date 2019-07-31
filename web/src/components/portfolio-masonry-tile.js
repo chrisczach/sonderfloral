@@ -40,6 +40,7 @@ export default function PortfolioMasonryTile({
     >
       {listener}
       <Image
+        style={{ top: '-10px' }}
         asset={mainImage}
         args={{ maxWidth: size, maxHeight: Math.ceil((rows / columns) * size * 1.05) }}
       />
