@@ -14,7 +14,7 @@ export default function PortfolioMasonryModal({
 }) {
   const [listener, { width: windowWidth, height: windowHeight }] = ResizeAware()
   const margin = 15
-  const imageSizeLimit = Math.min(windowWidth / aspect, windowHeight) - margin
+  const imageSizeLimit = Math.min(windowWidth / aspect, windowHeight)
   const width = imageSizeLimit * aspect
   const height = imageSizeLimit
 
@@ -26,7 +26,10 @@ export default function PortfolioMasonryModal({
           style={{ width: `${width - margin}px`, height: `${height - margin}px` }}
           className={styles.imageWrapper}
         >
-          <Image asset={modalImage} args={{ maxWidth: width, maxHeight: height }} />
+          <Image
+            asset={modalImage}
+            args={{ maxWidth: width - margin, maxHeight: height - margin }}
+          />
         </div>
       </Div100vh>
     )
