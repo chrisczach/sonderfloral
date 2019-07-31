@@ -13,12 +13,10 @@ export default function PortfolioMasonryModal({
   aspect
 }) {
   const [listener, { width: windowWidth, height: windowHeight }] = ResizeAware()
-
-  const imageSizeLimit = windowWidth / windowHeight < aspect ? windowWidth : windowHeight
-  const margin = 0
-  const isLandscape = windowWidth > windowHeight
-  const width = isLandscape ? imageSizeLimit * aspect : imageSizeLimit
-  const height = isLandscape ? imageSizeLimit : imageSizeLimit / aspect
+  const margin = 15
+  const imageSizeLimit = Math.min(windowWidth / aspect, windowHeight) - margin
+  const width = imageSizeLimit * aspect
+  const height = imageSizeLimit
 
   return (
     modalShown && (
