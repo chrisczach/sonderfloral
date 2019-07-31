@@ -12,12 +12,11 @@ export default function PortfolioMasonryTile({
   setAspect
 }) {
   const [listener, { width, height }] = ResizeAware()
-  const size = Math.ceil(Math.max(width, height) / 300) * 300
 
   const handleToggleModal = () => {
     setModal(true)
     setModalImage(mainImage)
-    setAspect(size / Math.ceil((rows / columns) * size))
+    setAspect(columns / rows || 1)
   }
   return (
     <div

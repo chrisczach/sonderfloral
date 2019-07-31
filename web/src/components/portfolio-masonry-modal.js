@@ -14,12 +14,13 @@ export default function PortfolioMasonryModal({
 }) {
   const [listener, { width: windowWidth, height: windowHeight }] = ResizeAware()
 
-  const imageSizeLimitBy = windowWidth / windowHeight > aspect ? 'height' : 'width'
-  const margin = imageSizeLimitBy === 'height' ? windowHeight * 0.05 : windowWidth * 0.05
-  const width =
-    imageSizeLimitBy === 'width' ? Math.floor(windowWidth) : Math.floor(windowHeight * aspect)
-  const height =
-    imageSizeLimitBy === 'height' ? Math.floor(windowHeight) : Math.ceil(windowWidth / aspect)
+  const imageSizeLimit = windowWidth / windowHeight > aspect ? windowHeight : windowWidth
+  const margin = 0
+
+  const width = imageSizeLimit
+  const height = imageSizeLimit
+  //need to fix
+  console.log(aspect)
   return (
     modalShown && (
       <Div100vh onClick={toggleModal} className={styles.modal}>
@@ -28,11 +29,7 @@ export default function PortfolioMasonryModal({
           style={{ width: `${width - margin}px`, height: `${height - margin}px` }}
           className={styles.imageWrapper}
         >
-          <Image
-            style={{ width: '100%', height: '100%' }}
-            asset={modalImage}
-            args={{ maxWidth: width, maxHeight: height }}
-          />
+          <Image asset={modalImage} args={{ maxWidth: width, maxHeight: height }} />
         </div>
       </Div100vh>
     )
