@@ -14,13 +14,12 @@ export default function PortfolioMasonryModal({
 }) {
   const [listener, { width: windowWidth, height: windowHeight }] = ResizeAware()
 
-  const imageSizeLimit = windowWidth / windowHeight > aspect ? windowHeight : windowWidth
+  const imageSizeLimit = windowWidth / windowHeight < aspect ? windowWidth : windowHeight
   const margin = 0
+  const isLandscape = windowWidth > windowHeight
+  const width = isLandscape ? imageSizeLimit * aspect : imageSizeLimit
+  const height = isLandscape ? imageSizeLimit : imageSizeLimit / aspect
 
-  const width = imageSizeLimit
-  const height = imageSizeLimit
-  //need to fix
-  console.log(aspect)
   return (
     modalShown && (
       <Div100vh onClick={toggleModal} className={styles.modal}>
