@@ -8,7 +8,8 @@ export default function PortfolioMasonryTile({
   rows,
   mainImage,
   setModal,
-  setModalImage
+  setModalImage,
+  setAspect
 }) {
   let isPortrait
 
@@ -27,6 +28,7 @@ export default function PortfolioMasonryTile({
   const handleToggleModal = () => {
     setModal(true)
     setModalImage(mainImage)
+    setAspect(size / Math.ceil((rows / columns) * size))
   }
   return (
     <div
