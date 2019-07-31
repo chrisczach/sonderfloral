@@ -10,17 +10,28 @@ export default function PortfolioMasonryModal({
   toggleModal,
   aspect
 }) {
+  let windowWidth
+  let windowHeight
+
+  try {
+    windowWidth = window.innerWidth
+    windowHeight = window.innerHeight
+  } catch (e) {}
+
+  const imageSizeLimitBy = windowWidth / windowHeight > aspect ? 'height' : 'width'
+  const width =
+    imageSizeLimitBy === 'width'
+      ? Math.floor(window.innerWidth * 0.9)
+      : Math.floor(windowHeight * aspect * 0.9)
+  const height =
+    imageSizeLimitBy === 'height'
+      ? Math.floor(windowHeight * 0.9)
+      : Math.floor((window.innerWidth / aspect) * 0.9)
   return (
     modalShown && (
       <div onClick={toggleModal} className={modalShown ? styles.shown : styles.hidden}>
-        <div className={styles.imageWrapper}>
-          Image Aspect: {aspect}
-          <br />
-          Screen Aspect: {window.innerWidth / window.innerHeight}
-          <Image
-            asset={modalImage}
-            args={{ maxWidth: window.innerWidth, maxHeight: Math.ceil((4 / 6) * window * 1.05) }}
-          />
+        <div style={{ width: `${width}px`, height: `${height}px` }} className={styles.imageWrapper}>
+          <Image asset={modalImage} args={{ maxWidth: width, maxHeight: height }} />
         </div>
       </div>
     )
