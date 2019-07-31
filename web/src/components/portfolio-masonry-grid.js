@@ -7,7 +7,7 @@ export default function PortfolioMasonryGrid({ nodes }) {
   const [listener, { width }] = ResizeAware()
   const size = width / 12
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
       {listener}
       <div
         className={styles.grid}

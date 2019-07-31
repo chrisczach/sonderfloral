@@ -1,6 +1,7 @@
 import React from 'react'
 import ResizeAware from 'react-resize-aware'
 
+import styles from './portfolio-masonry-tile.module.css'
 import Image from './image'
 export default function PortfolioMasonryTile({ columns, rows, mainImage }) {
   let isPortrait
@@ -18,17 +19,15 @@ export default function PortfolioMasonryTile({ columns, rows, mainImage }) {
   const size = Math.ceil(Math.max(width, height) / 300) * 300
   return (
     <div
+      className={styles.wrapper}
       style={{
-        overflow: 'hidden',
-        position: 'relative',
-        gridArea: `span ${rows || 1} / span ${columns || 1}`,
-        margin: '0.25em'
+        gridArea: `span ${rows || 1} / span ${columns || 1}`
       }}
     >
       {listener}
       <Image
         asset={mainImage}
-        args={{ maxWidth: size, maxHeight: Math.ceil((rows / columns) * size + 10) }}
+        args={{ maxWidth: size, maxHeight: Math.ceil((rows / columns) * size * 1.05) }}
       />
     </div>
   )
