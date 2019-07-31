@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styles from './portfolio-masonry-modal.module.css'
+import Image from './image'
 
 export default function PortfolioMasonryModal({
   modalImage,
@@ -11,7 +12,7 @@ export default function PortfolioMasonryModal({
   return (
     modalShown && (
       <div onClick={toggleModal} className={modalShown ? styles.shown : styles.hidden}>
-        {JSON.stringify(modalImage)}
+        Image here {JSON.stringify(modalImage)}
       </div>
     )
   )
