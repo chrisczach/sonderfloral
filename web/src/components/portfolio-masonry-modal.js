@@ -14,8 +14,8 @@ export default function PortfolioMasonryModal({
   let windowHeight
 
   try {
-    windowWidth = window.innerWidth
-    windowHeight = window.innerHeight
+    windowWidth = window.innerWidth || screen.width
+    windowHeight = window.innerHeight || screen.height
   } catch (e) {}
 
   const imageSizeLimitBy = windowWidth / windowHeight > aspect ? 'height' : 'width'
