@@ -20,13 +20,9 @@ export default function PortfolioMasonryModal({
 
   const imageSizeLimitBy = windowWidth / windowHeight > aspect ? 'height' : 'width'
   const width =
-    imageSizeLimitBy === 'width'
-      ? Math.floor(windowWidth * 0.9)
-      : Math.floor(windowHeight * aspect * 0.9)
+    imageSizeLimitBy === 'width' ? Math.floor(windowWidth) : Math.floor(windowHeight * aspect)
   const height =
-    imageSizeLimitBy === 'height'
-      ? Math.floor(windowHeight * 0.9)
-      : Math.floor((windowWidth / aspect) * 0.9)
+    imageSizeLimitBy === 'height' ? Math.floor(windowHeight) : Math.floor(windowWidth / aspect)
   return (
     modalShown && (
       <div onClick={toggleModal} className={styles.modal}>
