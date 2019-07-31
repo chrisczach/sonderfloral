@@ -3,7 +3,13 @@ import ResizeAware from 'react-resize-aware'
 
 import styles from './portfolio-masonry-tile.module.css'
 import Image from './image'
-export default function PortfolioMasonryTile({ columns, rows, mainImage }) {
+export default function PortfolioMasonryTile({
+  columns,
+  rows,
+  mainImage,
+  setModal,
+  setModalImage
+}) {
   let isPortrait
 
   try {
@@ -17,8 +23,14 @@ export default function PortfolioMasonryTile({ columns, rows, mainImage }) {
 
   const [listener, { width, height }] = ResizeAware()
   const size = Math.ceil(Math.max(width, height) / 300) * 300
+
+  const handleToggleModal = () => {
+    setModal(true)
+    setModalImage(mainImage)
+  }
   return (
     <div
+      onClick={handleToggleModal}
       className={styles.wrapper}
       style={{
         gridArea: `span ${rows || 1} / span ${columns || 1}`
