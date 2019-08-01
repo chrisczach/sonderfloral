@@ -7,7 +7,8 @@ import PortfolioMasonryModal from './portfolio-masonry-modal'
 
 export default function PortfolioMasonryGrid({ nodes }) {
   const [listener, { width }] = ResizeAware()
-  const size = width / 12
+  const columns = screen.height > screen.width ? 6 : 12
+  const size = width / columns
   const [modalShown, setModal] = useState(false)
   const [modalImage, setModalImage] = useState()
   const [aspect, setAspect] = useState(1)
@@ -16,7 +17,7 @@ export default function PortfolioMasonryGrid({ nodes }) {
       {listener}
       <div
         className={styles.grid}
-        style={{ gridAutoRows: `${size}px`, gridTemplateColumns: `repeat(12, ${size}px)` }}
+        style={{ gridAutoRows: `${size}px`, gridTemplateColumns: `repeat(${columns}, ${size}px)` }}
       >
         {nodes.map(props => PortfolioMasonryTile({ ...props, setModal, setModalImage, setAspect }))}
       </div>
