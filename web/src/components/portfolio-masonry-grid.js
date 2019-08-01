@@ -7,7 +7,12 @@ import PortfolioMasonryModal from './portfolio-masonry-modal'
 
 export default function PortfolioMasonryGrid({ nodes }) {
   const [listener, { width }] = ResizeAware()
-  const columns = screen.height > screen.width ? 6 : 12
+  let columns = 12
+
+  try {
+    columns = screen.height > screen.width ? 6 : 12
+  } catch (e) {}
+
   const size = width / columns
   const [modalShown, setModal] = useState(false)
   const [modalImage, setModalImage] = useState()
