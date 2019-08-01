@@ -10,7 +10,7 @@ export default function PortfolioMasonryGrid({ nodes }) {
   let columns = 12
 
   try {
-    columns = screen.height > screen.width ? 6 : 12
+    columns = window.innerHeight > window.innerWidth ? 6 : 12
   } catch (e) {}
 
   const size = width / columns
