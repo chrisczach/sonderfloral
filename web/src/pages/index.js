@@ -158,21 +158,24 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        {landscape && (
-          <div className={styles.bannerWrapper} ref={logoRef}>
-            <h1 style={{ transform: `scale(${logoSize / 100})` }} className={headerStyles.branding}>
-              <Link className={headerStyles.logoText} to="/">
-                {site.title.toUpperCase()}{' '}
-              </Link>
-              <div className={headerStyles.logo}>
-                <ReactSVG
-                  className={headerStyles.svgWrapper}
-                  src={site.logo && imageUrlFor(buildImageObj(site.logo)).url()}
-                />
-              </div>
-            </h1>
-          </div>
-        )}
+        <div
+          style={{ display: landscape ? 'flex' : 'none' }}
+          className={styles.bannerWrapper}
+          ref={logoRef}
+        >
+          <h1 style={{ transform: `scale(${logoSize / 100})` }} className={headerStyles.branding}>
+            <Link className={headerStyles.logoText} to="/">
+              {site.title.toUpperCase()}{' '}
+            </Link>
+            <div className={headerStyles.logo}>
+              <ReactSVG
+                className={headerStyles.svgWrapper}
+                src={site.logo && imageUrlFor(buildImageObj(site.logo)).url()}
+              />
+            </div>
+          </h1>
+        </div>
+
         {projectNodes && (
           <ProjectPreviewGrid
             title="Sonder Series"
