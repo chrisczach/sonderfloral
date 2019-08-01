@@ -17,6 +17,11 @@ export default function PortfolioMasonryGrid({ nodes }) {
   const [modalShown, setModal] = useState(false)
   const [modalImage, setModalImage] = useState()
   const [aspect, setAspect] = useState(1)
+  const toggleModalOn = ({ mainImage, columns, rows }) => () => {
+    setModal(true)
+    setModalImage(mainImage)
+    setAspect(columns / rows || 1)
+  }
   return (
     <div style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
       {listener}
@@ -32,7 +37,14 @@ export default function PortfolioMasonryGrid({ nodes }) {
         style={{ gridAutoRows: `${size}px`, gridTemplateColumns: `repeat(${columns}, ${size}px)` }}
       >
         {nodes.map(props =>
-          PortfolioMasonryTile({ ...props, setModal, setModalImage, setAspect, size })
+          PortfolioMasonryTile({
+            ...props,
+            setModal,
+            setModalImage,
+            setAspect,
+            size,
+            toggleModalOn
+          })
         )}
       </div>
     </div>

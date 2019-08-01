@@ -3,25 +3,10 @@ import ResizeAware from 'react-resize-aware'
 
 import styles from './portfolio-masonry-tile.module.css'
 import Image from './image'
-export default function PortfolioMasonryTile({
-  columns,
-  rows,
-  size,
-  mainImage,
-  setModal,
-  setModalImage,
-  setAspect
-}) {
-  const width = size * columns
-  const height = size * rows
-  const handleToggleModal = () => {
-    setModal(true)
-    setModalImage(mainImage)
-    setAspect(columns / rows || 1)
-  }
+export default function PortfolioMasonryTile({ columns, rows, size, mainImage, toggleModalOn }) {
   return (
     <div
-      onClick={handleToggleModal}
+      onClick={toggleModalOn({ mainImage, columns, rows })}
       className={styles.wrapper}
       style={{
         gridArea: `span ${rows} / span ${columns}`
@@ -30,8 +15,8 @@ export default function PortfolioMasonryTile({
       <Image
         asset={mainImage}
         args={{
-          maxWidth: width,
-          maxHeight: height
+          maxWidth: size * columns,
+          maxHeight: size * rows
         }}
       />
     </div>
