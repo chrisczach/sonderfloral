@@ -134,30 +134,25 @@ const IndexPage = props => {
 
   const logoRef = useRef()
   const [logoSize, setLogoSize] = useState(200)
-  let temp
+  let landscape
   try {
-    temp = window.innerWidth > window.innerHeight
+    landscape = window.innerWidth > window.innerHeight
   } catch (e) {}
 
-  let [landscape, setLandscape] = useState(temp)
+  useEffect(() => {
+    const { y: logoRectY } =
+      logoRef.current &&
+      logoRef.current.getBoundingClientRect &&
+      logoRef.current.getBoundingClientRect()
 
-  if (landscape) {
-    useEffect(() => {
-      const { y: logoRectY } =
-        logoRef.current &&
-        logoRef.current.getBoundingClientRect &&
-        logoRef.current.getBoundingClientRect()
-
-      const handle = ({ target: { scrollTop } }) =>
-        setLogoSize(parseInt(((logoRectY - Math.min(scrollTop, logoRectY)) / logoRectY + 1) * 100))
-
+    const handle = ({ target: { scrollTop } }) =>
+      setLogoSize(parseInt(((logoRectY - Math.min(scrollTop, logoRectY)) / logoRectY + 1) * 100))
+    if (landscape) {
       scrollDivRef.current.addEventListener('scroll', handle)
+    }
+    // return () => scrollDivRef.current.removeEventListener('scroll', handle)
+  }, [])
 
-      // return () => scrollDivRef.current.removeEventListener('scroll', handle)
-    }, [])
-  }
-
-  console.log(logoSize)
   return (
     <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
