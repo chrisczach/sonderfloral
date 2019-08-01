@@ -6,13 +6,14 @@ import Image from './image'
 export default function PortfolioMasonryTile({
   columns,
   rows,
+  size,
   mainImage,
   setModal,
   setModalImage,
   setAspect
 }) {
-  const [listener, { width, height }] = ResizeAware()
-
+  const width = size * columns
+  const height = size * rows
   const handleToggleModal = () => {
     setModal(true)
     setModalImage(mainImage)
@@ -23,10 +24,9 @@ export default function PortfolioMasonryTile({
       onClick={handleToggleModal}
       className={styles.wrapper}
       style={{
-        gridArea: `span ${rows || 1} / span ${columns || 1}`
+        gridArea: `span ${rows} / span ${columns}`
       }}
     >
-      {listener}
       <Image
         asset={mainImage}
         args={{

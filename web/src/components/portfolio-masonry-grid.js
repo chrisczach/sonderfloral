@@ -20,12 +20,6 @@ export default function PortfolioMasonryGrid({ nodes }) {
   return (
     <div style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
       {listener}
-      <div
-        className={styles.grid}
-        style={{ gridAutoRows: `${size}px`, gridTemplateColumns: `repeat(${columns}, ${size}px)` }}
-      >
-        {nodes.map(props => PortfolioMasonryTile({ ...props, setModal, setModalImage, setAspect }))}
-      </div>
       <PortfolioMasonryModal
         modalShown={modalShown}
         aspect={aspect}
@@ -33,6 +27,14 @@ export default function PortfolioMasonryGrid({ nodes }) {
         modalImage={modalImage}
         setModalImage={setModalImage}
       />
+      <div
+        className={styles.grid}
+        style={{ gridAutoRows: `${size}px`, gridTemplateColumns: `repeat(${columns}, ${size}px)` }}
+      >
+        {nodes.map(props =>
+          PortfolioMasonryTile({ ...props, setModal, setModalImage, setAspect, size })
+        )}
+      </div>
     </div>
   )
 }
