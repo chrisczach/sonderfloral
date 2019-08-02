@@ -5,6 +5,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import PortfolioMasonryGrid from '../components/portfolio-masonry-grid'
 import { responsiveTitle1 } from '../components/typography.module.css'
+import styles from './portfolio.module.css'
 
 export const query = graphql`
   query BlogPageQuery {
@@ -47,7 +48,7 @@ const PortfolioPage = props => {
     <>
       <SEO title="Portfolio" />
       <div style={{ minHeight: '100vh', padding: '.5em' }}>
-        <h1 className={responsiveTitle1}>Portfolio</h1>
+        <h1 className={`${responsiveTitle1} ${styles.headerText}`}>Portfolio</h1>
         {postNodes && postNodes.length > 0 && <PortfolioMasonryGrid nodes={postNodes} />}
       </div>
     </>

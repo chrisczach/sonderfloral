@@ -1,0 +1,11 @@
+.headerText {
+  color: var(--color-accent-light);
+  opacity: 0.5;
+  margin: 0.25em 0;
+  transition: var(--transition-short);
+  @media screen and (hover: hover) {
+    @nest &:hover {
+      opacity: 1;
+    }
+  }
+}
