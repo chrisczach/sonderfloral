@@ -22,7 +22,7 @@ export default function GlobalStyles({
     '--color-brand': getHex(brandAccent),
     '--color-accent-dark': getHex(accentDark),
     '--color-main-dark': getHex(primaryDark),
-    background: 'var(--color-main-light)',
+    // background: 'var(--color-main-light)',
     color: 'var(--color-main-dark)'
   }
 

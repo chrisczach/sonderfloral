@@ -8,6 +8,7 @@ import GlobalStyles from './global-styles'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import Transition from './page-transition'
+import BackgroundImage from './background-image'
 
 const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) => {
   let logo
@@ -76,6 +77,9 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
             </div>
           </div>
         </footer>
+
+        <div className={styles.background} />
+        <BackgroundImage />
       </div>
     </GlobalStyles>
   )
