@@ -7,9 +7,12 @@ import PeopleGrid from '../components/people-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
+import ResizeAware from 'react-resize-aware'
 
 import { responsiveTitle1 } from '../components/typography.module.css'
 import Image from '../components/image'
+import styles from './about.module.css'
+
 export const query = graphql`
   query AboutPageQuery {
     page: sanityPage(_id: { regex: "/(drafts.|)about/" }) {
@@ -81,23 +84,49 @@ const AboutPage = props => {
     )
   }
 
+  const [listener, { width }] = ResizeAware()
+
+  let portrait = false
+  try {
+    portrait = window.innerWidth < window.innerHeight
+  } catch (e) {}
+
+  const imageWidth = portrait ? width : Math.ceil(width / 4)
+  const imageHeight = portrait ? width : Math.ceil((imageWidth / 2) * 3)
+
   return (
     <>
       <SEO title={page.title} />
       <Container>
         {' '}
-        <div style={{ width: 200, height: 300 }}>
-          <Image
-            asset={mainImage}
-            args={{
-              maxWidth: 200,
-              maxHeight: 300
+        {listener}
+        <div style={{ flexDirection: portrait ? 'column' : 'row' }} className={styles.aboutContent}>
+          <div
+            style={{
+              width: portrait ? '100%' : imageWidth,
+              height: portrait ? 'auto' : imageHeight,
+              flexShrink: 0
             }}
-          />
+          >
+            <Image
+              asset={mainImage}
+              args={{
+                maxWidth: imageWidth,
+                maxHeight: imageHeight
+              }}
+            />
+          </div>
+          <div
+            style={{ padding: portrait ? '1em 1em 2em 1em' : '2em 2em 4em 2em' }}
+            className={styles.textWrapper}
+          >
+            <h1 className={responsiveTitle1}>{page.title}</h1>
+            <BlockContent blocks={page._rawBody || []} />
+            {personNodes && personNodes.length > 0 && (
+              <PeopleGrid items={personNodes} title="People" />
+            )}
+          </div>
         </div>
-        <h1 className={responsiveTitle1}>{page.title}</h1>
-        <BlockContent blocks={page._rawBody || []} />
-        {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title="People" />}
       </Container>
     </>
   )

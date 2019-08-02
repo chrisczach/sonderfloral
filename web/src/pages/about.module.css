@@ -1,0 +1,13 @@
+.aboutContent {
+  display: flex;
+  box-shadow: 0 7px 28px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.22);
+  opacity: 0.8;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--color-accent-light);
+  filter: saturate(0.7);
+}

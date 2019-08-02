@@ -1,5 +1,4 @@
 import React from 'react'
-import ResizeAware from 'react-resize-aware'
 
 import styles from './portfolio-masonry-tile.module.css'
 import Image from './image'
