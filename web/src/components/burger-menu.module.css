@@ -12,7 +12,7 @@
 
 .logo {
   font-size: 2em;
-  color: var(--color-brand) !important;
+  color: var(--color-main-dark) !important;
   font-family: var(--font-brand);
   font-weight: 500 !important;
 }
@@ -24,5 +24,5 @@
 }
 
 .svgStyle > g > path {
-  fill: white !important;
+  fill: var(--color-main-dark) !important;
 }
