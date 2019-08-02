@@ -9,7 +9,7 @@ import Layout from '../containers/layout'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 
 import { responsiveTitle1 } from '../components/typography.module.css'
-
+import Image from '../components/image'
 export const query = graphql`
   query AboutPageQuery {
     page: sanityPage(_id: { regex: "/(drafts.|)about/" }) {
@@ -71,6 +71,7 @@ const AboutPage = props => {
   }
 
   const page = data && data.page
+  const { mainImage } = page
   const personNodes =
     data && data.people && mapEdgesToNodes(data.people).filter(filterOutDocsWithoutSlugs)
 
@@ -84,6 +85,16 @@ const AboutPage = props => {
     <>
       <SEO title={page.title} />
       <Container>
+        {' '}
+        <div style={{ width: 200, height: 300 }}>
+          <Image
+            asset={mainImage}
+            args={{
+              maxWidth: 200,
+              maxHeight: 300
+            }}
+          />
+        </div>
         <h1 className={responsiveTitle1}>{page.title}</h1>
         <BlockContent blocks={page._rawBody || []} />
         {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title="People" />}
