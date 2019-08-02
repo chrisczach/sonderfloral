@@ -5,6 +5,8 @@ path {
   fill: var(--color-main-light);
 }
 
+/* WHY IS LOGO AND MORPH SHAPE THE SAME!!! */
+
 .bannerWrapper {
   z-index: 200;
   position: -webkit-sticky;
