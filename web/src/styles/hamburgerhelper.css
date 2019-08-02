@@ -77,6 +77,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
   width: 100%;
   position: absolute;
   content: '';
-  background: var(--color-main-light);
+  background: #5c4841bb;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   opacity: 0.3;
 }
