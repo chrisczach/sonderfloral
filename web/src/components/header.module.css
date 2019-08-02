@@ -67,7 +67,6 @@
 }
 
 .logo {
-  display: flex;
   justify-content: center;
   align-items: center;
   display: inline-block;
@@ -77,11 +76,12 @@
   height: 30px;
 }
 
-/* WHY IS LOGO AND MORPH SHAPE THE SAME!!! */
-.svgWrapper svg,
-path {
+.svgWrapper div svg {
   height: 45px;
   width: auto;
+}
+/* WHY IS LOGO AND MORPH SHAPE THE SAME!!! */
+.svgWrapper div svg g path {
   fill: var(--color-main-dark);
 }
 

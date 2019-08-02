@@ -1,7 +1,9 @@
-.svgWrapper svg,
-path {
+.svgWrapper div svg {
   height: 120px;
   width: auto;
+}
+
+.svgWrapper div svg g path {
   fill: var(--color-main-light);
 }
 
