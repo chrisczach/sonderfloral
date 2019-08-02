@@ -45,6 +45,38 @@ export const query = graphql`
       }
     }
 
+    page: sanityPage(_id: { regex: "/(drafts.|)home/" }) {
+      id
+      _id
+      mainImage {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+          metadata {
+            lqip
+          }
+        }
+        alt
+      }
+      title
+      _rawBody
+    }
+
     projects: allSanityProject(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
@@ -75,30 +107,6 @@ export const query = graphql`
             alt
           }
           title
-          _rawExcerpt
-          slug {
-            current
-          }
-        }
-      }
-    }
-
-    posts: allSanityPost(limit: 12, sort: { fields: [publishedAt], order: DESC }) {
-      edges {
-        node {
-          _id
-          mainImage {
-            asset {
-              _id
-              metadata {
-                lqip
-              }
-            }
-            alt
-          }
-          title
-          columns
-          rows
           _rawExcerpt
           slug {
             current

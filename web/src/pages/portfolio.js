@@ -8,7 +8,7 @@ import { responsiveTitle1 } from '../components/typography.module.css'
 
 export const query = graphql`
   query BlogPageQuery {
-    posts: allSanityPost(sort: { fields: [publishedAt], order: DESC }) {
+    posts: allSanityPost(sort: { fields: [_createdAt], order: DESC }) {
       edges {
         node {
           _id

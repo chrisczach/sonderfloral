@@ -15,6 +15,31 @@ export const query = graphql`
     page: sanityPage(_id: { regex: "/(drafts.|)about/" }) {
       id
       _id
+      mainImage {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+          metadata {
+            lqip
+          }
+        }
+        alt
+      }
       title
       _rawBody
     }
