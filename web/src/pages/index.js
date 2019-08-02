@@ -1,7 +1,6 @@
 import React, { useRef, useContext, useEffect, useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs, buildImageObj } from '../lib/helpers'
-import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
