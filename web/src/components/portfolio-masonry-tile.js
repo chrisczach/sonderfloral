@@ -15,7 +15,7 @@ export default function PortfolioMasonryTile({ columns, rows, size, mainImage, t
         asset={mainImage}
         args={{
           maxWidth: Math.ceil(size * columns),
-          maxHeight: Math.ceil(size * rows)
+          maxHeight: Math.ceil(size * rows) + 10
         }}
       />
     </div>
