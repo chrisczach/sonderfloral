@@ -102,10 +102,10 @@ const AboutPage = props => {
         {listener}
         <div style={{ flexDirection: portrait ? 'column' : 'row' }} className={styles.aboutContent}>
           <div
+            className={styles.imageWrapper}
             style={{
               width: portrait ? '100%' : imageWidth,
-              height: portrait ? 'auto' : imageHeight,
-              flexShrink: 0
+              height: portrait ? 'auto' : imageHeight
             }}
           >
             <Image
