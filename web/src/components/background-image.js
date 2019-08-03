@@ -10,14 +10,14 @@ import { ScrollRefContext } from './global-styles'
 
 export default function BackgroundImage() {
   const scroll = useContext(ScrollRefContext)
-  const [index, setIndex] = useState(0)
+  // const [index, setIndex] = useState(0)
   const [scrollPercent, setScrollPercent] = useState(0)
 
   // const colorIndex = Math.floor(Math.random() * colors.length)
   // const pathIndex = Math.floor(Math.random() * pathIds.length)
 
-  const colorIndex = index
-  const pathIndex = index
+  // const colorIndex = index
+  // const pathIndex = index
 
   let width
   let height
@@ -27,37 +27,53 @@ export default function BackgroundImage() {
   } catch (e) {}
   // const [listener, { width, height }] = ResizeAware()
 
-  // useEffect(() => {
-  //   const scrollHandler = ({ target }) => {
-  //     const { scrollTop, scrollHeight } = target
-  //     const { height } = target.getBoundingClientRect()
-  //     const scrollHeightCalc = scrollHeight - height
-  //     const percentScrolled = scrollTop / scrollHeightCalc
-  //     // if (width > height) setScrollPercent(percentScrolled)
-  //     const divisor = 4
-  //     const segmentSize = scrollHeightCalc / divisor
-  //     const index = Math.max(Math.ceil(scrollTop / segmentSize) - 1, 0)
-  //     setIndex(index)
-  //   }
+  useEffect(() => {
+    const scrollHandler = ({ target }) => {
+      const { scrollTop, scrollHeight } = target
+      const { height } = target.getBoundingClientRect()
+      const scrollHeightCalc = scrollHeight - height
+      const percentScrolled = scrollTop / scrollHeightCalc
+      if (width > height) setScrollPercent(percentScrolled)
+      // const divisor = 4
+      // const segmentSize = scrollHeightCalc / divisor
+      // const index = Math.max(Math.ceil(scrollTop / segmentSize) - 1, 0)
+      // setIndex(index)
+    }
 
-  //   scroll.current.addEventListener('scroll', scrollHandler)
-  //   return () => {
-  //     scroll.current.removeEventListener('scroll', scrollHandler)
-  //   }
-  // }, [])
-  // console.log(scrollPercent)
+    scroll.current.addEventListener('scroll', scrollHandler)
+    return () => {
+      scroll.current.removeEventListener('scroll', scrollHandler)
+    }
+  }, [])
+  console.log(scrollPercent)
   return (
     <Div100vh className={styles.backgroundImage}>
       {/* {listener} */}
       <svg
-        style={{ transform: `translateY(${Math.floor(-scrollPercent * 30 + 60)}%)` }}
+        style={{ transform: `translateY(${-scrollPercent * 15 + 75}%)` }}
         className={styles.svgWrapper}
         viewBox={`0 0 600 600`}
       >
-        <Icon className={styles.first} fill={`var(${colors[0]})`} pose={pathIds[0]} />
-        <Icon className={styles.second} fill={`var(${colors[1]})`} pose={pathIds[1]} />
-        <Icon className={styles.third} fill={`var(${colors[2]})`} pose={pathIds[2]} />
-        <Icon className={styles.fourth} fill={`var(${colors[3]})`} pose={pathIds[3]} />
+        <path
+          style={{ transform: `translate(-10%, ${scrollPercent * -3 + 40}%)` }}
+          fill={`var(${colors[2]})`}
+          d={paths.third}
+        />
+        <path
+          style={{ transform: `translate(35%, ${scrollPercent * 6 + 55}%)` }}
+          fill={`var(${colors[3]})`}
+          d={paths.fourth}
+        />
+        <path
+          style={{ transform: `translate(75%, ${scrollPercent * 10 + 50}%)` }}
+          fill={`var(${colors[0]})`}
+          d={paths.first}
+        />
+        <path
+          style={{ transform: `translate(115%, ${scrollPercent * 0 + 25}%)` }}
+          fill={`var(${colors[1]})`}
+          d={paths.second}
+        />
       </svg>
     </Div100vh>
   )
@@ -67,7 +83,7 @@ const colors = ['--color-accent-light', '--color-accent-dark', '--color-brand', 
 
 const paths = {
   first:
-    'M68.2,-100.9C82.3,-97,83.4,-67.8,79.8,-45.4C76.2,-22.9,67.8,-7.2,78.4,20.6C89,48.5,118.5,88.4,120.3,126.7C122,164.9,96,201.4,69.2,187.2C42.4,173,14.8,108.1,-21.9,90.2C-58.6,72.2,-104.5,101.3,-146.3,100.4C-188,99.5,-225.7,68.7,-236.5,30.5C-247.4,-7.6,-231.5,-53,-204.8,-86.1C-178.1,-119.2,-140.7,-139.9,-104.8,-133.9C-68.8,-127.8,-34.4,-94.9,-3.7,-89.1C27,-83.4,54.1,-104.8,68.2,-100.9Z',
+    'M103.2,-169.2C137.1,-138.7,170.4,-115.9,173.4,-86C176.4,-56.2,149.1,-19.3,131.2,10.100000000000001C113.4,39.6,105.1,61.7,96.4,98.5C87.8,135.2,78.8,186.6,54.4,200.8C30.1,214.9,-9.8,191.9,-46,173.5C-82.2,155.1,-114.8,141.4,-153.7,120.1C-192.6,98.7,-237.8,69.7,-244.4,34.2C-250.9,-1.2999999999999998,-218.7,-43.2,-198,-91.2C-177.3,-139.2,-168.1,-193.3,-137,-225.1C-106,-256.9,-53,-266.4,-9.2,-252.1C34.6,-237.8,69.2,-199.7,103.2,-169.2Z',
   second:
     'M40.5,-32.5C72.3,-42.5,131.7,-64.9,154.4,-57.9C177.2,-51,163.3,-14.8,164.5,28.4C165.6,71.5,181.8,121.5,162.4,136.5C142.9,151.5,87.8,131.4,45.6,134C3.5,136.6,-25.7,161.8,-50.2,159.8C-74.7,157.7,-94.4,128.3,-114.9,101.4C-135.5,74.5,-156.8,50,-169.6,19C-182.5,-12,-186.7,-49.6,-161.3,-60.5C-135.8,-71.3,-80.6,-55.4,-48.8,-45.4C-16.9,-35.4,-8.5,-31.2,-2.1,-28C4.3,-24.7,8.7,-22.5,40.5,-32.5Z',
   third:
@@ -76,29 +92,29 @@ const paths = {
     'M91.1,-155.3C123.1,-121.2,157.5,-104.4,171.4,-77.3C185.4,-50.2,178.8,-12.7,163.6,16.4C148.3,45.5,124.4,66.3,107.6,102.7C90.8,139,81,190.9,56.9,201.3C32.9,211.7,-5.5,180.7,-45.4,164.5C-85.2,148.2,-126.5,146.8,-145.9,125.7C-165.3,104.6,-162.8,63.8,-179.9,19C-197,-25.8,-233.6,-74.6,-225,-106.7C-216.5,-138.9,-162.9,-154.4,-117.8,-182.5C-72.8,-210.6,-36.4,-251.3,-3.4000000000000004,-246C29.6,-240.7,59.1,-189.3,91.1,-155.3Z'
 }
 
-const pathIds = Object.keys(paths)
+// const pathIds = Object.keys(paths)
 
-const morphTransition = ({ from, to }) =>
-  tween({
-    from: 0,
-    to: 1
-  }).pipe(interpolate(from, to))
+// const morphTransition = ({ from, to }) =>
+//   tween({
+//     from: 0,
+//     to: 1
+//   }).pipe(interpolate(from, to))
 
-const Icon = posed.path(
-  pathIds.reduce((config, id) => {
-    config[id] = {
-      d: paths[id],
-      transition: morphTransition
-    }
+// const Icon = posed.path(
+//   pathIds.reduce((config, id) => {
+//     config[id] = {
+//       d: paths[id],
+//       transition: morphTransition
+//     }
 
-    return config
-  }, {})
-)
+//     return config
+//   }, {})
+// )
 
-const NextButton = posed.button({
-  hoverable: true,
-  pressable: true,
-  init: { scale: 1 },
-  hover: { scale: 1.1 },
-  press: { scale: 0.8 }
-})
+// const NextButton = posed.button({
+//   hoverable: true,
+//   pressable: true,
+//   init: { scale: 1 },
+//   hover: { scale: 1.1 },
+//   press: { scale: 0.8 }
+// })
