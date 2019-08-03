@@ -34,5 +34,20 @@
 .svgWrapper > path {
   opacity: 0.2;
   z-index: -1;
-  transform: translate(50%, 50%);
+}
+
+.first {
+  transform: translate(75%, 25%);
+}
+
+.second {
+  transform: translate(115%, 25%);
+}
+
+.third {
+  transform: translate(-10%, 40%);
+}
+
+.fourth {
+  transform: translate(25%, 50%);
 }

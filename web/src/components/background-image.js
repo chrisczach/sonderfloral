@@ -27,25 +27,25 @@ export default function BackgroundImage() {
   } catch (e) {}
   // const [listener, { width, height }] = ResizeAware()
 
-  useEffect(() => {
-    const scrollHandler = ({ target }) => {
-      const { scrollTop, scrollHeight } = target
-      const { height } = target.getBoundingClientRect()
-      const scrollHeightCalc = scrollHeight - height
-      const percentScrolled = scrollTop / scrollHeightCalc
-      // if (width > height) setScrollPercent(percentScrolled)
-      const divisor = 4
-      const segmentSize = scrollHeightCalc / divisor
-      const index = Math.max(Math.ceil(scrollTop / segmentSize) - 1, 0)
-      setIndex(index)
-    }
+  // useEffect(() => {
+  //   const scrollHandler = ({ target }) => {
+  //     const { scrollTop, scrollHeight } = target
+  //     const { height } = target.getBoundingClientRect()
+  //     const scrollHeightCalc = scrollHeight - height
+  //     const percentScrolled = scrollTop / scrollHeightCalc
+  //     // if (width > height) setScrollPercent(percentScrolled)
+  //     const divisor = 4
+  //     const segmentSize = scrollHeightCalc / divisor
+  //     const index = Math.max(Math.ceil(scrollTop / segmentSize) - 1, 0)
+  //     setIndex(index)
+  //   }
 
-    scroll.current.addEventListener('scroll', scrollHandler)
-    return () => {
-      scroll.current.removeEventListener('scroll', scrollHandler)
-    }
-  }, [])
-  console.log(scrollPercent)
+  //   scroll.current.addEventListener('scroll', scrollHandler)
+  //   return () => {
+  //     scroll.current.removeEventListener('scroll', scrollHandler)
+  //   }
+  // }, [])
+  // console.log(scrollPercent)
   return (
     <Div100vh className={styles.backgroundImage}>
       {/* {listener} */}
@@ -54,7 +54,10 @@ export default function BackgroundImage() {
         className={styles.svgWrapper}
         viewBox={`0 0 600 600`}
       >
-        <Icon fill={`var(${colors[colorIndex]})`} pose={pathIds[pathIndex]} />
+        <Icon className={styles.first} fill={`var(${colors[0]})`} pose={pathIds[0]} />
+        <Icon className={styles.second} fill={`var(${colors[1]})`} pose={pathIds[1]} />
+        <Icon className={styles.third} fill={`var(${colors[2]})`} pose={pathIds[2]} />
+        <Icon className={styles.fourth} fill={`var(${colors[3]})`} pose={pathIds[3]} />
       </svg>
     </Div100vh>
   )
