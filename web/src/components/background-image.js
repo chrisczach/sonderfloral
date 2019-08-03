@@ -11,13 +11,6 @@ import { ScrollRefContext } from './global-styles'
 export default function BackgroundImage() {
   const scroll = useContext(ScrollRefContext)
   // const [index, setIndex] = useState(0)
-  const [scrollPercent, setScrollPercent] = useState(0)
-
-  // const colorIndex = Math.floor(Math.random() * colors.length)
-  // const pathIndex = Math.floor(Math.random() * pathIds.length)
-
-  // const colorIndex = index
-  // const pathIndex = index
 
   let width
   let height
@@ -25,6 +18,14 @@ export default function BackgroundImage() {
     width = window.innerWidth
     height = window.innerHeight
   } catch (e) {}
+  const [scrollPercent, setScrollPercent] = useState(height > width ? 1 : 0)
+
+  // const colorIndex = Math.floor(Math.random() * colors.length)
+  // const pathIndex = Math.floor(Math.random() * pathIds.length)
+
+  // const colorIndex = index
+  // const pathIndex = index
+
   // const [listener, { width, height }] = ResizeAware()
 
   useEffect(() => {
@@ -33,14 +34,18 @@ export default function BackgroundImage() {
       const { height } = target.getBoundingClientRect()
       const scrollHeightCalc = scrollHeight - height
       const percentScrolled = scrollTop / scrollHeightCalc
-      if (width > height) setScrollPercent(percentScrolled)
+      setScrollPercent(percentScrolled)
       // const divisor = 4
       // const segmentSize = scrollHeightCalc / divisor
       // const index = Math.max(Math.ceil(scrollTop / segmentSize) - 1, 0)
       // setIndex(index)
     }
 
-    scroll.current.addEventListener('scroll', scrollHandler)
+    if (width > height) {
+      scroll.current.addEventListener('scroll', scrollHandler)
+    } else {
+      return
+    }
     return () => {
       scroll.current.removeEventListener('scroll', scrollHandler)
     }
@@ -50,7 +55,7 @@ export default function BackgroundImage() {
     <Div100vh className={styles.backgroundImage}>
       {/* {listener} */}
       <svg
-        style={{ transform: `translateY(${-scrollPercent * 15 + 75}%)` }}
+        style={{ transform: `translateY(${-scrollPercent * 15 + 70}%)` }}
         className={styles.svgWrapper}
         viewBox={`0 0 600 600`}
       >
