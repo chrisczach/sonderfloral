@@ -1,7 +1,8 @@
 .backgroundImage {
   width: 100%;
+  height: 100%;
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: -1;
   display: flex;
@@ -25,6 +26,7 @@
   /* background-image: linear-gradient(to bottom, var(--color-main-light), transparent); */
 }
 .svgWrapper {
+  top: 0;
   z-index: -1;
   overflow: hidden;
 }

@@ -43,7 +43,7 @@ export default function BackgroundImage() {
     }
   }, [])
   return (
-    <Div100vh className={styles.backgroundImage}>
+    <div className={styles.backgroundImage}>
       {/* {listener} */}
       <svg
         className={styles.svgWrapper}
@@ -53,7 +53,7 @@ export default function BackgroundImage() {
       >
         <Icon fill={`var(${colors[colorIndex]})`} pose={pathIds[pathIndex]} />
       </svg>
-    </Div100vh>
+    </div>
   )
 }
 
