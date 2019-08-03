@@ -33,7 +33,7 @@ export default function BackgroundImage() {
       const { height } = target.getBoundingClientRect()
       const scrollHeightCalc = scrollHeight - height
       const percentScrolled = scrollTop / scrollHeightCalc
-      setScrollPercent(percentScrolled)
+      // if (width > height) setScrollPercent(percentScrolled)
       const divisor = 4
       const segmentSize = scrollHeightCalc / divisor
       const index = Math.max(Math.ceil(scrollTop / segmentSize) - 1, 0)
@@ -50,7 +50,7 @@ export default function BackgroundImage() {
     <Div100vh className={styles.backgroundImage}>
       {/* {listener} */}
       <svg
-        style={{ transform: `translateY(${-scrollPercent * 30 + 60}%)` }}
+        style={{ transform: `translateY(${Math.floor(-scrollPercent * 30 + 60)}%)` }}
         className={styles.svgWrapper}
         viewBox={`0 0 600 600`}
       >
