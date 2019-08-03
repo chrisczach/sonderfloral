@@ -79,7 +79,7 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
           </div>
         </footer>
 
-        <Div100vh className={styles.background} />
+        {/* <Div100vh className={styles.background} /> */}
         <BackgroundImage />
       </div>
     </GlobalStyles>
