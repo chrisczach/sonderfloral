@@ -52,8 +52,6 @@ export default function BackgroundImage() {
       <svg
         style={{ transform: `translateY(${-scrollPercent * 30 + 60}%)` }}
         className={styles.svgWrapper}
-        width={width}
-        height={height}
         viewBox={`0 0 600 600`}
       >
         <Icon fill={`var(${colors[colorIndex]})`} pose={pathIds[pathIndex]} />
