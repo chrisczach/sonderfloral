@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import posed from 'react-pose'
 import { tween } from 'popmotion'
 import { interpolate } from 'flubber'
@@ -10,8 +10,14 @@ import { ScrollRefContext } from './global-styles'
 
 export default function BackgroundImage() {
   const scroll = useContext(ScrollRefContext)
-  const colorIndex = Math.floor(Math.random() * colors.length)
-  const pathIndex = Math.floor(Math.random() * pathIds.length)
+  const [index, setIndex] = useState(0)
+
+  // const colorIndex = Math.floor(Math.random() * colors.length)
+  // const pathIndex = Math.floor(Math.random() * pathIds.length)
+
+  const colorIndex = index
+  const pathIndex = index
+
   let width
   let height
   try {
@@ -20,6 +26,22 @@ export default function BackgroundImage() {
   } catch (e) {}
   // const [listener, { width, height }] = ResizeAware()
 
+  useEffect(() => {
+    const scrollHandler = ({ target }) => {
+      const { scrollTop, scrollHeight } = target
+      const { height } = target.getBoundingClientRect()
+      const scrollHeightCalc = scrollHeight - height
+      const divisor = 4
+      const segmentSize = scrollHeightCalc / divisor
+      const index = Math.max(Math.ceil(scrollTop / segmentSize) - 1, 0)
+      setIndex(index)
+    }
+
+    scroll.current.addEventListener('scroll', scrollHandler)
+    return () => {
+      scroll.current.removeEventListener('scroll', scrollHandler)
+    }
+  }, [])
   return (
     <Div100vh className={styles.backgroundImage}>
       {/* {listener} */}
