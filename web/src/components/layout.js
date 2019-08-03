@@ -9,6 +9,7 @@ import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import Transition from './page-transition'
 import BackgroundImage from './background-image'
+import Div100vh from 'react-div-100vh'
 
 const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) => {
   let logo
@@ -78,7 +79,7 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
           </div>
         </footer>
 
-        <div className={styles.background} />
+        <Div100vh className={styles.background} />
         <BackgroundImage />
       </div>
     </GlobalStyles>
