@@ -1,6 +1,7 @@
 import React, { createRef, createContext } from 'react'
 import styles from './global-styles.module.css'
 import BackgroundImage from './background-image'
+import Div100vh from 'react-div-100vh'
 
 export default function GlobalStyles({
   children,
@@ -23,7 +24,7 @@ export default function GlobalStyles({
     '--color-brand': getHex(brandAccent),
     '--color-accent-dark': getHex(accentDark),
     '--color-main-dark': getHex(primaryDark),
-    background: 'var(--color-main-light)',
+    // background: 'var(--color-main-light)',
     color: 'var(--color-main-dark)'
   }
 
@@ -46,11 +47,18 @@ export default function GlobalStyles({
   }
 
   return (
-    <div ref={scrollDiv} style={globalColors} className={styles.scroll}>
-      <ScrollRefContext.Provider value={scrollDiv}>
-        <> {children}</>
-      </ScrollRefContext.Provider>
-    </div>
+    <>
+      <Div100vh style={{ background: primaryLight.hex, position: 'relative', zIndex: -1 }} />
+      <div ref={scrollDiv} style={globalColors} className={styles.scroll}>
+        <ScrollRefContext.Provider value={scrollDiv}>
+          <>
+            {' '}
+            {children}
+            <BackgroundImage />
+          </>
+        </ScrollRefContext.Provider>
+      </div>
+    </>
   )
 }
 
