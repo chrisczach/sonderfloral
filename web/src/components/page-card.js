@@ -12,16 +12,18 @@ export default function PageCard({ image, title, children }) {
   try {
     setPortrait(window.innerHeight > window.innerWidth)
   } catch (e) {}
-
+  const imageWidth = isPortrait ? width : width / 3
+  const imageHeight = Math.ceil(isPortrait ? width : contentHeight)
+  console.log(imageHeight)
   return (
     <div className={styles.card}>
       {wrapListener}
-      <div style={{ height: isPortrait ? width : contentHeight }} className={styles.imageWrapper}>
+      <div className={styles.imageWrapper}>
         <Image
           asset={image}
           args={{
-            maxWidth: width,
-            maxHeight: isPortrait ? width : contentHeight
+            maxWidth: imageWidth,
+            maxHeight: imageHeight + 20
           }}
         />
       </div>
