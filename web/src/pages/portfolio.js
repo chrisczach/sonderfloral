@@ -8,13 +8,18 @@ import { responsiveTitle1 } from '../components/typography.module.css'
 import styles from './portfolio.module.css'
 
 export const query = graphql`
-  query BlogPageQuery {
+  query PortfolioPageQuery {
     posts: allSanityPost(sort: { fields: [_createdAt], order: DESC }) {
       edges {
         node {
           _id
           mainImage {
             asset {
+              _rawDataMetadata {
+                dimensions {
+                  aspectRatio
+                }
+              }
               _id
               metadata {
                 lqip

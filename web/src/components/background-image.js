@@ -31,10 +31,11 @@ export default function BackgroundImage() {
   useEffect(() => {
     const scrollHandler = ({ target }) => {
       const { scrollTop, scrollHeight } = target
-      const { height } = target.getBoundingClientRect()
-      const scrollHeightCalc = scrollHeight - height
+      const { height: heightDiv } = target.getBoundingClientRect()
+      const scrollHeightCalc = scrollHeight - heightDiv
       const percentScrolled = scrollTop / scrollHeightCalc
       setScrollPercent(percentScrolled)
+
       // const divisor = 4
       // const segmentSize = scrollHeightCalc / divisor
       // const index = Math.max(Math.ceil(scrollTop / segmentSize) - 1, 0)
