@@ -1,0 +1,35 @@
+.card {
+  position: relative;
+  background: var(--color-accent-light);
+  display: flex;
+
+  flex-direction: row;
+  @media screen and (orientation: portrait) {
+    flex-direction: column;
+    overflow: hidden;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 33%;
+  flex-shrink: 0;
+  @media screen and (orientation: portrait) {
+    width: 100%;
+  }
+}
+
+.imageWrapper::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.contentWrapper {
+  position: relative;
+  padding: 2em 2em 4em 2em;
+  @media screen and (orientation: portrait) {
+    padding: 1em 1em 2em 1em;
+  }
+}
