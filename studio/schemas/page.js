@@ -2,8 +2,8 @@ export default {
   name: "page",
   title: "Page",
   type: "document",
-  liveEdit: true,
-  __experimental_actions: ["update", "publish" /* 'create', 'delete' */],
+  // liveEdit: true,
+  // __experimental_actions: ["update", "publish" /* 'create', 'delete' */],
   fields: [
     {
       name: "title",
