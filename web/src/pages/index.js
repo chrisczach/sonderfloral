@@ -171,7 +171,11 @@ const IndexPage = props => {
           ref={logoRef}
         >
           <h1 style={{ transform: `scale(${logoSize / 100})` }} className={headerStyles.branding}>
-            <Link className={headerStyles.logoText} to="/">
+            <Link
+              style={{ pointerEvents: 'visibleStroke' }}
+              className={headerStyles.logoText}
+              to="/"
+            >
               {site.title.toUpperCase()}{' '}
             </Link>
             <div className={headerStyles.logo}>

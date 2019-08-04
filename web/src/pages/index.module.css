@@ -10,6 +10,7 @@
 /* WHY IS LOGO AND MORPH SHAPE THE SAME!!! */
 
 .bannerWrapper {
+  pointer-events: none;
   z-index: 200;
   position: -webkit-sticky;
   position: -moz-sticky;
