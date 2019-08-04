@@ -25,7 +25,8 @@ export default function GlobalStyles({
     '--color-accent-dark': getHex(accentDark),
     '--color-main-dark': getHex(primaryDark),
     // background: 'var(--color-main-light)',
-    color: 'var(--color-main-dark)'
+    color: 'var(--color-main-dark)',
+    height: '100%'
   }
 
   const scrollDiv = createRef()
