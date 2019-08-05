@@ -1,7 +1,10 @@
 .nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
+  @media (min-width: 900px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .nav > a {
@@ -22,10 +25,16 @@
 
 .bannerWrapper {
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.bannerWrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  padding-bottom: 66%;
 }
 
 .imageWrapper {
@@ -33,6 +42,7 @@
   z-index: 50;
   margin: 0 0 0 -1em;
   opacity: 0.95;
+  width: 66%;
   transition: var(--transition-short);
 }
 

@@ -12,30 +12,22 @@ export default function HomeBanner({ image, _rawBody, landscape }) {
   return (
     <>
       {listener}
-      {landscape && (
-        <div className={styles.nav}>
-          <Link id="about" to="/about">
-            About
-          </Link>
-          <Link id="projects" to="/projects">
-            Sonder Series
-          </Link>
-          <Link id="portfolio" to="/portfolio">
-            Portfolio
-          </Link>
-          <Link id="contact" to="/contact">
-            Contact
-          </Link>
-        </div>
-      )}
-      <div style={{ height }} className={styles.bannerWrapper}>
-        <div
-          className={styles.imageWrapper}
-          style={{
-            width,
-            height
-          }}
-        >
+      <div className={styles.nav}>
+        <Link id="about" to="/about">
+          About
+        </Link>
+        <Link id="projects" to="/projects">
+          Sonder Series
+        </Link>
+        <Link id="portfolio" to="/portfolio">
+          Portfolio
+        </Link>
+        <Link id="contact" to="/contact">
+          Contact
+        </Link>
+      </div>
+      <div className={styles.bannerWrapper}>
+        <div className={styles.imageWrapper}>
           {divWidth && (
             <Image
               asset={image}
