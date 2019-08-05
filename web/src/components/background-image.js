@@ -34,7 +34,7 @@ export default function BackgroundImage() {
       const { height: heightDiv } = target.getBoundingClientRect()
       const scrollHeightCalc = scrollHeight - heightDiv
       const percentScrolled = scrollTop / scrollHeightCalc
-      useState(height > width ? 1 : percentScrolled)
+      setScrollPercent(height > width ? 1 : percentScrolled)
 
       // const divisor = 4
       // const segmentSize = scrollHeightCalc / divisor
