@@ -26,6 +26,7 @@
   /* background-image: linear-gradient(to bottom, var(--color-main-light), transparent); */
 }
 .svgWrapper {
+  transition: all 0.1s ease;
   width: 100%;
   height: 100%;
   top: 0;
@@ -33,6 +34,7 @@
   overflow: hidden;
 }
 .svgWrapper > path {
+  transition: all 0.1s ease;
   opacity: 0.2;
   z-index: -1;
 }

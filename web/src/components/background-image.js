@@ -53,7 +53,7 @@ export default function BackgroundImage() {
     <Div100vh className={styles.backgroundImage}>
       {/* {listener} */}
       <svg
-        style={{ transform: `translateY(${-scrollPercent * 15 + (width > height ? 70 : 20)}%)` }}
+        style={{ transform: `translateY(${-scrollPercent * 15 + 70}%)` }}
         className={styles.svgWrapper}
         viewBox={`0 0 600 600`}
       >
