@@ -23,6 +23,19 @@ export default function PortfolioMasonryGrid({ nodes }) {
     setModalImage(mainImage)
     setAspect(columns / rows || 1)
   }
+
+  const { normal, small } = nodes.reduce(
+    (a, c, ind, arr) => {
+      if (getSize(c) === 1) {
+        a.small.push(c)
+      } else {
+        a.normal.push(c)
+      }
+
+      return a
+    },
+    { normal: [], small: [] }
+  )
   return (
     <div style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
       {listener}
@@ -37,32 +50,16 @@ export default function PortfolioMasonryGrid({ nodes }) {
         className={styles.grid}
         style={{ gridAutoRows: `${size}px`, gridTemplateColumns: `repeat(${columns}, ${size}px)` }}
       >
-        {nodes
-          .reduce(
-            (a, c, ind, arr) => {
-              if (getSize(c) === 1) {
-                a.small.push(c)
-              } else {
-                a.normal.push(c)
-              }
-              if (arr.length - 1 === ind) {
-                return [...a.normal, ...a.small]
-              } else {
-                return a
-              }
-            },
-            { normal: [], small: [] }
-          )
-          .map(props =>
-            PortfolioMasonryTile({
-              ...props,
-              setModal,
-              setModalImage,
-              setAspect,
-              size,
-              toggleModalOn
-            })
-          )}
+        {[...normal, ...small].map(props =>
+          PortfolioMasonryTile({
+            ...props,
+            setModal,
+            setModalImage,
+            setAspect,
+            size,
+            toggleModalOn
+          })
+        )}
       </div>
     </div>
   )
