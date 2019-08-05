@@ -7,6 +7,7 @@
 .imageWrapper {
   position: relative;
   z-index: 50;
+  margin: 0.5em 0 0 0.5em;
 }
 
 .imageWrapper::after {
@@ -21,7 +22,7 @@
   opacity: 0.5;
 }
 
-.textWrapper {
+/* .textWrapper {
   position: relative;
   padding: 2em 1em 2em 3em;
   z-index: 25;
@@ -37,4 +38,4 @@
   right: 0;
   outline: var(--color-brand) solid 0.5em;
   opacity: 0.5;
-}
+} */
