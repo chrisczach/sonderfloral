@@ -1,0 +1,36 @@
+.bannerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.imageWrapper::after {
+  content: '';
+  position: absolute;
+  width: calc(100% - 0.5em);
+  top: 1em;
+  left: 1em;
+  padding-bottom: calc(100% - 0.5em);
+  outline: var(--color-accent-light) solid 0.5em;
+  opacity: 0.5;
+}
+
+.textWrapper {
+  position: relative;
+  padding: 2em 1em;
+}
+
+.textWrapper::after {
+  content: '';
+  position: absolute;
+  width: calc(100% - 0.5em);
+  height: calc(100% - 0.5em);
+  top: 0;
+  left: 0;
+  outline: var(--color-brand) solid 0.5em;
+  opacity: 0.5;
+}

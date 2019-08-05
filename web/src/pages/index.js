@@ -14,6 +14,7 @@ import headerStyles from '../components/header.module.css'
 import { ScrollRefContext } from '../components/global-styles'
 import { Match } from '@reach/router'
 import PortfolioMasonryGrid from '../components/portfolio-masonry-grid'
+import HomeBanner from '../components/home-banner'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -125,6 +126,7 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
+  const page = (data || {}).page
   const postNodes = (data || {}).posts
     ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
     : []
@@ -186,6 +188,8 @@ const IndexPage = props => {
             </div>
           </h1>
         </div>
+
+        <HomeBanner image={page.mainImage} _rawBody={page._rawBody} />
       </Container>
     </>
   )
