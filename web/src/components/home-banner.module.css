@@ -50,8 +50,9 @@
 }
 
 .imageWrapper:hover div {
-  opacity: 1;
-  transform: translate(-90%, 1.5em);
+  opacity: 0.25;
+  filter: blur(4px);
+  transform: translate(calc(-90% + 1.5em), 1.5em);
 }
 
 .imageWrapper::after {
