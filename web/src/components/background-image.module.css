@@ -31,9 +31,6 @@
   top: 0;
   z-index: -1;
   overflow: hidden;
-  @media screen and (orientation: portrait) {
-    top: -10vh;
-  }
 }
 .svgWrapper > path {
   opacity: 0.2;

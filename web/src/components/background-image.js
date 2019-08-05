@@ -12,8 +12,8 @@ export default function BackgroundImage() {
   const scroll = useContext(ScrollRefContext)
   // const [index, setIndex] = useState(0)
 
-  let width
-  let height
+  let width = 2
+  let height = 1
   try {
     width = window.innerWidth
     height = window.innerHeight
@@ -53,7 +53,7 @@ export default function BackgroundImage() {
     <Div100vh className={styles.backgroundImage}>
       {/* {listener} */}
       <svg
-        style={{ transform: `translateY(${-scrollPercent * 15 + 70}%)` }}
+        style={{ transform: `translateY(${-scrollPercent * 15 + (width > height ? 70 : 20)}%)` }}
         className={styles.svgWrapper}
         viewBox={`0 0 600 600`}
       >
