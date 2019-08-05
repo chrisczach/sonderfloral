@@ -59,10 +59,11 @@
   z-index: 25;
   content: '';
   position: absolute;
-  width: calc(100% - 0.5em);
-  top: 1em;
-  left: 1em;
-  padding-bottom: calc(66% - 0.5em);
+  width: calc(100% + 0.5em);
+  top: 0.5em;
+  left: 0.5em;
+  padding-bottom: calc(66% + 0.5em);
+  outline-offset: -0.5em;
   outline: var(--color-accent-light) solid 0.5em;
   opacity: 0.5;
   transition: var(--transition-short);
@@ -70,7 +71,7 @@
 
 .imageWrapper:hover:after {
   outline: var(--color-brand) solid 0.5em;
-  transform: translate(calc(-90% - 0.5em), 0);
+  transform: translate(calc(-90%), 0);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
@@ -83,15 +84,15 @@
   margin: 2em auto;
   z-index: 50;
   color: var(--color-accent-light);
-  transition: all 0.5s ease;
+  transition: var(--transition-short);
   transform-origin: center;
 }
 
 .imageWrapper:hover ~ .textWrapper {
   color: var(--color-main-dark);
-  transform: scale(1.5) translateY(2em);
+  transform: scale(1.25) translateY(2em);
   margin: 2em 0;
-  opacity: 0.9;
+  opacity: 0.7;
   transition: var(--transition-short);
 }
 
