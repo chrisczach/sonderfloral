@@ -18,7 +18,7 @@ export default function BackgroundImage() {
     width = window.innerWidth
     height = window.innerHeight
   } catch (e) {}
-  const [scrollPercent, setScrollPercent] = useState(height > width ? 1 : 0)
+  const [scrollPercent, setScrollPercent] = useState(height > width ? 1.5 : 0)
 
   // const colorIndex = Math.floor(Math.random() * colors.length)
   // const pathIndex = Math.floor(Math.random() * pathIds.length)
