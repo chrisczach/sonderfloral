@@ -36,6 +36,14 @@ export default function PortfolioMasonryGrid({ nodes }) {
     },
     { normal: [], small: [] }
   )
+
+  const resizeSmalls = smallArr => {
+    const working = [...smallArr]
+    const lastChunk = working.splice(0, 12)
+
+    return [...lastChunk, ...working]
+  }
+
   return (
     <div style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
       {listener}
