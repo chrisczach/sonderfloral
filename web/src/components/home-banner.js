@@ -6,7 +6,9 @@ import BlockContent from './block-content'
 import { Link } from 'gatsby'
 
 export default function HomeBanner({ image, _rawBody, landscape }) {
-  const [listener, { width }] = ResizeAware()
+  const [listener, { width: divWidth }] = ResizeAware()
+  const width = (landscape ? divWidth * 0.33 : divWidth) || '33%'
+  const height = (landscape ? (0.66 * divWidth) / 3 : 0.66 * divWidth) || '66%'
   return (
     <>
       {listener}
@@ -26,23 +28,25 @@ export default function HomeBanner({ image, _rawBody, landscape }) {
           </Link>
         </div>
       )}
-      <div className={styles.bannerWrapper}>
+      <div style={{ height }} className={styles.bannerWrapper}>
         <div
           className={styles.imageWrapper}
           style={{
-            width: landscape ? width / 3 : width,
-            height: landscape ? (0.66 * width) / 3 : 0.66 * width
+            width,
+            height
           }}
         >
-          <Image
-            asset={image}
-            args={{
-              maxWidth: landscape ? width / 3 : width,
-              maxHeight: landscape ? (0.66 * width) / 3 : 0.66 * width
-            }}
-          />
+          {divWidth && (
+            <Image
+              asset={image}
+              args={{
+                maxWidth: width,
+                maxHeight: height
+              }}
+            />
+          )}
         </div>
-        <div className={styles.textWrapper} style={{ width: landscape ? width / 3 : width }}>
+        <div className={styles.textWrapper} style={{ width }}>
           <BlockContent blocks={_rawBody || []} />
         </div>
       </div>
