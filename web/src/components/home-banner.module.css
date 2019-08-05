@@ -26,9 +26,17 @@
 }
 
 .imageWrapper {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   position: relative;
   z-index: 50;
   margin: 0 0 0 -1em;
+  opacity: 0.95;
+  transition: var(--transition-short);
+}
+
+.imageWrapper:hover {
+  opacity: 1;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .imageWrapper::after {
@@ -41,6 +49,11 @@
   padding-bottom: calc(66% - 0.5em);
   outline: var(--color-accent-light) solid 0.5em;
   opacity: 0.5;
+  transition: var(--transition-short);
+}
+
+.imageWrapper:hover:after {
+  outline: var(--color-brand) solid 0.5em;
 }
 
 /* .textWrapper {
