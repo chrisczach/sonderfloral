@@ -18,7 +18,7 @@ export default function BackgroundImage() {
     width = window.innerWidth
     height = window.innerHeight
   } catch (e) {}
-  const [scrollPercent, setScrollPercent] = useState(height > width ? 1.5 : 0)
+  const [scrollPercent, setScrollPercent] = useState(height > width ? 1 : 0)
 
   // const colorIndex = Math.floor(Math.random() * colors.length)
   // const pathIndex = Math.floor(Math.random() * pathIds.length)
@@ -34,7 +34,7 @@ export default function BackgroundImage() {
       const { height: heightDiv } = target.getBoundingClientRect()
       const scrollHeightCalc = scrollHeight - heightDiv
       const percentScrolled = scrollTop / scrollHeightCalc
-      setScrollPercent(percentScrolled)
+      useState(height > width ? 1 : percentScrolled)
 
       // const divisor = 4
       // const segmentSize = scrollHeightCalc / divisor
