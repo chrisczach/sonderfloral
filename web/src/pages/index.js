@@ -189,7 +189,7 @@ const IndexPage = props => {
           </h1>
         </div>
 
-        <HomeBanner image={page.mainImage} _rawBody={page._rawBody} />
+        <HomeBanner image={page.mainImage} _rawBody={page._rawBody} landscape={landscape} />
       </Container>
     </>
   )

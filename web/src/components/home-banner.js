@@ -3,18 +3,44 @@ import styles from './home-banner.module.css'
 import Image from './image'
 import ResizeAware from 'react-resize-aware'
 import BlockContent from './block-content'
+import { Link } from 'gatsby'
 
-export default function HomeBanner({ image, _rawBody }) {
+export default function HomeBanner({ image, _rawBody, landscape }) {
   const [listener, { width }] = ResizeAware()
   return (
     <>
       {listener}
+      {landscape && (
+        <div className={styles.nav}>
+          <Link id="about" to="/about">
+            About
+          </Link>
+          <Link id="projects" to="/projects">
+            Sonder Series
+          </Link>
+          <Link id="portfolio" to="/portfolio">
+            Portfolio
+          </Link>
+          <Link id="contact" to="/contact">
+            Contact
+          </Link>
+        </div>
+      )}
       <div className={styles.bannerWrapper}>
         <div
           className={styles.imageWrapper}
-          style={{ width: width / 3 || '50%', height: width / 3 }}
+          style={{
+            width: landscape ? width / 3 : width || '50%',
+            height: landscape ? (0.66 * width) / 3 : 0.66 * width
+          }}
         >
-          <Image asset={image} args={{ maxWidth: width / 3, maxHeight: width / 3 }} />
+          <Image
+            asset={image}
+            args={{
+              maxWidth: landscape ? width / 3 : width,
+              maxHeight: landscape ? (0.66 * width) / 3 : 0.66 * width
+            }}
+          />
         </div>
         {/* <div className={styles.textWrapper} style={{ width: width / 3 || '50%' }}>
           <BlockContent blocks={_rawBody || []} />

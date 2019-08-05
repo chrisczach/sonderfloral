@@ -1,3 +1,24 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav > a {
+  background: var(--color-main-light);
+  padding: 1em 2em;
+  margin: 0.5em 0;
+  font-size: 1.15em;
+  color: inherit;
+  text-decoration: inherit;
+  transition: var(--transition-short);
+}
+
+.nav > a:hover {
+  background: var(--color-accent-light);
+  transition: var(--transition-short);
+}
+
 .bannerWrapper {
   display: flex;
   justify-content: center;
@@ -7,7 +28,7 @@
 .imageWrapper {
   position: relative;
   z-index: 50;
-  margin: 0.5em 0 0 0.5em;
+  margin: 0 0 0 -1em;
 }
 
 .imageWrapper::after {
@@ -17,7 +38,7 @@
   width: calc(100% - 0.5em);
   top: 1em;
   left: 1em;
-  padding-bottom: calc(100% - 0.5em);
+  padding-bottom: calc(66% - 0.5em);
   outline: var(--color-accent-light) solid 0.5em;
   opacity: 0.5;
 }
