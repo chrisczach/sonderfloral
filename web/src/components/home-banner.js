@@ -30,7 +30,7 @@ export default function HomeBanner({ image, _rawBody, landscape }) {
         <div
           className={styles.imageWrapper}
           style={{
-            width: landscape ? width / 3 : width || '50%',
+            width: landscape ? width / 3 : width,
             height: landscape ? (0.66 * width) / 3 : 0.66 * width
           }}
         >
@@ -42,10 +42,7 @@ export default function HomeBanner({ image, _rawBody, landscape }) {
             }}
           />
         </div>
-        <div
-          className={styles.textWrapper}
-          style={{ width: landscape ? width / 3 : width || '50%' }}
-        >
+        <div className={styles.textWrapper} style={{ width: landscape ? width / 3 : width }}>
           <BlockContent blocks={_rawBody || []} />
         </div>
       </div>

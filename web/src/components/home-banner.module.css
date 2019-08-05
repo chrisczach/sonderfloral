@@ -6,6 +6,7 @@
 
 .nav > a {
   background: var(--color-main-light);
+  opacity: 0.8;
   padding: 1em 2em;
   margin: 0.5em 0;
   font-size: 1.15em;
@@ -35,6 +36,10 @@
   transition: var(--transition-short);
 }
 
+.imageWrapper:hover {
+  transform: translateX(45%);
+}
+
 .imageWrapper > div {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: var(--transition-short);
@@ -44,8 +49,9 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-.imageWrapper:hover {
+.imageWrapper:hover div {
   opacity: 1;
+  transform: translate(-90%, 1.5em);
 }
 
 .imageWrapper::after {
@@ -63,15 +69,29 @@
 
 .imageWrapper:hover:after {
   outline: var(--color-brand) solid 0.5em;
+  transform: translate(calc(-90% - 0.5em), 0);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .textWrapper {
+  pointer-events: none;
   position: absolute;
   top: 0;
-  left: 50%;
-  margin: 1em;
+  padding-left: 2em;
+  margin: 2em auto;
   z-index: 50;
-  transform: translate(-50%, 0);
+  color: var(--color-accent-light);
+  transition: all 0.5s ease;
+  transform-origin: center;
+}
+
+.imageWrapper:hover ~ .textWrapper {
+  color: var(--color-main-dark);
+  transform: scale(1.5) translateY(2em);
+  margin: 2em 0;
+  opacity: 0.9;
+  transition: var(--transition-short);
 }
 
 /* .textWrapper::after {
