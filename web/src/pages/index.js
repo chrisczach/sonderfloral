@@ -186,15 +186,6 @@ const IndexPage = props => {
             </div>
           </h1>
         </div>
-
-        {projectNodes && (
-          <ProjectPreviewGrid
-            title="Sonder Series"
-            nodes={projectNodes}
-            browseMoreHref="/projects/"
-          />
-        )}
-        {postNodes && <PortfolioMasonryGrid nodes={postNodes} />}
       </Container>
     </>
   )
