@@ -6,9 +6,11 @@
 
 .imageWrapper {
   position: relative;
+  z-index: 50;
 }
 
 .imageWrapper::after {
+  z-index: 50;
   content: '';
   position: absolute;
   width: calc(100% - 0.5em);
@@ -21,16 +23,18 @@
 
 .textWrapper {
   position: relative;
-  padding: 2em 1em;
+  padding: 2em 1em 2em 3em;
+  z-index: 25;
 }
 
 .textWrapper::after {
+  z-index: 25;
   content: '';
   position: absolute;
-  width: calc(100% - 0.5em);
-  height: calc(100% - 0.5em);
+  width: calc(100% + 10em);
+  height: calc(100% + 10em);
   top: 0;
-  left: 0;
+  right: 0;
   outline: var(--color-brand) solid 0.5em;
   opacity: 0.5;
 }

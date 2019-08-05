@@ -16,7 +16,7 @@ export default function HomeBanner({ image, _rawBody }) {
         >
           <Image asset={image} args={{ maxWidth: width / 3, maxHeight: width / 3 }} />
         </div>
-        <div className={styles.textWrapper}>
+        <div className={styles.textWrapper} style={{ width: width / 3 || '50%' }}>
           <BlockContent blocks={_rawBody || []} />
         </div>
       </div>
