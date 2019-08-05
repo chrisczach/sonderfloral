@@ -37,7 +37,7 @@
 }
 
 .imageWrapper:hover {
-  transform: translateX(45%);
+  transform: translate(45%, 1em);
 }
 
 .imageWrapper > div {
@@ -52,7 +52,7 @@
 .imageWrapper:hover div {
   opacity: 0.25;
   filter: blur(4px);
-  transform: translate(calc(-90% + 1.5em), 1.5em);
+  transform: translate(calc(-90% + 1.5em), 0);
 }
 
 .imageWrapper::after {
