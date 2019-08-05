@@ -72,21 +72,28 @@
 
 .imageWrapper:hover:after {
   outline: var(--color-brand) solid 0.5em;
+  opacity: 0.7;
   transform: translate(calc(-90%), 0);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -filter: blur(3px);
+  filter: blur(3px);
 }
 
 .textWrapper {
   pointer-events: none;
   position: absolute;
   top: 0;
-  padding-left: 2em;
-  margin: 2em auto;
+  margin: 2em 0 0 0.5em;
   z-index: 50;
   color: var(--color-accent-light);
   transition: var(--transition-short);
   transform-origin: center;
+  width: calc(66% - 3.5em);
+
+  @media screen and (orientation: portrait) {
+    width: 100%;
+  }
 }
 
 .imageWrapper:hover ~ .textWrapper {

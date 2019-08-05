@@ -7,8 +7,8 @@ import { Link } from 'gatsby'
 
 export default function HomeBanner({ image, _rawBody, landscape }) {
   const [listener, { width: divWidth }] = ResizeAware()
-  const width = (landscape ? divWidth * 0.33 : divWidth) || '33%'
-  const height = (landscape ? (0.66 * divWidth) / 3 : 0.66 * divWidth) || '66%'
+  const width = landscape ? divWidth * 0.33 : divWidth
+  const height = landscape ? (0.66 * divWidth) / 3 : 0.66 * divWidth
   return (
     <>
       {listener}
@@ -46,7 +46,7 @@ export default function HomeBanner({ image, _rawBody, landscape }) {
             />
           )}
         </div>
-        <div className={styles.textWrapper} style={{ width }}>
+        <div className={styles.textWrapper}>
           <BlockContent blocks={_rawBody || []} />
         </div>
       </div>
