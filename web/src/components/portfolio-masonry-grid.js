@@ -4,6 +4,7 @@ import PortfolioMasonryTile from './portfolio-masonry-tile'
 import ResizeAware from 'react-resize-aware'
 
 import PortfolioMasonryModal from './portfolio-masonry-modal'
+import { distanceInWordsToNow } from 'date-fns'
 
 export default function PortfolioMasonryGrid({ nodes }) {
   const [listener, { width }] = ResizeAware()
@@ -36,17 +37,35 @@ export default function PortfolioMasonryGrid({ nodes }) {
         className={styles.grid}
         style={{ gridAutoRows: `${size}px`, gridTemplateColumns: `repeat(${columns}, ${size}px)` }}
       >
-        {nodes.map(props =>
-          PortfolioMasonryTile({
-            ...props,
-            setModal,
-            setModalImage,
-            setAspect,
-            size,
-            toggleModalOn
-          })
-        )}
+        {nodes
+          .reduce(
+            (a, c, ind, arr) => {
+              if (getSize(c) === 1) {
+                a.small.push(c)
+              } else {
+                a.normal.push(c)
+              }
+              if (arr.length - 1 === ind) {
+                return [...a.normal, ...a.small]
+              } else {
+                return a
+              }
+            },
+            { normal: [], small: [] }
+          )
+          .map(props =>
+            PortfolioMasonryTile({
+              ...props,
+              setModal,
+              setModalImage,
+              setAspect,
+              size,
+              toggleModalOn
+            })
+          )}
       </div>
     </div>
   )
 }
+
+const getSize = node => node.rows * node.columns
