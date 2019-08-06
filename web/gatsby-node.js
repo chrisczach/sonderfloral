@@ -83,7 +83,46 @@ async function createProjectPages(graphql, actions, reporter) {
   })
 }
 
+async function createProjectCategories(graphql, actions, reporter) {
+  const { createPage, createPageDependency } = actions
+  const result = await graphql(`
+    {
+      allSanityCategory {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) throw result.errors
+
+  const categoryEdges = (result.data.allSanityCategory || {}).edges || []
+
+  categoryEdges.forEach(edge => {
+    const id = edge.node.id
+    const slug = edge.node.slug.current
+    const path = `/project/${slug}/`
+
+    reporter.info(`Creating project page: ${path}`)
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/category.js'),
+      context: { id }
+    })
+
+    createPageDependency({ path, nodeId: id })
+  })
+}
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // await createBlogPostPages(graphql, actions, reporter)
   await createProjectPages(graphql, actions, reporter)
+  await createProjectCategories(graphql, actions, reporter)
 }
