@@ -48,7 +48,6 @@ export default function BackgroundImage() {
       scroll.current.removeEventListener('scroll', scrollHandler)
     }
   }, [])
-  console.log(scrollPercent)
   return (
     <Div100vh className={styles.backgroundImage}>
       {/* {listener} */}

@@ -190,7 +190,7 @@ const IndexPage = props => {
         </div>
 
         <HomeBanner image={page.mainImage} _rawBody={page._rawBody} landscape={landscape} />
-        <div style={{ height: '150vh', padding: '20em' }}>Spacer to check layout</div>
+        <div style={{ height: '150vh' }}>Spacer to check layout</div>
       </Container>
     </>
   )

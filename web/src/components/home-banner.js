@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './home-banner.module.css'
 import Image from './image'
-import BlockContent from './block-content'
 import { Link } from 'gatsby'
 
 export default function HomeBanner({ image, _rawBody, landscape }) {
@@ -26,7 +25,7 @@ export default function HomeBanner({ image, _rawBody, landscape }) {
           asset={image}
           args={{
             maxWidth: 1200,
-            maxHeight: 800
+            maxHeight: landscape ? 800 : 1200
           }}
         />
       </div>
