@@ -1,17 +1,12 @@
 import React from 'react'
 import styles from './home-banner.module.css'
 import Image from './image'
-import ResizeAware from 'react-resize-aware'
 import BlockContent from './block-content'
 import { Link } from 'gatsby'
 
 export default function HomeBanner({ image, _rawBody, landscape }) {
-  const [listener, { width: divWidth }] = ResizeAware()
-  const width = landscape ? divWidth * 0.33 : divWidth
-  const height = landscape ? (0.66 * divWidth) / 3 : 0.66 * divWidth
   return (
     <>
-      {listener}
       <div className={styles.nav}>
         <Link id="about" to="/about">
           About
@@ -26,21 +21,14 @@ export default function HomeBanner({ image, _rawBody, landscape }) {
           Contact
         </Link>
       </div>
-      <div className={styles.bannerWrapper}>
-        <div className={styles.imageWrapper}>
-          {divWidth && (
-            <Image
-              asset={image}
-              args={{
-                maxWidth: width,
-                maxHeight: height
-              }}
-            />
-          )}
-        </div>
-        <div className={styles.textWrapper}>
-          <BlockContent blocks={_rawBody || []} />
-        </div>
+      <div className={styles.imageWrapper}>
+        <Image
+          asset={image}
+          args={{
+            maxWidth: 1200,
+            maxHeight: 800
+          }}
+        />
       </div>
     </>
   )
