@@ -49,7 +49,7 @@ function Project(props) {
       {props.mainImage && mainImage.asset && (
         <div className={styles.imageWrapper}>
           <Image
-            style={{ top: `${Math.floor(imageTop * 0.85)}px` }}
+            style={{ top: `${Math.floor(imageTop)}px` }}
             asset={mainImage}
             args={{ maxWidth: width, maxHeight: height }}
           />
