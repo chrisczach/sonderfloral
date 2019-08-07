@@ -10,7 +10,12 @@ import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 import { responsiveTitle1 } from '../components/typography.module.css'
 
 export const query = graphql`
-  query ProjectsPageQuery($id: String) {
+  query ProjectsCategoryPageQuery($id: String) {
+    category: sanityCategory(id: { eq: $id }) {
+      id
+      title
+    }
+
     projects: allSanityProject(
       filter: { category: { id: { eq: $id } } }
       sort: { fields: [publishedAt], order: DESC }
@@ -54,9 +59,9 @@ const CategoryPageTemplate = props => {
     data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
   return (
     <>
-      <SEO title="Projects" />
+      <SEO title={data.category.title} />
       <Container>
-        <h1 className={responsiveTitle1}>Projects</h1>
+        <h1 className={responsiveTitle1}>{data.category.title}</h1>
         {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
       </Container>
     </>
