@@ -56,6 +56,13 @@ async function createProjectPages(graphql, actions, reporter) {
             slug {
               current
             }
+            category {
+              id
+              title
+              slug {
+                current
+              }
+            }
           }
         }
       }
@@ -68,8 +75,9 @@ async function createProjectPages(graphql, actions, reporter) {
 
   projectEdges.forEach(edge => {
     const id = edge.node.id
+    const categorySlug = edge.node.category.slug.current
     const slug = edge.node.slug.current
-    const path = `/project/${slug}/`
+    const path = `/projects/${categorySlug}/${slug}/`
 
     reporter.info(`Creating project page: ${path}`)
 
@@ -107,7 +115,7 @@ async function createProjectCategories(graphql, actions, reporter) {
   categoryEdges.forEach(edge => {
     const id = edge.node.id
     const slug = edge.node.slug.current
-    const path = `/project/${slug}/`
+    const path = `/projects/${slug}/`
 
     reporter.info(`Creating project page: ${path}`)
 

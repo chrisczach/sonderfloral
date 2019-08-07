@@ -10,7 +10,7 @@ export default function HomeBanner({ image, _rawBody, landscape }) {
         <Link id="about" to="/about">
           About
         </Link>
-        <Link id="projects" to="/projects">
+        <Link id="sonder-series" to="projects/sonder-series">
           Sonder Series
         </Link>
         <Link id="portfolio" to="/portfolio">

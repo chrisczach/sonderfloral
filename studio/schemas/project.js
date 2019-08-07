@@ -51,10 +51,10 @@ export default {
       type: "mainImage"
     },
     {
-      name: "categories",
-      title: "Categories",
-      type: "array",
-      of: [{ type: "category" }]
+      name: "category",
+      title: "Category",
+      type: "reference",
+      to: { type: "category" }
     },
     {
       name: "body",
