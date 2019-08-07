@@ -5,6 +5,10 @@
   position: relative;
 }
 
+.imageWrapper {
+  overflow: hidden;
+}
+
 .categoryLink {
   position: absolute;
   top: 0;

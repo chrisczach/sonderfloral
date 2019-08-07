@@ -1,5 +1,5 @@
 import { format, distanceInWords, differenceInDays } from 'date-fns'
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
@@ -8,9 +8,9 @@ import Container from './container'
 import RoleList from './role-list'
 import Image from './image'
 import styles from './project.module.css'
+import { ScrollRefContext } from '../components/global-styles'
 
 function Project(props) {
-  console.log(props)
   const {
     _rawBody,
     title,
@@ -23,16 +23,37 @@ function Project(props) {
       title: categoryTitle
     }
   } = props
+
+  let width = 2400
+  try {
+    size = window.innerWidth
+  } catch (e) {}
+  const height = Math.floor((9 / 16) * width)
+
+  const scrollDivRef = useContext(ScrollRefContext)
+
+  const [imageTop, setImageTop] = useState(0)
+
+  useEffect(() => {
+    const handle = ({ target: { scrollTop } }) => setImageTop(scrollTop)
+    scrollDivRef.current.addEventListener('scroll', handle)
+
+    // return () => scrollDivRef.current.removeEventListener('scroll', handle)
+  }, [])
+
   return (
     <article className={styles.root}>
       <Link className={styles.categoryLink} to={`/projects/${categorySlug}`}>
         back to {categoryTitle}
       </Link>
       {props.mainImage && mainImage.asset && (
-        <Image
-          asset={mainImage}
-          args={{ maxWidth: 2400, maxHeight: Math.floor((9 / 16) * 2400) }}
-        />
+        <div className={styles.imageWrapper}>
+          <Image
+            style={{ top: `${Math.floor(imageTop * 0.85)}px` }}
+            asset={mainImage}
+            args={{ maxWidth: width, maxHeight: height }}
+          />
+        </div>
       )}
       <Container>
         <div className={styles.grid}>
