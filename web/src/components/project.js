@@ -10,9 +10,24 @@ import Image from './image'
 import styles from './project.module.css'
 
 function Project(props) {
-  const { _rawBody, title, mainImage, members, publishedAt, relatedProjects } = props
+  console.log(props)
+  const {
+    _rawBody,
+    title,
+    mainImage,
+    members,
+    publishedAt,
+    relatedProjects,
+    category: {
+      slug: { current: categorySlug },
+      title: categoryTitle
+    }
+  } = props
   return (
     <article className={styles.root}>
+      <Link className={styles.categoryLink} to={`/projects/${categorySlug}`}>
+        back to {categoryTitle}
+      </Link>
       {props.mainImage && mainImage.asset && (
         <Image
           asset={mainImage}
