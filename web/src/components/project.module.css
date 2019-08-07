@@ -9,6 +9,9 @@
   overflow: hidden;
 }
 
+.innerImageWrapper {
+}
+
 .categoryLink {
   position: absolute;
   top: 0;

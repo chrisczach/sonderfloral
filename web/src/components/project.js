@@ -30,16 +30,16 @@ function Project(props) {
   } catch (e) {}
   const height = Math.floor((9 / 16) * width)
 
-  const scrollDivRef = useContext(ScrollRefContext)
+  // const scrollDivRef = useContext(ScrollRefContext)
 
-  const [imageTop, setImageTop] = useState(0)
+  // const [imageTop, setImageTop] = useState(0)
 
-  useEffect(() => {
-    const handle = ({ target: { scrollTop } }) => setImageTop(scrollTop)
-    scrollDivRef.current.addEventListener('scroll', handle)
+  // useEffect(() => {
+  //   const handle = ({ target: { scrollTop } }) => setImageTop(scrollTop)
+  //   scrollDivRef.current.addEventListener('scroll', handle)
 
-    // return () => scrollDivRef.current.removeEventListener('scroll', handle)
-  }, [])
+  //   // return () => scrollDivRef.current.removeEventListener('scroll', handle)
+  // }, [])
 
   return (
     <article className={styles.root}>
@@ -48,11 +48,13 @@ function Project(props) {
       </Link>
       {props.mainImage && mainImage.asset && (
         <div className={styles.imageWrapper}>
-          <Image
-            style={{ top: `${Math.floor(imageTop)}px` }}
-            asset={mainImage}
-            args={{ maxWidth: width, maxHeight: height }}
-          />
+          <div className={styles.innerImageWrapper}>
+            <Image
+              // style={{ top: `${Math.floor(imageTop)}px` }}
+              asset={mainImage}
+              args={{ maxWidth: width, maxHeight: height }}
+            />
+          </div>
         </div>
       )}
       <Container>
