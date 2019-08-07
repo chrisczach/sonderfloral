@@ -32,15 +32,14 @@ export default createSchema({
     mainImage,
     blockContent,
     blockText,
-    category,
     companyInfo,
     figure,
-
     page,
     person,
     post,
     postAuthor,
     project,
+    category,
     projectMember,
     siteSettings,
     slideshow
