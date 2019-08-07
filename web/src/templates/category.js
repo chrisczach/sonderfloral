@@ -21,6 +21,9 @@ export const query = graphql`
           category {
             id
             title
+            slug {
+              current
+            }
           }
           mainImage {
             asset {

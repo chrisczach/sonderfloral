@@ -15,8 +15,13 @@ export default function burgerMenu({ siteTitle, logo }) {
       <Link id="about" className="menu-item" to="/about" onClick={closeMenu}>
         About
       </Link>
-      <Link id="projects" className="menu-item" to="/projects" onClick={closeMenu}>
-        Projects
+      <Link
+        id="sonder-series"
+        className="menu-item"
+        to="/projects/sonder-series"
+        onClick={closeMenu}
+      >
+        Sonder Series
       </Link>
       <Link id="portfolio" className="menu-item" to="/portfolio" onClick={closeMenu}>
         Portfolio
