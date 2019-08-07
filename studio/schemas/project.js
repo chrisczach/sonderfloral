@@ -6,7 +6,8 @@ export default {
     {
       name: "title",
       title: "Title",
-      type: "string"
+      type: "string",
+      validation: Rule => Rule.required()
     },
     {
       name: "slug",
@@ -16,7 +17,8 @@ export default {
       options: {
         source: "title",
         maxLength: 96
-      }
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: "publishedAt",
@@ -27,7 +29,8 @@ export default {
     {
       name: "excerpt",
       title: "Excerpt",
-      type: "blockText"
+      type: "blockText",
+      validation: Rule => Rule.required()
     },
     {
       name: "members",
@@ -48,18 +51,21 @@ export default {
     {
       name: "mainImage",
       title: "Main image",
-      type: "mainImage"
+      type: "mainImage",
+      validation: Rule => Rule.required()
     },
     {
       name: "category",
       title: "Category",
       type: "reference",
-      to: { type: "category" }
+      to: { type: "category" },
+      validation: Rule => Rule.required()
     },
     {
       name: "body",
       title: "Body",
-      type: "blockContent"
+      type: "blockContent",
+      validation: Rule => Rule.required()
     },
     {
       name: "relatedProjects",

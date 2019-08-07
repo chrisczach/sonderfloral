@@ -45,7 +45,7 @@ export default function BackgroundImage() {
     scroll.current.addEventListener('scroll', scrollHandler)
 
     return () => {
-      scroll.current.removeEventListener('scroll', scrollHandler)
+      // scroll.current.removeEventListener('scroll', scrollHandler)
     }
   }, [])
   return (
