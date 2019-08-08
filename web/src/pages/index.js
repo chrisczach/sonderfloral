@@ -143,9 +143,9 @@ const IndexPage = props => {
 
   const logoRef = useRef()
   const [logoSize, setLogoSize] = useState(200)
-  let landscape
+  let landscape = true
   try {
-    landscape = window.innerWidth > window.innerHeight
+    landscape = !(window.innerWidth < window.innerHeight)
   } catch (e) {}
 
   useEffect(() => {
@@ -189,7 +189,7 @@ const IndexPage = props => {
           </h1>
         </div>
 
-        <HomeBanner image={page.mainImage} _rawBody={page._rawBody} landscape={landscape} />
+        <HomeBanner image={page.mainImage} landscape={landscape} />
         <div style={{ height: '150vh' }}>Spacer to check layout</div>
       </Container>
     </>
