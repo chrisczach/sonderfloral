@@ -39,7 +39,9 @@ export default function GlobalStyles({
 
       const scrollObject = {
         position: scrollTop,
-        percentScroll: (scrollHeight - offsetHeight) / scrollHeight
+        percentScroll: scrollTop / (scrollHeight - offsetHeight),
+        scrollHeight,
+        offsetHeight
       }
       setScrollProviderValue(scrollObject)
     }

@@ -6,7 +6,7 @@ import ResizeAware from 'react-resize-aware'
 import Div100vh from 'react-div-100vh'
 
 import styles from './background-image.module.css'
-import { ScrollRefContext } from './global-styles'
+import { ScrollContext } from './global-styles'
 
 export default function BackgroundImage() {
   // const [index, setIndex] = useState(0)
@@ -17,7 +17,8 @@ export default function BackgroundImage() {
     width = window.innerWidth
     height = window.innerHeight
   } catch (e) {}
-  const [scrollPercent, setScrollPercent] = useState(width < height ? 1 : 0)
+  const { percentScroll } = useContext(ScrollContext)
+  const scrollPercent = Math.round(percentScroll * 100)
 
   // const colorIndex = Math.floor(Math.random() * colors.length)
   // const pathIndex = Math.floor(Math.random() * pathIds.length)
@@ -26,32 +27,28 @@ export default function BackgroundImage() {
   // const pathIndex = index
 
   // const [listener, { width, height }] = ResizeAware()
-
+  const calcParallax = number => (scrollPercent * -number) / 100
   return (
     <Div100vh className={styles.backgroundImage}>
       {/* {listener} */}
-      <svg
-        style={{ transform: `translateY(${-scrollPercent * 15 + 70}%)` }}
-        className={styles.svgWrapper}
-        viewBox={`0 0 600 600`}
-      >
+      <svg className={styles.svgWrapper} viewBox={`0 0 600 600`}>
         <path
-          style={{ transform: `translate(-10%, ${scrollPercent * -3 + 40}%)` }}
+          style={{ transform: `translate(-20%, ${calcParallax(30) + 105}%)` }}
           fill={`var(${colors[2]})`}
           d={paths.third}
         />
         <path
-          style={{ transform: `translate(35%, ${scrollPercent * 6 + 55}%)` }}
+          style={{ transform: `translate(30%, ${calcParallax(15) + 130}%) scale(1.1)` }}
           fill={`var(${colors[3]})`}
           d={paths.fourth}
         />
         <path
-          style={{ transform: `translate(75%, ${scrollPercent * 10 + 50}%)` }}
+          style={{ transform: `translate(75%, ${calcParallax(12) + 130}%)` }}
           fill={`var(${colors[0]})`}
           d={paths.first}
         />
         <path
-          style={{ transform: `translate(115%, ${scrollPercent * 0 + 25}%)` }}
+          style={{ transform: `translate(115%, ${calcParallax(25) + 100}%) scale(1.2)` }}
           fill={`var(${colors[1]})`}
           d={paths.second}
         />
