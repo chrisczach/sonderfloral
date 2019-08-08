@@ -43,7 +43,7 @@ export default function GlobalStyles({
         scrollHeight,
         offsetHeight
       }
-      setScrollProviderValue(scrollObject)
+      window.requestAnimationFrame(() => setScrollProviderValue(scrollObject))
     }
     document.addEventListener('scroll', handler)
     return () => {
