@@ -8,7 +8,7 @@ import Container from './container'
 import RoleList from './role-list'
 import Image from './image'
 import styles from './project.module.css'
-import { ScrollRefContext } from '../components/global-styles'
+import { ScrollContext } from './global-styles'
 
 function Project(props) {
   const {
@@ -30,6 +30,8 @@ function Project(props) {
   } catch (e) {}
   const height = Math.floor((9 / 16) * width)
 
+  const { percentScroll, position } = useContext(ScrollContext)
+
   return (
     <article className={styles.root}>
       <Link className={styles.categoryLink} to={`/projects/${categorySlug}`}>
@@ -37,7 +39,10 @@ function Project(props) {
       </Link>
       {props.mainImage && mainImage.asset && (
         <div className={styles.imageWrapper}>
-          <div className={styles.innerImageWrapper}>
+          <div
+            style={{ transform: `translateY(${Math.round(position * 0.6)}px)` }}
+            className={styles.innerImageWrapper}
+          >
             <Image
               // style={{ top: `${Math.floor(imageTop)}px` }}
               asset={mainImage}

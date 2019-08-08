@@ -6,6 +6,7 @@
 }
 
 .imageWrapper {
+  position: relative;
   overflow: hidden;
 }
 
