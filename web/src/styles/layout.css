@@ -21,7 +21,6 @@ body {
   -webkit-overflow-scrolling: touch;
   -webkit-font-smoothing: antialiased;
   margin: 0;
-  perspective: 1px;
 }
 
 html,
