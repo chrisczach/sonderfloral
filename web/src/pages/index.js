@@ -143,9 +143,9 @@ const IndexPage = props => {
 
   const logoRef = useRef()
   const [logoSize, setLogoSize] = useState(200)
-  let landscape = true
+  const [landscape, setLandscape] = useState(true)
   try {
-    landscape = !(window.innerWidth < window.innerHeight)
+    setLandscape(window.innerWidth > window.innerHeight)
   } catch (e) {}
 
   useEffect(() => {
@@ -154,8 +154,9 @@ const IndexPage = props => {
       logoRef.current.getBoundingClientRect &&
       logoRef.current.getBoundingClientRect()
 
-    const handle = ({ target: { scrollTop } }) =>
+    const handle = ({ target: { scrollTop } }) => {
       setLogoSize(parseInt(((logoRectY - Math.min(scrollTop, logoRectY)) / logoRectY + 1) * 100))
+    }
     if (landscape) {
       scrollDivRef.current.addEventListener('scroll', handle)
     }
