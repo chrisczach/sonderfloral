@@ -1,3 +1,15 @@
+.headerText {
+  color: var(--color-brand);
+  opacity: 0.65;
+  margin: 0.25em 0;
+  transition: var(--transition-short);
+  @media screen and (hover: hover) {
+    @nest &:hover {
+      opacity: 1;
+    }
+  }
+}
+
 .card {
   position: relative;
   display: flex;
@@ -8,7 +20,7 @@
   backdrop-filter: blur(8px);
   @media screen and (orientation: portrait) {
     flex-direction: column;
-    overflow: hidden;
+
     align-items: stretch;
   }
 }
@@ -27,7 +39,6 @@
   position: relative;
   width: 33%;
   flex-shrink: 0;
-  overflow: hidden;
   @media screen and (orientation: portrait) {
     width: 100%;
   }

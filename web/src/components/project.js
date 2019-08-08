@@ -9,6 +9,7 @@ import RoleList from './role-list'
 import Image from './image'
 import styles from './project.module.css'
 import { ScrollContext } from './global-styles'
+import { responsiveTitle1 } from '../components/typography.module.css'
 
 function Project(props) {
   const {
@@ -54,7 +55,7 @@ function Project(props) {
       <Container>
         <div className={styles.grid}>
           <div className={styles.mainContent}>
-            <h1 className={styles.title}>{title}</h1>
+            <h1 className={`${responsiveTitle1} ${styles.title}`}>{title}</h1>
             {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
           <aside className={styles.metaContent}>

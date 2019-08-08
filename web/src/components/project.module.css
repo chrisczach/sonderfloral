@@ -11,6 +11,7 @@
 }
 
 .innerImageWrapper {
+  transition: all 0.1s ease;
 }
 
 .categoryLink {
@@ -25,7 +26,19 @@
 }
 
 .title {
-  composes: responsiveTitle1 from './typography.module.css';
+  /* z-index: 200;
+  position: -webkit-sticky;
+  position: sticky;
+  top: calc(var(--burger-size) / 6 * 5 + var(--burger-size) * 2); */
+  color: var(--color-brand);
+  opacity: 0.65;
+  margin: 0.25em 0;
+  transition: var(--transition-short);
+  @media screen and (hover: hover) {
+    @nest &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .grid {

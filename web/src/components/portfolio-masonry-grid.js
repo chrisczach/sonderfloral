@@ -45,7 +45,7 @@ export default function PortfolioMasonryGrid({ nodes }) {
   }
 
   return (
-    <div style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', width: '100%' }}>
       {listener}
       <PortfolioMasonryModal
         modalShown={modalShown}
