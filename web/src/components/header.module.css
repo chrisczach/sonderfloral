@@ -52,6 +52,7 @@
   color: var(--color-main-dark);
   font-size: 2.5em;
   margin: 0;
+  transition: var(--transition-short);
   @media screen and (orientation: portrait) {
     padding: var(--burger-size);
   }
