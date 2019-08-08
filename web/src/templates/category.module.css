@@ -1,0 +1,9 @@
+.headerText {
+  color: var(--color-brand);
+  opacity: 0.65;
+}
+
+.bodyText p {
+  opacity: 0.6;
+  color: var(--color-main-dark);
+}

@@ -44,7 +44,7 @@ function Project(props) {
   return (
     <article className={styles.root}>
       <Link className={styles.categoryLink} to={`/projects/${categorySlug}`}>
-        back to {categoryTitle}
+        ← back to {categoryTitle}
       </Link>
       {props.mainImage && mainImage.asset && (
         <div className={styles.imageWrapper}>

@@ -1,6 +1,6 @@
 .headerText {
-  color: var(--color-accent-light);
-  opacity: 0.5;
+  color: var(--color-brand);
+  opacity: 0.65;
   margin: 0.25em 0;
   transition: var(--transition-short);
   @media screen and (hover: hover) {

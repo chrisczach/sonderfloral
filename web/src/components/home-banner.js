@@ -3,7 +3,7 @@ import styles from './home-banner.module.css'
 import Image from './image'
 import { Link } from 'gatsby'
 
-export default function HomeBanner({ image, _rawBody, landscape }) {
+export default function HomeBanner({ image, landscape }) {
   return (
     <>
       <div className={styles.nav}>
