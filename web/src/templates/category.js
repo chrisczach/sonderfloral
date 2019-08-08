@@ -6,7 +6,7 @@ import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
-
+import BlockContent from '../components/block-content'
 import { responsiveTitle1 } from '../components/typography.module.css'
 
 export const query = graphql`
@@ -14,6 +14,7 @@ export const query = graphql`
     category: sanityCategory(id: { eq: $id }) {
       id
       title
+      _rawBody
     }
 
     projects: allSanityProject(
@@ -62,6 +63,7 @@ const CategoryPageTemplate = props => {
       <SEO title={data.category.title} />
       <Container>
         <h1 className={responsiveTitle1}>{data.category.title}</h1>
+        {data.category._rawBody && <BlockContent blocks={data.category._rawBody || []} />}
         {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
       </Container>
     </>

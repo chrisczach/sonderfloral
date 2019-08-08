@@ -1,6 +1,10 @@
 @import '../styles/media-queries.css';
 @import '../styles/vars.css';
 
+body {
+  background: #faf5eb;
+}
+
 .content {
   min-height: calc(100% - 73px - 152px);
 

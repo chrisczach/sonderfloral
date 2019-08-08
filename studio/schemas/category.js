@@ -24,10 +24,16 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: "description",
-      title: "Description",
+      name: "excerpt",
+      title: "Excerpt",
       type: "text"
     },
+    {
+      name: "body",
+      title: "Body",
+      type: "blockContent"
+    },
+
     {
       name: "mainImage",
       title: "Main image",
