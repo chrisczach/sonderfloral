@@ -18,10 +18,14 @@
   position: -o-sticky;
   position: sticky;
   top: 0;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   padding-top: 0.75em;
   margin: 0 auto 2.5em auto;
   transition: var(--transition-short);
+
+  @media (min-width: 900px) {
+    display: flex;
+  }
 }

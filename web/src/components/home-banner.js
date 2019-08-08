@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './home-banner.module.css'
 import Image from './image'
 import { Link } from 'gatsby'
 
-export default function HomeBanner({ image, landscape }) {
+export default function HomeBanner({ image }) {
+  const [landscape, setLandscape] = useState(false)
+  try {
+    setLandscape(window.innerWidth > window.innerHeight)
+  } catch (e) {}
   return (
     <>
       <div className={styles.nav}>

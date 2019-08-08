@@ -127,12 +127,12 @@ const IndexPage = props => {
 
   const site = (data || {}).site
   const page = (data || {}).page
-  const postNodes = (data || {}).posts
-    ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
-    : []
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
-    : []
+  // const postNodes = (data || {}).posts
+  //   ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
+  //   : []
+  // const projectNodes = (data || {}).projects
+  //   ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+  //   : []
 
   if (!site) {
     throw new Error(
@@ -141,18 +141,13 @@ const IndexPage = props => {
   }
   const logoRef = useRef()
   const [logoSize, setLogoSize] = useState(200)
-  const [landscape, setLandscape] = useState(true)
-  try {
-    setLandscape(window.innerWidth > window.innerHeight)
-  } catch (e) {}
 
   return (
     <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        <div
-          style={{ display: landscape ? 'flex' : 'none' }}
+        {/* <div
           className={styles.bannerWrapper}
           ref={logoRef}
         >
@@ -171,9 +166,9 @@ const IndexPage = props => {
               />
             </div>
           </h1>
-        </div>
+        </div> */}
 
-        <HomeBanner image={page.mainImage} landscape={landscape} />
+        <HomeBanner image={page.mainImage} />
         <div style={{ height: '150vh' }}>Spacer to check layout</div>
       </Container>
     </>
