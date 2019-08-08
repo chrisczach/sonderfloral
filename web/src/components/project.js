@@ -30,17 +30,6 @@ function Project(props) {
   } catch (e) {}
   const height = Math.floor((9 / 16) * width)
 
-  // const scrollDivRef = useContext(ScrollRefContext)
-
-  // const [imageTop, setImageTop] = useState(0)
-
-  // useEffect(() => {
-  //   const handle = ({ target: { scrollTop } }) => setImageTop(scrollTop)
-  //   scrollDivRef.current.addEventListener('scroll', handle)
-
-  //   // return () => scrollDivRef.current.removeEventListener('scroll', handle)
-  // }, [])
-
   return (
     <article className={styles.root}>
       <Link className={styles.categoryLink} to={`/projects/${categorySlug}`}>

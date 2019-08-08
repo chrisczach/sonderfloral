@@ -9,7 +9,6 @@ import styles from './background-image.module.css'
 import { ScrollRefContext } from './global-styles'
 
 export default function BackgroundImage() {
-  const scroll = useContext(ScrollRefContext)
   // const [index, setIndex] = useState(0)
 
   let width = 2
@@ -28,28 +27,6 @@ export default function BackgroundImage() {
 
   // const [listener, { width, height }] = ResizeAware()
 
-  useEffect(() => {
-    const scrollHandler = ({ target }) => {
-      const { scrollTop, scrollHeight } = target
-      const { height: heightDiv } = target.getBoundingClientRect()
-      const scrollHeightCalc = scrollHeight - heightDiv
-      const percentScrolled = scrollTop / scrollHeightCalc
-      setScrollPercent(height > width ? 1 : percentScrolled)
-
-      // const divisor = 4
-      // const segmentSize = scrollHeightCalc / divisor
-      // const index = Math.max(Math.ceil(scrollTop / segmentSize) - 1, 0)
-      // setIndex(index)
-    }
-
-    scroll.current.addEventListener('scroll', scrollHandler)
-
-    return () => {
-      try {
-        scroll.current.removeEventListener('scroll', scrollHandler)
-      } catch (e) {}
-    }
-  }, [])
   return (
     <Div100vh className={styles.backgroundImage}>
       {/* {listener} */}

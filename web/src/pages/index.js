@@ -139,29 +139,12 @@ const IndexPage = props => {
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
     )
   }
-  const scrollDivRef = useContext(ScrollRefContext)
-
   const logoRef = useRef()
   const [logoSize, setLogoSize] = useState(200)
   const [landscape, setLandscape] = useState(true)
   try {
     setLandscape(window.innerWidth > window.innerHeight)
   } catch (e) {}
-
-  useEffect(() => {
-    const { y: logoRectY } =
-      logoRef.current &&
-      logoRef.current.getBoundingClientRect &&
-      logoRef.current.getBoundingClientRect()
-
-    const handle = ({ target: { scrollTop } }) => {
-      setLogoSize(parseInt(((logoRectY - Math.min(scrollTop, logoRectY)) / logoRectY + 1) * 100))
-    }
-    if (landscape) {
-      scrollDivRef.current.addEventListener('scroll', handle)
-    }
-    // return () => scrollDivRef.current.removeEventListener('scroll', handle)
-  }, [])
 
   return (
     <>
