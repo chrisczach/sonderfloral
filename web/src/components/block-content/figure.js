@@ -4,12 +4,41 @@ import { imageUrlFor } from '../../lib/image-url'
 import ImageBlurUp from '../image-blur-up'
 import styles from './figure.module.css'
 import Image from '../image'
+import ProgressiveImage from 'react-progressive-image'
 function Figure(props) {
+  const imageSrc = imageUrlFor(buildImageObj(props))
+    .height(Math.round(window.innerHeight * 0.75))
+    .url()
+  const placeholderSrc = imageUrlFor(buildImageObj(props))
+    .height(40)
+    .url()
   return (
-    <figure className={styles.root}>
-      {props.asset && <Image asset={buildImageObj(props)} />}
-      <figcaption className={styles.caption}>{props.caption}</figcaption>
-    </figure>
+    <div className={styles.wrapper}>
+      <figure className={styles.root}>
+        <ProgressiveImage src={imageSrc} placeholder={placeholderSrc}>
+          {(imageSrc, loading) => (
+            <>
+              <img
+                className={`${styles.base} ${props.caption && styles.captionBlur} ${
+                  loading ? styles.beforeLoad : styles.afterLoaded
+                }`}
+                src={imageSrc}
+              />
+              <noscript>
+                <img
+                  className={`${styles.base} ${props.caption && styles.captionBlur}  ${
+                    styles.afterLoaded
+                  }`}
+                  src={imageSrc}
+                />
+              </noscript>
+            </>
+          )}
+        </ProgressiveImage>
+
+        {props.caption && <figcaption className={styles.caption}>{props.caption}</figcaption>}
+      </figure>
+    </div>
   )
 }
 
