@@ -6,8 +6,11 @@
 }
 
 .imageWrapper {
-  position: relative;
-  overflow: hidden;
+  position: fixed;
+  top: calc(var(--burger-size) / 6 * 5 + var(--burger-size) * 2);
+  width: 100vw;
+  height: 75vh;
+  z-index: -120;
 }
 
 /* .innerImageWrapper {
@@ -47,6 +50,7 @@
 }
 
 .grid {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
   grid-column-gap: 2em;
@@ -120,4 +124,19 @@
 .relatedProjectsHeadline {
   composes: base from './typography.module.css';
   margin: 0.5rem 0 0;
+}
+
+.backgroundOverlay {
+  position: fixed;
+  top: 0;
+  height: 400vh;
+  width: 100vw;
+  background: radial-gradient(
+    circle at top,
+    transparent 0,
+    transparent,
+    var(--color-main-light) 50%
+  );
+  transition: all 0.02s;
+  z-index: -1;
 }

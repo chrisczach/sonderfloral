@@ -5,7 +5,7 @@
   max-width: 1080px;
   padding: 1.5em;
   margin: 0 auto;
-
+  position: relative;
   @media (--media-min-small) {
     padding: 2em;
   }

@@ -10,6 +10,7 @@ import Image from './image'
 import styles from './project.module.css'
 import { ScrollContext } from './global-styles'
 import { responsiveTitle1 } from '../components/typography.module.css'
+import { relative } from 'path'
 
 function Project(props) {
   const {
@@ -25,11 +26,13 @@ function Project(props) {
     }
   } = props
 
-  let width = 2400
+  let [width, setWidth] = useState(2400)
+  const [windowHeight, setWindowHeight] = useState(1200)
   try {
-    size = window.innerWidth
+    if (width === 2400) setWidth(window.innerWidth)
+    if (windowHeight === 1200) setWindowHeight(window.innerHeight)
   } catch (e) {}
-  const height = Math.floor((9 / 16) * width)
+  const height = Math.floor(width * 0.75)
   const { percentScroll, position } = useContext(ScrollContext)
 
   return (
@@ -39,22 +42,23 @@ function Project(props) {
       </Link>
       {props.mainImage && mainImage.asset && (
         <div className={styles.imageWrapper}>
-          <div
-            style={{
-              transform: `translateY(${Math.round(position * 0.6)}px)`,
-              transition: `all 0.02s ease`
-            }}
-            // className={styles.innerImageWrapper}
-          >
-            <Image
-              // style={{ top: `${Math.floor(imageTop)}px` }}
-              asset={mainImage}
-              args={{ maxWidth: width, maxHeight: height }}
-            />
-          </div>
+          <Image
+            style={{ maxHeight: '75vh' }}
+            asset={mainImage}
+            args={{ maxWidth: width, maxHeight: height }}
+          />
         </div>
       )}
-      <Container>
+      <div
+        className={styles.backgroundOverlay}
+        style={{
+          transform: `translateY( calc( 75vh - ${Math.min(
+            position * 4,
+            windowHeight * 4
+          )}px + var(--burger-size) / 6 * 5 + var(--burger-size) * 2))`
+        }}
+      />
+      <Container style={{ marginTop: '75vh' }}>
         <div className={styles.grid}>
           <div className={styles.mainContent}>
             <h1 className={`${responsiveTitle1} ${styles.title}`}>{title}</h1>
