@@ -34,6 +34,7 @@ function Project(props) {
   } catch (e) {}
   const height = Math.floor(width * 0.75)
   const { percentScroll, position } = useContext(ScrollContext)
+
   const portrait = windowHeight > width
   return (
     <article className={styles.root}>

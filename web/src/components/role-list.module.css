@@ -18,12 +18,17 @@
 }
 
 .listItem {
+  cursor: pointer;
   opacity: 1;
   font-size: var(--font-small-size);
   margin: 1rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: var(--transition-short);
+  @nest &:hover {
+    color: var(--color-accent-dark);
+  }
 
   @nest & > div:last-child {
     flex: 1;
@@ -45,4 +50,35 @@
     vertical-align: top;
     object-fit: cover;
   }
+}
+
+.nameWrapper {
+  position: relative;
+}
+
+.followLink {
+  font-size: 1.25em;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* transform: translateX(-100%); */
+  opacity: 0;
+  transition: var(--transition-short);
+}
+
+.names {
+  left: 0;
+  opacity: 1;
+  transition: var(--transition-short);
+  /* transform: translateX(-100%); */
+}
+
+.listItem:hover > .nameWrapper .followLink {
+  opacity: 1;
+}
+.listItem:hover > .nameWrapper .names {
+  opacity: 0;
 }

@@ -29,24 +29,27 @@ function RoleList({ items, title }) {
                 )}
               </div>
             </div>
-            <div>
-              <div>
-                <strong>{(item.person && item.person.name) || <em>Missing</em>}</strong>
-              </div>
-              {item.roles && (
+            <div className={styles.nameWrapper}>
+              <div className={styles.followLink}> Follow [LOGO]</div>
+              <div className={styles.names}>
                 <div>
-                  {item.roles.map((role, idx) => {
-                    switch (true) {
-                      case idx === 0:
-                        return <span key={role}>{ucfirst(role)}</span>
-                      case idx === item.roles.length - 1:
-                        return <span key={role}> & {role}</span>
-                      default:
-                        return <span key={role}>, {role}</span>
-                    }
-                  })}
+                  <strong>{(item.person && item.person.name) || <em>Missing</em>}</strong>
                 </div>
-              )}
+                {item.roles && (
+                  <div>
+                    {item.roles.map((role, idx) => {
+                      switch (true) {
+                        case idx === 0:
+                          return <span key={role}>{ucfirst(role)}</span>
+                        case idx === item.roles.length - 1:
+                          return <span key={role}> & {role}</span>
+                        default:
+                          return <span key={role}>, {role}</span>
+                      }
+                    })}
+                  </div>
+                )}
+              </div>
             </div>
           </li>
         ))}
