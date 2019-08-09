@@ -1,16 +1,16 @@
 body {
-  /* overflow: hidden auto; */
+  overflow: hidden overlay;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   /* perspective: 1px; */
 }
 
 @media screen and (orientation: landscape) {
-  body::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     background: var(--color-main-light);
     width: 6px;
   }
-  body::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     background: var(--color-main-dark);
     border-radius: 15px;
     height: 30px;
@@ -22,7 +22,7 @@ body {
     }
   }
 
-  body::-webkit-scrollbar-track-piece {
+  ::-webkit-scrollbar-track-piece {
     display: none;
   }
 }

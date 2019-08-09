@@ -29,31 +29,31 @@ export default function BackgroundImage() {
   // const [listener, { width, height }] = ResizeAware()
   const calcParallax = number => (scrollPercent * -number) / 100
   return (
-    <Div100vh className={styles.backgroundImage}>
+    <div className={styles.backgroundImage}>
       {/* {listener} */}
       <svg className={styles.svgWrapper} viewBox={`0 0 600 600`}>
         <path
-          style={{ transform: `translate(-20%, ${calcParallax(30) + 105}%)` }}
+          style={{ transform: `translate(-20%, ${calcParallax(30) + 75}%)` }}
           fill={`var(${colors[2]})`}
           d={paths.third}
         />
         <path
-          style={{ transform: `translate(30%, ${calcParallax(15) + 130}%) scale(1.1)` }}
+          style={{ transform: `translate(30%, ${calcParallax(15) + 100}%) scale(1.1)` }}
           fill={`var(${colors[3]})`}
           d={paths.fourth}
         />
         <path
-          style={{ transform: `translate(75%, ${calcParallax(12) + 130}%)` }}
+          style={{ transform: `translate(75%, ${calcParallax(12) + 100}%)` }}
           fill={`var(${colors[0]})`}
           d={paths.first}
         />
         <path
-          style={{ transform: `translate(115%, ${calcParallax(25) + 100}%) scale(1.2)` }}
+          style={{ transform: `translate(115%, ${calcParallax(25) + 70}%) scale(1.2)` }}
           fill={`var(${colors[1]})`}
           d={paths.second}
         />
       </svg>
-    </Div100vh>
+    </div>
   )
 }
 
