@@ -138,12 +138,11 @@
 .backgroundOverlay {
   position: fixed;
   top: 0;
-  @media screen and (orientation: portrait) {
-    top: -100vh;
-  }
-  height: 600vh;
+
+  height: 200vh;
   width: 100vw;
-  background: radial-gradient(circle at top, transparent 15%, var(--color-main-light) 40%);
+  background: var(--color-main-light);
+  /* background: radial-gradient(circle at top, transparent 15%, var(--color-main-light) 40%); */
   transition: all 0.02s;
   z-index: -1;
 }

@@ -29,8 +29,8 @@ function Project(props) {
   let [width, setWidth] = useState(2400)
   const [windowHeight, setWindowHeight] = useState(1200)
   try {
-    if (width === 2400) setWidth(window.innerWidth)
-    if (windowHeight === 1200) setWindowHeight(window.innerHeight)
+    setWidth(window.innerWidth)
+    setWindowHeight(window.innerHeight)
   } catch (e) {}
   const height = Math.floor(width * 0.75)
   const { percentScroll, position } = useContext(ScrollContext)
@@ -55,8 +55,8 @@ function Project(props) {
         className={styles.backgroundOverlay}
         style={{
           transform: `translateY( calc( ${portrait ? '75vw' : '75vh'} - ${Math.min(
-            portrait ? position * 8 : position * 6,
-            windowHeight * 5
+            portrait ? position * 1.5 : position * 2,
+            windowHeight * 1.75
           )}px + var(--burger-size) / 6 * 5 + var(--burger-size) * 2))`
         }}
       />
