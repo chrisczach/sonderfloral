@@ -30,7 +30,6 @@ function Project(props) {
     size = window.innerWidth
   } catch (e) {}
   const height = Math.floor((9 / 16) * width)
-
   const { percentScroll, position } = useContext(ScrollContext)
 
   return (
@@ -41,8 +40,11 @@ function Project(props) {
       {props.mainImage && mainImage.asset && (
         <div className={styles.imageWrapper}>
           <div
-            style={{ transform: `translateY(${Math.round(position * 0.6)}px)` }}
-            className={styles.innerImageWrapper}
+            style={{
+              transform: `translateY(${Math.round(position * 0.6)}px)`,
+              transition: `all 0.02s ease`
+            }}
+            // className={styles.innerImageWrapper}
           >
             <Image
               // style={{ top: `${Math.floor(imageTop)}px` }}

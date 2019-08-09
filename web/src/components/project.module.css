@@ -10,9 +10,9 @@
   overflow: hidden;
 }
 
-.innerImageWrapper {
+/* .innerImageWrapper {
   transition: all 0.1s ease;
-}
+} */
 
 .categoryLink {
   position: -webkit-sticky;
