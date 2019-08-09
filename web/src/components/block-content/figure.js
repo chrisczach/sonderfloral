@@ -6,8 +6,10 @@ import styles from './figure.module.css'
 import Image from '../image'
 import ProgressiveImage from 'react-progressive-image'
 function Figure(props) {
+ let height = 800
+try {height = Math.round(window.innerHeight * 0.75} catch(e){}
   const imageSrc = imageUrlFor(buildImageObj(props))
-    .height(Math.round(window.innerHeight * 0.75))
+    .height(height)
     .url()
   const placeholderSrc = imageUrlFor(buildImageObj(props))
     .height(40)
