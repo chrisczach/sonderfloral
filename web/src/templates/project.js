@@ -58,6 +58,7 @@ export const query = graphql`
       members {
         _key
         person {
+          instagram
           image {
             crop {
               _key

@@ -14,7 +14,11 @@ function RoleList({ items, title }) {
       <h2 className={styles.headline}>{title}</h2>
       <ul className={styles.list}>
         {items.map(item => (
-          <li key={item._key} className={styles.listItem}>
+          <li
+            key={item._key}
+            className={styles.listItem}
+            style={{ cursor: item.person.instagram ? 'pointer' : 'auto' }}
+          >
             <div>
               <div className={styles.avatar}>
                 {item.person && item.person.image && item.person.image.asset && (
@@ -29,11 +33,7 @@ function RoleList({ items, title }) {
                 )}
               </div>
             </div>
-            <div className={styles.nameWrapper}>
-              <div className={styles.followLink}>
-                {' '}
-                Follow {(item.person && item.person.name) || ''}
-              </div>
+            <div className={item.person.instagram ? styles.nameWrapper : styles.nameWrapperNoShare}>
               <div className={styles.names}>
                 <div>
                   <strong>{(item.person && item.person.name) || <em>Missing</em>}</strong>
@@ -51,6 +51,13 @@ function RoleList({ items, title }) {
                       }
                     })}
                   </div>
+                )}
+              </div>
+              <div className={styles.followLink}>
+                {item.person.instagram && (
+                  <a className={styles.link} href={item.person.instagram} target="_blank">
+                    Follow {(item.person && item.person.name) || ''}
+                  </a>
                 )}
               </div>
             </div>
