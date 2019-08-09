@@ -55,7 +55,7 @@ function Project(props) {
         className={styles.backgroundOverlay}
         style={{
           transform: `translateY( calc( ${portrait ? '75vw' : '75vh'} - ${Math.min(
-            portrait ? position * 1.5 : position * 2,
+            portrait ? position * 1.25 : position * 1.125,
             windowHeight * 1.75
           )}px + var(--burger-size) / 6 * 5 + var(--burger-size) * 2))`
         }}
