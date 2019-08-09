@@ -13,19 +13,19 @@
 .card {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
-  box-shadow: 0 7px 28px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.22);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  /* box-shadow: 0 7px 28px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.22); */
+  /* -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px); */
   @media screen and (orientation: portrait) {
-    flex-direction: column;
+    flex-direction: column-reverse;
 
     align-items: stretch;
   }
 }
 
-.card:before {
+/* .card:before {
   content: '';
   position: absolute;
   width: 100%;
@@ -33,7 +33,7 @@
   background: var(--color-accent-light);
   filter: saturate(5);
   opacity: 0.1;
-}
+} */
 
 .imageWrapper {
   position: relative;
@@ -44,6 +44,33 @@
   }
 }
 
+.imageWrapper::after {
+  pointer-events: none;
+  z-index: 25;
+  content: '';
+  position: absolute;
+  width: calc(100% + 0.5em);
+  top: 0.5em;
+  left: 0.5em;
+  padding-bottom: calc(150% + 0.5em);
+  /* @media screen and (orientation: portrait) {
+    padding-bottom: calc(100% + 0.5em);
+  } */
+  outline-offset: -0.5em;
+  outline: var(--color-accent-light) solid 0.5em;
+  opacity: 0.5;
+  transition: var(--transition-short);
+}
+
+.imageWrapper:hover:after {
+  outline: var(--color-brand) solid 0.5em;
+  opacity: 0.6;
+  /* -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -filter: blur(3px);
+  filter: blur(3px); */
+}
+
 .imageWrapper::before {
   content: '';
   position: absolute;
@@ -52,6 +79,7 @@
 }
 
 .contentWrapper {
+  opacity: 0.75;
   position: relative;
   padding: 2em 2em 4em 2em;
   @media screen and (orientation: portrait) {

@@ -25,7 +25,7 @@ export default function PageCard({ image, title, children }) {
             asset={image}
             args={{
               maxWidth: imageWidth,
-              maxHeight: imageHeight + 20
+              maxHeight: imageWidth * 1.5
             }}
           />
         </div>

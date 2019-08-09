@@ -2,10 +2,11 @@
 
 .root {
   margin: 2rem 0 3rem;
-  border-top: 1px solid var(--color-main-dark);
 }
 
 .headline {
+  border-top: 1px solid var(--color-main-dark);
+  opacity: 0.75;
   composes: base from './typography.module.css';
   margin: 0.5rem 0 0;
 }
@@ -17,6 +18,7 @@
 }
 
 .listItem {
+  opacity: 1;
   font-size: var(--font-small-size);
   margin: 1rem 0;
   display: flex;

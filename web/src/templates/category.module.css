@@ -11,6 +11,6 @@
 }
 
 .bodyText p {
-  opacity: 0.6;
+  opacity: 0.75;
   color: var(--color-main-dark);
 }
