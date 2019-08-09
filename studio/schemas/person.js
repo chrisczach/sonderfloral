@@ -31,6 +31,11 @@ export default {
       }
     },
     {
+      name: "instagram",
+      title: "Instagram Link",
+      type: "url"
+    },
+    {
       name: "bio",
       title: "Bio",
       type: "array",

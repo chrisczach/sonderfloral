@@ -30,7 +30,10 @@ function RoleList({ items, title }) {
               </div>
             </div>
             <div className={styles.nameWrapper}>
-              <div className={styles.followLink}> Follow [LOGO]</div>
+              <div className={styles.followLink}>
+                {' '}
+                Follow {(item.person && item.person.name) || ''}
+              </div>
               <div className={styles.names}>
                 <div>
                   <strong>{(item.person && item.person.name) || <em>Missing</em>}</strong>
