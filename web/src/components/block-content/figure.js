@@ -7,7 +7,7 @@ import Image from '../image'
 import ProgressiveImage from 'react-progressive-image'
 function Figure(props) {
  let height = 800
-try {height = Math.round(window.innerHeight * 0.75} catch(e){}
+try {height = Math.round(window.innerHeight * 0.75)}catch(e){}
   const imageSrc = imageUrlFor(buildImageObj(props))
     .height(height)
     .url()
