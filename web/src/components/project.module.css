@@ -4,12 +4,21 @@
 .root {
   position: relative;
 }
+.container {
+  margin-top: 75vh;
+  @media screen and (orientation: portrait) {
+    margin-top: 75vw;
+  }
+}
 
 .imageWrapper {
   position: fixed;
   top: calc(var(--burger-size) / 6 * 5 + var(--burger-size) * 2);
   width: 100vw;
   height: 75vh;
+  @media screen and (orientation: portrait) {
+    height: 75vw;
+  }
   z-index: -120;
 }
 
@@ -129,14 +138,12 @@
 .backgroundOverlay {
   position: fixed;
   top: 0;
-  height: 400vh;
+  @media screen and (orientation: portrait) {
+    top: -100vh;
+  }
+  height: 600vh;
   width: 100vw;
-  background: radial-gradient(
-    circle at top,
-    transparent 0,
-    transparent,
-    var(--color-main-light) 50%
-  );
+  background: radial-gradient(circle at top, transparent 15%, var(--color-main-light) 40%);
   transition: all 0.02s;
   z-index: -1;
 }

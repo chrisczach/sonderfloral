@@ -2,9 +2,9 @@ import React from 'react'
 
 import styles from './container.module.css'
 
-const Container = ({ children, style }) => {
+const Container = ({ children, style, className }) => {
   return (
-    <div className={styles.root} style={style}>
+    <div className={`${styles.root} ${className}`} style={style}>
       {children}
     </div>
   )

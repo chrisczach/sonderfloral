@@ -34,12 +34,14 @@ function Project(props) {
   } catch (e) {}
   const height = Math.floor(width * 0.75)
   const { percentScroll, position } = useContext(ScrollContext)
-
+  const portrait = windowHeight > width
   return (
     <article className={styles.root}>
-      <Link className={styles.categoryLink} to={`/projects/${categorySlug}`}>
-        ← back to {categoryTitle}
-      </Link>
+      {!portrait && (
+        <Link className={styles.categoryLink} to={`/projects/${categorySlug}`}>
+          ← back to {categoryTitle}
+        </Link>
+      )}
       {props.mainImage && mainImage.asset && (
         <div className={styles.imageWrapper}>
           <Image
@@ -52,13 +54,13 @@ function Project(props) {
       <div
         className={styles.backgroundOverlay}
         style={{
-          transform: `translateY( calc( 75vh - ${Math.min(
-            position * 4,
-            windowHeight * 4
+          transform: `translateY( calc( ${portrait ? '75vw' : '75vh'} - ${Math.min(
+            portrait ? position * 8 : position * 6,
+            windowHeight * 5
           )}px + var(--burger-size) / 6 * 5 + var(--burger-size) * 2))`
         }}
       />
-      <Container style={{ marginTop: '75vh' }}>
+      <Container className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.mainContent}>
             <h1 className={`${responsiveTitle1} ${styles.title}`}>{title}</h1>
