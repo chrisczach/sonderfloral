@@ -27,7 +27,7 @@
 .imageWrapper {
   position: relative;
   z-index: 50;
-  margin: 0 0 1.5em -1em;
+  margin: 0 0 3.5em -1em;
   opacity: 0.95;
   transition: var(--transition-short);
   -webkit-backdrop-filter: blur(5px);

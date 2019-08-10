@@ -14,7 +14,7 @@ function RoleList({ items, title }) {
       <h2 className={styles.headline}>{title}</h2>
       <ul className={styles.list}>
         {items.map(item =>
-          addLink(item.person.instagram)(
+          addLink(`https://www.instagram.com/${item.person.instagram}`)(
             <li
               key={item._key}
               className={styles.listItem}
@@ -57,7 +57,8 @@ function RoleList({ items, title }) {
                   )}
                 </div>
                 <div className={styles.followLink}>
-                  {item.person.instagram && `Follow ${(item.person && item.person.name) || ''}`}
+                  {item.person.instagram &&
+                    `Follow @${(item.person.instagram && item.person.instagram) || ''}`}
                 </div>
               </div>
             </li>

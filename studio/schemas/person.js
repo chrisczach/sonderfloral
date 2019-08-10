@@ -32,8 +32,9 @@ export default {
     },
     {
       name: "instagram",
-      title: "Instagram Link",
-      type: "url"
+      title: "Instagram handle",
+      type: "string",
+      description: "Instagram handle without the @ in the start"
     },
     {
       name: "bio",

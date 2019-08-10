@@ -15,6 +15,7 @@ import { ScrollRefContext } from '../components/global-styles'
 import { Match } from '@reach/router'
 import PortfolioMasonryGrid from '../components/portfolio-masonry-grid'
 import HomeBanner from '../components/home-banner'
+import BlockContent from '../components/block-content'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -147,29 +148,8 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        {/* <div
-          className={styles.bannerWrapper}
-          ref={logoRef}
-        >
-          <h1 style={{ transform: `scale(${logoSize / 100})` }} className={headerStyles.branding}>
-            <Link
-              style={{ pointerEvents: 'visibleStroke' }}
-              className={headerStyles.logoText}
-              to="/"
-            >
-              {site.title.toUpperCase()}{' '}
-            </Link>
-            <div className={headerStyles.logo}>
-              <ReactSVG
-                className={headerStyles.svgWrapper}
-                src={site.logo && imageUrlFor(buildImageObj(site.logo)).url()}
-              />
-            </div>
-          </h1>
-        </div> */}
-
         <HomeBanner image={page.mainImage} />
-        <div style={{ height: '150vh' }}>Spacer to check layout</div>
+        <BlockContent blocks={data.page._rawBody || []} />
       </Container>
     </>
   )
