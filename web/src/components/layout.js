@@ -10,7 +10,7 @@ import { imageUrlFor } from '../lib/image-url'
 import Transition from './page-transition'
 import BackgroundImage from './background-image'
 import Div100vh from 'react-div-100vh'
-
+import instagramLogo from '../images/instagram-logo.svg'
 const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) => {
   let logo
   let title = ''
@@ -65,17 +65,28 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
                     className={styles.svgWrapper}
                     src={logo && imageUrlFor(buildImageObj(logo)).url()}
                   />
+
                   {companyInfo.name.toUpperCase()}
                 </div>
               )}
             </div>
-
-            <div className={styles.siteInfo}>
+            <a
+              href="https://www.instagram.com/sonderfloral/"
+              target="_blank"
+              className={styles.followSection}
+            >
+              <img
+                src={instagramLogo}
+                style={{ display: 'inline-block', height: '1.25em', margin: '0.5em' }}
+              />
+              @sonderfloral
+            </a>
+            {/* <div className={styles.siteInfo}>
               © {new Date().getFullYear()}, Built with <a href="https://www.sanity.io">Sanity</a>{' '}
               &amp;
               {` `}
               <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </div>
+            </div> */}
           </div>
         </footer>
 

@@ -61,3 +61,20 @@ body {
   width: 100vw;
   z-index: -2;
 }
+
+.followSection {
+  color: inherit;
+  text-transform: uppercase;
+  text-decoration: inherit;
+  cursor: pointer;
+  opacity: 0.75;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition-short);
+}
+
+.followSection:hover {
+  color: var(--color-accent-dark);
+}

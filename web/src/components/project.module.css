@@ -28,18 +28,23 @@
 
 .categoryLink {
   position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: var(--burger-size);
   z-index: 200;
   padding: 0 1em;
-  color: var(--color-accent-dark);
+  color: var(--color-main-dark);
   width: 100vw;
-  opacity: 0.8;
+  opacity: 0.7;
   text-decoration: none;
+  transition: var(--transition-short);
   @nest screen and (orientation: portrait) {
     display: none;
     opacity: 0;
   }
+}
+
+.categoryLink:hover {
+  color: var(--color-accent-dark);
 }
 
 .title {
