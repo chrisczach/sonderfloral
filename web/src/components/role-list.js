@@ -14,7 +14,7 @@ function RoleList({ items, title }) {
       <h2 className={styles.headline}>{title}</h2>
       <ul className={styles.list}>
         {items.map(item =>
-          addLink(`https://www.instagram.com/${item.person.instagram}`)(
+          addLink(item.person.instagram && `https://www.instagram.com/${item.person.instagram}`)(
             <li
               key={item._key}
               className={styles.listItem}
