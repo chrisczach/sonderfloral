@@ -36,7 +36,7 @@ function Project(props) {
 
   const portrait = windowHeight > width
 
-  const timeBetweenRender = new Date().getTime() - lastTrigger
+  const timeBetweenRender = Math.min(new Date().getTime() - lastTrigger, 100) || 100
   return (
     <article className={styles.root}>
       {!portrait && (

@@ -28,7 +28,7 @@ export default function BackgroundImage() {
 
   // const [listener, { width, height }] = ResizeAware()
   const calcParallax = number => (scrollPercent * -number) / 100
-  const timeBetweenRender = new Date().getTime() - lastTrigger
+  const timeBetweenRender = Math.min(new Date().getTime() - lastTrigger, 100) || 100
 
   const transitionStyle = { transition: `all ${timeBetweenRender / 1000}s linear` }
   return (
