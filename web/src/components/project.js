@@ -28,9 +28,8 @@ function Project(props) {
   } = props
 
   const [listener, { width, height }] = ResizeAware()
-  const [windowHeight, setWindowHeight] = useState(1200)
+  const [windowHeight, setWindowHeight] = useState(1000)
   try {
-    setWidth(window.innerWidth)
     setWindowHeight(window.innerHeight)
   } catch (e) {}
   const { percentScroll, position } = useContext(ScrollContext)
@@ -55,7 +54,7 @@ function Project(props) {
         style={{
           transform: `translateY( calc( ${portrait ? '75vw' : '85vh'} - ${Math.min(
             portrait ? position * 1.25 : position * 1.125,
-            windowHeight * 1.75
+            windowHeight
           )}px + var(--burger-size) / 6 * 5 + var(--burger-size) * 2))`
         }}
       />

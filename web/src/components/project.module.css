@@ -17,7 +17,7 @@
   width: 100vw;
   height: 85vh;
   @media screen and (orientation: portrait) {
-    height: 50vw;
+    height: 40vh;
   }
   z-index: -120;
 }
@@ -144,7 +144,7 @@
   position: fixed;
   top: 0;
 
-  height: 300vh;
+  height: 120vh;
   width: 100vw;
   background: var(--color-main-light);
   /* background: radial-gradient(circle at top, transparent 15%, var(--color-main-light) 40%); */
