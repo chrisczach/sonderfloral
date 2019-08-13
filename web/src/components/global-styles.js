@@ -31,23 +31,25 @@ export default function GlobalStyles({
   const [scrollProviderValue, setScrollProviderValue] = useState({ position: 0, percentScroll: 0 })
   useEffect(() => {
     const handler = event => {
-      const {
-        target: {
-          scrollingElement: { scrollTop, scrollHeight, offsetHeight }
-        }
-      } = event
+      window.requestAnimationFrame(() => {
+        const {
+          target: {
+            scrollingElement: { scrollTop, scrollHeight, offsetHeight }
+          }
+        } = event
 
-      const scrollObject = {
-        position: scrollTop,
-        percentScroll: scrollTop / (scrollHeight - offsetHeight),
-        scrollHeight,
-        offsetHeight
-      }
-      window.requestAnimationFrame(() => setScrollProviderValue(scrollObject))
+        const scrollObject = {
+          position: scrollTop,
+          percentScroll: scrollTop / (scrollHeight - offsetHeight),
+          scrollHeight,
+          offsetHeight
+        }
+        setScrollProviderValue(scrollObject)
+      })
     }
-    document.addEventListener('scroll', handler)
+    document.addEventListener('scroll', throttled(1000 / 60, handler))
     return () => {
-      document.removeEventListener('scroll', handler)
+      document.removeEventListener('scroll', throttled(1000 / 60, handler))
     }
   }, [])
   return (
@@ -55,6 +57,18 @@ export default function GlobalStyles({
       <div style={globalColors}>{children}</div>
     </ScrollContext.Provider>
   )
+}
+
+const throttled = (delay, fn) => {
+  let lastCall = 0
+  return function(...args) {
+    const now = new Date().getTime()
+    if (now - lastCall < delay) {
+      return
+    }
+    lastCall = now
+    return fn(...args)
+  }
 }
 
 export const ScrollContext = createContext({ position: 0, percentScroll: 0 })

@@ -148,6 +148,6 @@
   width: 100vw;
   background: var(--color-main-light);
   /* background: radial-gradient(circle at top, transparent 15%, var(--color-main-light) 40%); */
-  transition: all 0.02s ease;
+  transition: all 0.0167s linear;
   z-index: -1;
 }
