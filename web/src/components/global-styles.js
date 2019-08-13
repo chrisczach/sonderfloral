@@ -42,7 +42,8 @@ export default function GlobalStyles({
           position: scrollTop,
           percentScroll: scrollTop / (scrollHeight - offsetHeight),
           scrollHeight,
-          offsetHeight
+          offsetHeight,
+          lastTrigger: new Date().getTime()
         }
         setScrollProviderValue(scrollObject)
       })

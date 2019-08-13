@@ -17,7 +17,7 @@ export default function BackgroundImage() {
     width = window.innerWidth
     height = window.innerHeight
   } catch (e) {}
-  const { percentScroll } = useContext(ScrollContext)
+  const { percentScroll, lastTrigger } = useContext(ScrollContext)
   const scrollPercent = Math.round(percentScroll * 100)
 
   // const colorIndex = Math.floor(Math.random() * colors.length)
@@ -28,27 +28,36 @@ export default function BackgroundImage() {
 
   // const [listener, { width, height }] = ResizeAware()
   const calcParallax = number => (scrollPercent * -number) / 100
+  const timeBetweenRender = new Date().getTime() - lastTrigger
+
+  const transitionStyle = { transition: `all ${timeBetweenRender / 1000}s linear` }
   return (
     <div className={styles.backgroundImage}>
       {/* {listener} */}
-      <svg className={styles.svgWrapper} viewBox={`0 0 600 600`}>
+      <svg style={transitionStyle} className={styles.svgWrapper} viewBox={`0 0 600 600`}>
         <path
-          style={{ transform: `translate(-20%, ${calcParallax(30) + 75}%)` }}
+          style={{ transform: `translate(-20%, ${calcParallax(30) + 75}%)`, ...transitionStyle }}
           fill={`var(${colors[2]})`}
           d={paths.third}
         />
         <path
-          style={{ transform: `translate(30%, ${calcParallax(15) + 100}%) scale(1.1)` }}
+          style={{
+            transform: `translate(30%, ${calcParallax(15) + 100}%) scale(1.1)`,
+            ...transitionStyle
+          }}
           fill={`var(${colors[3]})`}
           d={paths.fourth}
         />
         <path
-          style={{ transform: `translate(75%, ${calcParallax(12) + 100}%)` }}
+          style={{ transform: `translate(75%, ${calcParallax(12) + 100}%)`, ...transitionStyle }}
           fill={`var(${colors[0]})`}
           d={paths.first}
         />
         <path
-          style={{ transform: `translate(115%, ${calcParallax(25) + 70}%) scale(1.2)` }}
+          style={{
+            transform: `translate(115%, ${calcParallax(25) + 70}%) scale(1.2)`,
+            ...transitionStyle
+          }}
           fill={`var(${colors[1]})`}
           d={paths.second}
         />
