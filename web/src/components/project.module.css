@@ -5,7 +5,7 @@
   position: relative;
 }
 .container {
-  margin-top: 75vh;
+  margin-top: 85vh;
   @media screen and (orientation: portrait) {
     margin-top: 75vw;
   }
@@ -15,9 +15,9 @@
   position: fixed;
   top: calc(var(--burger-size) / 6 * 5 + var(--burger-size) * 2);
   width: 100vw;
-  height: 75vh;
+  height: 85vh;
   @media screen and (orientation: portrait) {
-    height: 75vw;
+    height: 50vw;
   }
   z-index: -120;
 }
@@ -144,7 +144,7 @@
   position: fixed;
   top: 0;
 
-  height: 200vh;
+  height: 300vh;
   width: 100vw;
   background: var(--color-main-light);
   /* background: radial-gradient(circle at top, transparent 15%, var(--color-main-light) 40%); */

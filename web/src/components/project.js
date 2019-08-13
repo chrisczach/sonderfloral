@@ -11,6 +11,7 @@ import styles from './project.module.css'
 import { ScrollContext } from './global-styles'
 import { responsiveTitle1 } from '../components/typography.module.css'
 import { relative } from 'path'
+import ResizeAware from 'react-resize-aware'
 
 function Project(props) {
   const {
@@ -26,16 +27,16 @@ function Project(props) {
     }
   } = props
 
-  let [width, setWidth] = useState(2400)
+  const [listener, { width, height }] = ResizeAware()
   const [windowHeight, setWindowHeight] = useState(1200)
   try {
     setWidth(window.innerWidth)
     setWindowHeight(window.innerHeight)
   } catch (e) {}
-  const height = Math.floor(width * 0.75)
   const { percentScroll, position } = useContext(ScrollContext)
 
   const portrait = windowHeight > width
+
   return (
     <article className={styles.root}>
       {!portrait && (
@@ -45,17 +46,14 @@ function Project(props) {
       )}
       {props.mainImage && mainImage.asset && (
         <div className={styles.imageWrapper}>
-          <Image
-            style={{ maxHeight: '75vh' }}
-            asset={mainImage}
-            args={{ maxWidth: width, maxHeight: height }}
-          />
+          {listener}
+          <Image asset={mainImage} args={{ maxWidth: width || 1200, maxHeight: height || 1200 }} />
         </div>
       )}
       <div
         className={styles.backgroundOverlay}
         style={{
-          transform: `translateY( calc( ${portrait ? '75vw' : '75vh'} - ${Math.min(
+          transform: `translateY( calc( ${portrait ? '75vw' : '85vh'} - ${Math.min(
             portrait ? position * 1.25 : position * 1.125,
             windowHeight * 1.75
           )}px + var(--burger-size) / 6 * 5 + var(--burger-size) * 2))`
