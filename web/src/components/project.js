@@ -32,10 +32,11 @@ function Project(props) {
   try {
     setWindowHeight(window.innerHeight)
   } catch (e) {}
-  const { percentScroll, position } = useContext(ScrollContext)
+  const { percentScroll, position, lastTrigger } = useContext(ScrollContext)
 
   const portrait = windowHeight > width
 
+  const timeBetweenRender = Math.min(new Date().getTime() - lastTrigger, 100) || 100
   return (
     <article className={styles.root}>
       {!portrait && (
@@ -52,6 +53,7 @@ function Project(props) {
       <div
         className={styles.backgroundOverlay}
         style={{
+          transition: `all ${timeBetweenRender / 1000}s linear`,
           transform: `translateY( calc( ${portrait ? '75vw' : '85vh'} - ${Math.min(
             portrait ? position * 1.25 : position * 1.125,
             windowHeight
