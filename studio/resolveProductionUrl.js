@@ -6,7 +6,7 @@ export default function resolveProductionUrl(document) {
     const {
       slug: { current }
     } = document;
-    path = `equipment/${current}`;
+    path = `projects/${current}`;
   } else if (_type === "page") {
     const { _id } = document;
     if (_id.endsWith("home")) {
