@@ -1,4 +1,4 @@
-import sanityConfig from '../../../studio/sanity.json'
+// import sanityConfig from '../../../studio/sanity.json'
 import imageUrlBuilder from '@sanity/image-url'
 
 const sanityConfig = {
