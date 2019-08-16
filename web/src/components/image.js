@@ -1,9 +1,14 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import { getFluidGatsbyImage, getFixedGatsbyImage } from 'gatsby-source-sanity'
-import sanityConfig from '../../../studio/sanity.json'
+// import sanityConfig from '../../../studio/sanity.json'
 import { imageUrlFor } from '../lib/image-url'
-
+const sanityConfig = {
+  api: {
+    projectId: 'pjkgqycs',
+    dataset: 'production'
+  }
+}
 export default function Image({ asset, args, fixed = false, ...props }) {
   const imageArgs =
     args || (fixed ? { width: 1200, height: Math.floor((9 / 16) * 1200) } : { maxWidth: 1200 })
