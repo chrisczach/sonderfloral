@@ -1,8 +1,14 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import { getFluidGatsbyImage, getFixedGatsbyImage } from 'gatsby-source-sanity'
-import sanityConfig from '../../../studio/sanity.json'
+
 import { imageUrlFor } from '../lib/image-url'
+let sanityConfig = {
+  api: {
+    projectId: 'z8zw1m88',
+    dataset: 'production'
+  }
+}
 
 export default function Image({ asset, args, fixed = false, ...props }) {
   const imageArgs =
