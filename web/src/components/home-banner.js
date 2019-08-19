@@ -1,13 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './home-banner.module.css'
 import Image from './image'
 import { Link } from 'gatsby'
 
 export default function HomeBanner({ image }) {
   const [landscape, setLandscape] = useState(false)
-  try {
-    setLandscape(window.innerWidth > window.innerHeight)
-  } catch (e) {}
+  useEffect(() => {
+    const handler = () =>
+      setLandscape(window.innerWidth > window.innerHeight && window.innerWidth > 900)
+    handler()
+    window.addEventListener('resize', handler)
+    return () => {
+      window.removeEventListener('resize', handler)
+    }
+  }, [window.innerWidth, window.innerHeight])
   return (
     <>
       <div className={styles.nav}>
