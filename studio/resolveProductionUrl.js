@@ -23,6 +23,8 @@ export default function resolveProductionUrl(document) {
     } = document;
 
     path = `preview?category=${_ref}&project=${current}`;
+  } else if (_type === "post") {
+    path = "portfolio";
   }
 
   return `https://sonderpreview.herokuapp.com/${path}`;
