@@ -6,7 +6,9 @@ import { Link } from 'gatsby'
 export default function HomeBanner({ image }) {
   const [landscape, setLandscape] = useState(false)
   const [width, setWidth] = useState(1200)
-  useEffect(() => {
+  
+
+try{useEffect(() => {
     const handler = () => {
       setLandscape(window.innerWidth > window.innerHeight && window.innerWidth > 900)
     }
@@ -16,7 +18,7 @@ export default function HomeBanner({ image }) {
     return () => {
       window.removeEventListener('resize', handler)
     }
-  }, [window.innerWidth, window.innerHeight])
+  }, [window.innerWidth, window.innerHeight])} catch(e) {}
   return (
     <>
       <div className={styles.nav}>
