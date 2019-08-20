@@ -1,32 +1,12 @@
-import React, { useContext, useState, useEffect } from 'react'
-import posed from 'react-pose'
-import { tween } from 'popmotion'
-import { interpolate } from 'flubber'
-import ResizeAware from 'react-resize-aware'
-import Div100vh from 'react-div-100vh'
+import React, { useContext } from 'react'
 
 import styles from './background-image.module.css'
 import { ScrollContext } from './global-styles'
 
 export default function BackgroundImage() {
-  // const [index, setIndex] = useState(0)
-
-  let width = 2
-  let height = 1
-  try {
-    width = window.innerWidth
-    height = window.innerHeight
-  } catch (e) {}
   const { percentScroll, lastTrigger } = useContext(ScrollContext)
   const scrollPercent = Math.round(percentScroll * 100)
 
-  // const colorIndex = Math.floor(Math.random() * colors.length)
-  // const pathIndex = Math.floor(Math.random() * pathIds.length)
-
-  // const colorIndex = index
-  // const pathIndex = index
-
-  // const [listener, { width, height }] = ResizeAware()
   const calcParallax = number => (scrollPercent * -number) / 100
   const timeBetweenRender = Math.min(new Date().getTime() - lastTrigger, 100) || 100
 

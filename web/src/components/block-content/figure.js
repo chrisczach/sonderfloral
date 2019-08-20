@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { buildImageObj } from '../../lib/helpers'
 import { imageUrlFor } from '../../lib/image-url'
-import ImageBlurUp from '../image-blur-up'
 import styles from './figure.module.css'
-import Image from '../image'
 import ProgressiveImage from 'react-progressive-image'
 function Figure(props) {
   let [height, setHeight] = useState(800)

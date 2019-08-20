@@ -4,7 +4,6 @@ import PortfolioMasonryTile from './portfolio-masonry-tile'
 import ResizeAware from 'react-resize-aware'
 
 import PortfolioMasonryModal from './portfolio-masonry-modal'
-import { distanceInWordsToNow } from 'date-fns'
 
 export default function PortfolioMasonryGrid({ nodes }) {
   const [listener, { width }] = ResizeAware()

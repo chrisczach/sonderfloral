@@ -9,7 +9,6 @@ import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import Transition from './page-transition'
 import BackgroundImage from './background-image'
-import Div100vh from 'react-div-100vh'
 import instagramLogo from '../images/instagram-logo.svg'
 const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) => {
   let logo

@@ -1,7 +1,6 @@
 import React from 'react'
 import SEO from '../components/seo'
 import Container from '../components/layout'
-import Layout from '../containers/layout'
 import { Link } from 'gatsby'
 
 import { responsiveTitle1 } from '../components/typography.module.css'

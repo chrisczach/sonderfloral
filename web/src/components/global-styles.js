@@ -1,7 +1,4 @@
-import React, { createRef, createContext, useEffect, useState } from 'react'
-// import styles from './global-styles.module.css'
-import BackgroundImage from './background-image'
-import Div100vh from 'react-div-100vh'
+import React, { createContext, useEffect, useState } from 'react'
 
 export default function GlobalStyles({
   children,

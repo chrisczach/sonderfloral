@@ -6,6 +6,7 @@
   padding: 1.5em;
   margin: 0 auto;
   position: relative;
+  z-index: 1;
   @media (--media-min-small) {
     padding: 2em;
   }
