@@ -17,7 +17,7 @@ export const query = graphql`
           _id
           mainImage {
             asset {
-              _rawDataMetadata {
+              metadata {
                 dimensions {
                   aspectRatio
                 }
