@@ -5,7 +5,7 @@ const {
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.fluidpicturesinc.com`
+    siteUrl: `https://www.sonderfloral.com`
   },
   plugins: [
     'gatsby-plugin-postcss',
