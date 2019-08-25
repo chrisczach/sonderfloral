@@ -1,6 +1,5 @@
 import { Link } from 'gatsby'
-import React, { useState, useContext } from 'react'
-import Icon from './icons'
+import React, { useState, useContext, useEffect } from 'react'
 import { cn, buildImageObj } from '../lib/helpers'
 import ReactSVG from 'react-svg'
 
@@ -9,17 +8,25 @@ import styles from './header.module.css'
 import { ScrollContext } from './global-styles'
 
 const Header = ({ siteTitle, logo }) => {
-  const { percentScroll, position } = useContext(ScrollContext)
+  const { percentScroll } = useContext(ScrollContext)
 
   const [homeLarge, setHomeLarge] = useState(false)
-
-  try {
+  const setHomeSize = () =>
     setHomeLarge(
       window.innerWidth > window.innerHeight &&
         window.location.pathname === '/' &&
         window.innerWidth > 900
     )
+  try {
+    setHomeSize()
   } catch (e) {}
+
+  useEffect(() => {
+    window.addEventListener('resize', setHomeSize)
+    return () => {
+      window.removeEventListener('resize', setHomeSize)
+    }
+  }, [])
 
   const scaleCalc = Math.max(1.75 - percentScroll * 4, 1)
   const translateCalc = 35 - Math.round(Math.min(percentScroll * 300, 35))

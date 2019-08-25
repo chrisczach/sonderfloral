@@ -6,7 +6,7 @@ import Image from '../components/image'
 import styles from './page-card.module.css'
 
 export default function PageCard({ image, title, children }) {
-  const [wrapListener, { width, height }] = ResizeAware()
+  const [wrapListener, { width }] = ResizeAware()
   const [contentListener, { height: contentHeight }] = ResizeAware()
   let [isPortrait, setPortrait] = useState(true)
   try {

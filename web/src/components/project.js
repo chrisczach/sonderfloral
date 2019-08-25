@@ -1,8 +1,6 @@
 import { format, distanceInWords, differenceInDays } from 'date-fns'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'gatsby'
-import { buildImageObj } from '../lib/helpers'
-import { imageUrlFor } from '../lib/image-url'
 import BlockContent from './block-content'
 import Container from './container'
 import RoleList from './role-list'
@@ -10,7 +8,6 @@ import Image from './image'
 import styles from './project.module.css'
 import { ScrollContext } from './global-styles'
 import { responsiveTitle1 } from '../components/typography.module.css'
-import { relative } from 'path'
 import ResizeAware from 'react-resize-aware'
 
 function Project(props) {
@@ -32,11 +29,10 @@ function Project(props) {
   try {
     setWindowHeight(window.innerHeight)
   } catch (e) {}
-  const { percentScroll, position, lastTrigger } = useContext(ScrollContext)
+  const { position } = useContext(ScrollContext)
 
   const portrait = windowHeight > width
 
-  const timeBetweenRender = Math.min(new Date().getTime() - lastTrigger, 100) || 100
   return (
     <article className={styles.root}>
       {!portrait && (
@@ -45,21 +41,12 @@ function Project(props) {
         </Link>
       )}
       {props.mainImage && mainImage.asset && (
-        <div className={styles.imageWrapper}>
+        <div className={styles.imageWrapper} style={{ opacity: position > windowHeight ? 0 : 1 }}>
           {listener}
           <Image asset={mainImage} args={{ maxWidth: width || 1200, maxHeight: height || 1200 }} />
         </div>
       )}
-      <div
-        className={styles.backgroundOverlay}
-        style={{
-          transition: `all ${timeBetweenRender / 1000}s linear`,
-          transform: `translateY( calc( ${portrait ? '75vw' : '85vh'} - ${Math.min(
-            portrait ? position * 1.25 : position * 1.125,
-            windowHeight
-          )}px + var(--burger-size) / 6 * 5 + var(--burger-size) * 2))`
-        }}
-      />
+      <div className={styles.backgroundOverlay} style={{}} />
       <Container className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.mainContent}>

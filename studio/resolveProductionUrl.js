@@ -19,10 +19,12 @@ export default function resolveProductionUrl(document) {
   } else if (_type === "project") {
     const {
       slug: { current },
-      categories: { _ref }
+      category: { _ref }
     } = document;
 
     path = `preview?category=${_ref}&project=${current}`;
+  } else if (_type === "post") {
+    path = "portfolio";
   }
 
   return `https://sonderpreview.herokuapp.com/${path}`;
