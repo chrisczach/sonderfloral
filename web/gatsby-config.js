@@ -4,6 +4,9 @@ const {
 } = requireConfig('../studio/sanity.json')
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://www.fluidpicturesinc.com`
+  },
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
@@ -45,6 +48,7 @@ module.exports = {
         component: require.resolve(`./src/containers/layout.js`)
       }
     },
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-offline'
   ]
 }
