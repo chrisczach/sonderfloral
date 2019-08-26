@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './portfolio-masonry-tile.module.css'
 import Image from './image'
 export default function PortfolioMasonryTile({ columns, rows, size, mainImage, toggleModalOn }) {
-  const aspect = mainImage.asset._rawDataMetadata.dimensions.aspectRatio
+  const aspect = mainImage.asset.metadata.dimensions.aspectRatio
   return (
     <div
       onClick={toggleModalOn({ mainImage, columns: aspect, rows: 1 })}
