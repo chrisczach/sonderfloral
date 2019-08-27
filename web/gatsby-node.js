@@ -1,4 +1,4 @@
-const { format } = require('date-fns')
+const createPageDependency = require('gatsby/dist/redux/actions/add-page-dependency')
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -46,7 +46,7 @@ const { format } = require('date-fns')
 // }
 
 async function createProjectPages(graphql, actions, reporter) {
-  const { createPage, createPageDependency } = actions
+  const { createPage } = actions
   const result = await graphql(`
     {
       allSanityProject(filter: { slug: { current: { ne: null } } }) {
@@ -92,7 +92,7 @@ async function createProjectPages(graphql, actions, reporter) {
 }
 
 async function createProjectCategories(graphql, actions, reporter) {
-  const { createPage, createPageDependency } = actions
+  const { createPage } = actions
   const result = await graphql(`
     {
       allSanityCategory {
