@@ -30,7 +30,7 @@ const createPageDependency = require('gatsby/dist/redux/actions/add-page-depende
 
 //   postEdges.forEach((edge, index) => {
 //     const { id, slug = {}, publishedAt } = edge.node
-//     const dateSegment = format(publishedAt, 'YYYY/MM')
+//     const dateSegment = format(publishedAt, 'yyyy/MM')
 //     const path = `/portfolio/${dateSegment}/${slug.current}/`
 
 //     reporter.info(`Creating blog post page: ${path}`)

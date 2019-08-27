@@ -58,7 +58,7 @@ function Project(props) {
               <div className={styles.publishedAt}>
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
                   ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), 'MMMM Do YYYY')}
+                  : format(new Date(publishedAt), 'MMMM Do yyyy')}
               </div>
             )}
             {members && <RoleList items={members} title="Contributors" />}

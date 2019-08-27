@@ -14,7 +14,7 @@ export function filterOutDocsWithoutSlugs({ slug }) {
 }
 
 export function getBlogUrl(publishedAt, slug) {
-  return `/portfolio/${format(publishedAt, 'YYYY/MM')}/${slug.current || slug}/`
+  return `/portfolio/${format(publishedAt, 'yyyy/MM')}/${slug.current || slug}/`
 }
 
 export function buildImageObj(source) {
