@@ -29,7 +29,10 @@ function SEO({ description, lang, meta, keywords = [], title }) {
               lang
             }}
             title={title}
-            titleTemplate={title === data.site.title ? '%s' : `%s | ${data.site.title}`}
+            titleTemplate={
+              (title === data.site.title ? '%s' : `%s | ${data.site.title}`) +
+              ` | Seal Beach Florist | Special Event Flower Arrangements | Orange County, California`
+            }
             meta={[
               {
                 name: 'description',
