@@ -36,10 +36,13 @@
 }
 
 .avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 3em;
   height: 3em;
-  background: #eee;
+  background: var(--color-accent-light);
   border-radius: 50%;
   overflow: hidden;
 
@@ -48,6 +51,11 @@
     height: 100%;
     vertical-align: top;
     object-fit: cover;
+  }
+
+  @nest & span {
+    font-size: 1.15em;
+    line-height: 1;
   }
 }
 

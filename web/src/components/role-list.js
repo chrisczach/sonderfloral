@@ -22,7 +22,7 @@ function RoleList({ items, title }) {
             >
               <div>
                 <div className={styles.avatar}>
-                  {item.person && item.person.image && item.person.image.asset && (
+                  {item.person && item.person.image && item.person.image.asset ? (
                     <img
                       src={imageUrlFor(buildImageObj(item.person.image))
                         .width(100)
@@ -31,6 +31,15 @@ function RoleList({ items, title }) {
                         .url()}
                       alt=""
                     />
+                  ) : (
+                    <span>
+                      {item.person && item.person.name
+                        ? item.person.name
+                            .split(' ')
+                            .map(word => word[0])
+                            .join('')
+                        : ''}
+                    </span>
                   )}
                 </div>
               </div>
