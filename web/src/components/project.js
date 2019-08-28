@@ -1,4 +1,4 @@
-import { format, distanceInWords, differenceInDays } from 'date-fns'
+import { format, formatDistance, differenceInDays } from 'date-fns'
 import React, { useContext, useState } from 'react'
 import { Link } from 'gatsby'
 import BlockContent from './block-content'
@@ -56,13 +56,14 @@ function Project(props) {
           <aside className={styles.metaContent}>
             {publishedAt && (
               <div className={styles.publishedAt}>
-                {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), 'MMMM Do yyyy')}
+                Published{' '}
+                {differenceInDays(new Date(), new Date(publishedAt)) < 3
+                  ? formatDistance(new Date(publishedAt), new Date()) + ' ago'
+                  : `on ` + format(new Date(publishedAt), 'MMMM do yyyy')}
               </div>
             )}
             {members && <RoleList items={members} title="Contributors" />}
-            {relatedProjects && (
+            {relatedProjects && relatedProjects.length > 0 && (
               <div className={styles.relatedProjects}>
                 <h3 className={styles.relatedProjectsHeadline}>Related projects</h3>
                 <ul>
