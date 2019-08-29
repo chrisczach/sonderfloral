@@ -29,6 +29,7 @@ export default function PortfolioMasonryModal({
           <Image
             aspectFixed
             asset={modalImage}
+            alt={modalImage.alt}
             args={{ maxWidth: width - margin, maxHeight: height - margin }}
           />
         </div>

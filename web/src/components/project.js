@@ -43,7 +43,11 @@ function Project(props) {
       {props.mainImage && mainImage.asset && (
         <div className={styles.imageWrapper} style={{ opacity: position > windowHeight ? 0 : 1 }}>
           {listener}
-          <Image asset={mainImage} args={{ maxWidth: width || 1200, maxHeight: height || 1200 }} />
+          <Image
+            asset={mainImage}
+            alt={mainImage.alt}
+            args={{ maxWidth: width || 1200, maxHeight: height || 1200 }}
+          />
         </div>
       )}
       <div className={styles.backgroundOverlay} style={{}} />

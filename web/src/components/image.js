@@ -57,11 +57,11 @@ export default function Image({
     imgProps.srcSetWebp = imgProps.srcSetWebp && addRect(imgProps.srcSetWebp)
   }
   if (fixed) {
-    return <Img fixed={{ ...imgProps }} alt={asset.alt} {...props} />
+    return <Img fixed={{ ...imgProps }} {...props} />
   } else {
     if (imageArgs.maxWidth && imageArgs.maxHeight) {
       imgProps.aspectRatio = imageArgs.maxWidth / imageArgs.maxHeight
     }
-    return <Img fluid={{ ...imgProps }} alt={asset.alt} {...props} />
+    return <Img fluid={{ ...imgProps }} {...props} />
   }
 }

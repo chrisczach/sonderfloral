@@ -6,7 +6,6 @@ import { Link } from 'gatsby'
 export default function HomeBanner({ image }) {
   const [landscape, setLandscape] = useState(false)
   const [width, setWidth] = useState(1200)
-
   try {
     useEffect(() => {
       const handler = () => {
@@ -39,6 +38,7 @@ export default function HomeBanner({ image }) {
       <div className={styles.imageWrapper}>
         <Image
           asset={image}
+          alt={image.alt}
           args={{
             maxWidth: width,
             maxHeight: landscape ? Math.round(width * 0.667) : width

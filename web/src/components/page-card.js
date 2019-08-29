@@ -23,6 +23,7 @@ export default function PageCard({ image, title, children }) {
         <div className={styles.imageWrapper}>
           <Image
             asset={image}
+            alt={image.alt}
             args={{
               maxWidth: imageWidth,
               maxHeight: imageWidth * 1.5

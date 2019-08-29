@@ -23,6 +23,7 @@ function Figure(props) {
           {(imageSrc, loading) => (
             <>
               <img
+                alt={props.alt}
                 className={`${styles.base} ${props.caption && styles.captionBlur} ${
                   loading ? styles.beforeLoad : styles.afterLoaded
                 }`}
@@ -30,6 +31,7 @@ function Figure(props) {
               />
               <noscript>
                 <img
+                  alt={props.alt}
                   className={`${styles.base} ${props.caption && styles.captionBlur}  ${
                     styles.afterLoaded
                   }`}

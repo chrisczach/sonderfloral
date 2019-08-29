@@ -15,7 +15,11 @@ function ProjectPreview(props) {
     >
       {props.mainImage && props.mainImage.asset && (
         <div className={styles.imageWrapper}>
-          <Image asset={props.mainImage} args={{ maxWidth: 300, maxHeight: 300 }} />
+          <Image
+            asset={props.mainImage}
+            alt={props.mainImage.alt}
+            args={{ maxWidth: 300, maxHeight: 300 }}
+          />
         </div>
       )}
       <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
