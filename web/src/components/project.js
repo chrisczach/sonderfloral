@@ -36,7 +36,7 @@ function Project(props) {
   return (
     <article className={styles.root}>
       {!portrait && (
-        <Link className={styles.categoryLink} to={`/projects/${categorySlug}`}>
+        <Link className={styles.categoryLink} to={`/projects/${categorySlug}/`}>
           ← back to {categoryTitle}
         </Link>
       )}
@@ -69,7 +69,7 @@ function Project(props) {
                 <ul>
                   {relatedProjects.map(project => (
                     <li key={`related_${project._id}`}>
-                      <Link to={`/project/${project.slug.current}`}>{project.title}</Link>
+                      <Link to={`/project/${project.slug.current}/`}>{project.title}</Link>
                     </li>
                   ))}
                 </ul>

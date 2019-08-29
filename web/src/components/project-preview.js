@@ -11,7 +11,7 @@ function ProjectPreview(props) {
   return (
     <Link
       className={styles.root}
-      to={`/projects/${props.category.slug.current}/${props.slug.current}`}
+      to={`/projects/${props.category.slug.current}/${props.slug.current}/`}
     >
       {props.mainImage && props.mainImage.asset && (
         <div className={styles.imageWrapper}>

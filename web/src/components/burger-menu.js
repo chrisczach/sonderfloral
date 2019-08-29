@@ -12,21 +12,21 @@ export default function burgerMenu({ siteTitle, logo }) {
   const handleChange = ({ isOpen }) => setOpen(isOpen)
   return (
     <Menu right pageWrapId={'page-wrap'} isOpen={open} onStateChange={handleChange}>
-      <Link id="about" className="menu-item" to="/about" onClick={closeMenu}>
+      <Link id="about" className="menu-item" to="/about/" onClick={closeMenu}>
         About
       </Link>
       <Link
         id="sonder-series"
         className="menu-item"
-        to="/projects/sonder-series"
+        to="/projects/sonder-series/"
         onClick={closeMenu}
       >
         Sonder Series
       </Link>
-      <Link id="portfolio" className="menu-item" to="/portfolio" onClick={closeMenu}>
+      <Link id="portfolio" className="menu-item" to="/portfolio/" onClick={closeMenu}>
         Portfolio
       </Link>
-      <Link id="contact" className="menu-item" to="/contact" onClick={closeMenu}>
+      <Link id="contact" className="menu-item" to="/contact/" onClick={closeMenu}>
         Contact
       </Link>
       <div className={styles.branding}>
