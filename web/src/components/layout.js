@@ -69,6 +69,7 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
                 </div>
               )}
             </div>
+
             <a
               href="https://www.instagram.com/sonderfloral/"
               target="_blank"
