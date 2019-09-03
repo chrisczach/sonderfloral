@@ -5,6 +5,11 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import HomeBanner from '../components/home-banner'
 import BlockContent from '../components/block-content'
+import PortfolioMasonryModal from '../components/portfolio-masonry-modal'
+import { mapEdgesToNodes } from '../lib/helpers'
+import styles from './index.module.css'
+import PortfolioMasonryGrid from '../components/portfolio-masonry-grid'
+import { responsiveTitle1 } from '../components/typography.module.css'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -67,7 +72,34 @@ export const query = graphql`
       title
       _rawBody
     }
-
+    posts: allSanityPost(sort: { fields: [_createdAt], order: DESC }) {
+      edges {
+        node {
+          _id
+          mainImage {
+            asset {
+              metadata {
+                dimensions {
+                  aspectRatio
+                }
+              }
+              _id
+              metadata {
+                lqip
+              }
+            }
+            alt
+          }
+          title
+          columns
+          rows
+          _rawExcerpt
+          slug {
+            current
+          }
+        }
+      }
+    }
     projects: allSanityProject(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
@@ -132,13 +164,51 @@ const IndexPage = props => {
   const logoRef = useRef()
   const [logoSize, setLogoSize] = useState(200)
 
+  //portfolio
+  const postNodes = data && data.posts && mapEdgesToNodes(data.posts)
+
+  const [modalShown, setModal] = useState(false)
+  const [modalImage, setModalImage] = useState()
+  const [aspect, setAspect] = useState(1)
+  const toggleModalOn = ({ mainImage, columns, rows }) => () => {
+    setModal(true)
+    setModalImage(mainImage)
+    setAspect(columns / rows || 1)
+  }
+
   return (
     <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <PortfolioMasonryModal
+        modalShown={modalShown}
+        aspect={aspect}
+        toggleModal={() => setModal(!modalShown)}
+        modalImage={modalImage}
+        setModalImage={setModalImage}
+      />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
         <HomeBanner image={page.mainImage} />
-        <BlockContent blocks={data.page._rawBody || []} />
+        <div className={styles.bodyWrapper}>
+          <BlockContent blocks={data.page._rawBody || []} />
+        </div>
+        <div style={{ minHeight: '100vh', margin: '-1em' }}>
+          <h2 className={`${responsiveTitle1} ${styles.headerText}`}>Portfolio</h2>
+          {postNodes && postNodes.length > 0 && (
+            <PortfolioMasonryGrid
+              nodes={postNodes}
+              {...{
+                modalShown,
+                setModal,
+                modalImage,
+                setModalImage,
+                aspect,
+                setAspect,
+                toggleModalOn
+              }}
+            />
+          )}
+        </div>
       </Container>
     </>
   )
