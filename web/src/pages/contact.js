@@ -87,9 +87,6 @@ const ContactPage = props => {
       <Container>
         <PageCard image={mainImage} title={title}>
           <BlockContent blocks={_rawBody || []} />
-          {personNodes && personNodes.length > 0 && (
-            <PeopleGrid items={personNodes} title="People" />
-          )}
         </PageCard>
       </Container>
     </>

@@ -86,3 +86,8 @@
     padding: 1em 1em 2em 1em;
   }
 }
+
+a:hover {
+  color: var(--color-accent-dark) !important;
+  transition: var(--transition-short);
+}
