@@ -117,6 +117,13 @@ a:visited {
   opacity: 0.15;
 }
 
-.contactWrapper > h2 {
+.contactWrapper:hover > .contactText {
+  letter-spacing: 0.025em;
+}
+.contactText {
+  transition: var(--transition-short);
   transform: translate(0.25em, 0.25em);
+  font-weight: 100;
+  font-family: var(--font-primary);
+  letter-spacing: inherit;
 }
