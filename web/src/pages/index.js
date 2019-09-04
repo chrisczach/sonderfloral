@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
@@ -9,7 +9,7 @@ import PortfolioMasonryModal from '../components/portfolio-masonry-modal'
 import { mapEdgesToNodes } from '../lib/helpers'
 import styles from './index.module.css'
 import PortfolioMasonryGrid from '../components/portfolio-masonry-grid'
-import { responsiveTitle1 } from '../components/typography.module.css'
+import { responsiveTitle1, responsiveTitle2 } from '../components/typography.module.css'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -149,20 +149,12 @@ const IndexPage = props => {
 
   const site = (data || {}).site
   const page = (data || {}).page
-  // const postNodes = (data || {}).posts
-  //   ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
-  //   : []
-  // const projectNodes = (data || {}).projects
-  //   ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
-  //   : []
 
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
     )
   }
-  const logoRef = useRef()
-  const [logoSize, setLogoSize] = useState(200)
 
   //portfolio
   const postNodes = data && data.posts && mapEdgesToNodes(data.posts)
@@ -192,8 +184,10 @@ const IndexPage = props => {
         <div className={styles.bodyWrapper}>
           <BlockContent blocks={data.page._rawBody || []} />
         </div>
-        <div style={{ minHeight: '100vh', margin: '-1em' }}>
-          <h2 className={`${responsiveTitle1} ${styles.headerText}`}>Portfolio</h2>
+        <div style={{ minHeight: '100vh', margin: '1em -1em' }}>
+          <Link to="/portfolio/">
+            <h2 className={`${responsiveTitle1} ${styles.headerText}`}>Portfolio</h2>
+          </Link>
           {postNodes && postNodes.length > 0 && (
             <PortfolioMasonryGrid
               nodes={postNodes}
@@ -209,6 +203,11 @@ const IndexPage = props => {
             />
           )}
         </div>
+        <Link to="/contact/">
+          <div className={styles.contactWrapper}>
+            <h2 className={responsiveTitle2}>Contact Us</h2>
+          </div>
+        </Link>
       </Container>
     </>
   )
