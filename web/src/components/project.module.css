@@ -5,9 +5,10 @@
   position: relative;
 }
 .container {
-  margin-top: 85vh;
+  position: relative;
+  top: 85vh;
   @media screen and (orientation: portrait) {
-    margin-top: 75vw;
+    top: 75vw;
   }
 }
 
@@ -148,7 +149,10 @@
 
 .backgroundOverlay {
   position: absolute;
-  top: 0;
+  top: 85vh;
+  @media screen and (orientation: portrait) {
+    top: 75vw;
+  }
   min-height: 100vh;
   height: 100%;
   width: 100vw;
