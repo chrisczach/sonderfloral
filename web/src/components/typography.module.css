@@ -121,7 +121,7 @@
 
 .responsiveTitle3 {
   font-weight: 100;
-  font-size: var(--font-title2-size);
+  font-size: var(--font-title3-size);
   font-family: var(--font-brand);
   text-transform: uppercase;
   line-height: var(--font-large-line-height);
@@ -143,12 +143,12 @@
   font-weight: 100;
   font-style: italic;
   font-family: var(--font-main);
-  opacity: 0.8;
-  font-size: var(--font-large-size);
+  opacity: 0.65;
+  font-size: var(--font-base-size);
   line-height: var(--font-large-line-height);
   margin: 1em 0;
 
-  @media (--media-min-small) {
+  @media (--media-large-small) {
     font-size: var(--font-base-size);
     line-height: var(--font-base-line-height);
   }
