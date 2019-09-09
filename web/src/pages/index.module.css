@@ -50,6 +50,9 @@ a:visited {
 
 .bodyWrapper {
   margin: 12em 3em;
+  @media screen and (orientation: portrait) {
+    margin: 6em 0em;
+  }
 }
 
 .contactWrapper {
