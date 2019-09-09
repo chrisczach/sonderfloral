@@ -34,7 +34,6 @@
   z-index: 200;
   padding: 0 1em;
   color: var(--color-main-dark);
-  width: 100vw;
   opacity: 0.7;
   text-decoration: none;
   transition: var(--transition-short);
