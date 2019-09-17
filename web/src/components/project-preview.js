@@ -22,7 +22,7 @@ function ProjectPreview(props) {
           />
         </div>
       )}
-      <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
+      <h3 className={responsiveTitle3 + ' ' + styles.title}>{props.title}</h3>
     </Link>
   )
 }
