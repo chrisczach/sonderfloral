@@ -10,7 +10,7 @@ import { ScrollContext } from './global-styles'
 const Header = ({ siteTitle, logo }) => {
   const { percentScroll } = useContext(ScrollContext)
 
-  const [homeLarge, setHomeLarge] = useState(true)
+  const [homeLarge, setHomeLarge] = useState(false)
   const setHomeSize = () =>
     setHomeLarge(
       window.innerWidth > window.innerHeight &&
@@ -18,7 +18,7 @@ const Header = ({ siteTitle, logo }) => {
         window.innerWidth > 900
     )
   try {
-    setHomeSize()
+    setTimeout(setHomeSize, 0)
   } catch (e) {}
 
   useEffect(() => {
