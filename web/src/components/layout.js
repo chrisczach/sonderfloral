@@ -11,7 +11,7 @@ import Transition from './page-transition'
 import BackgroundImage from './background-image'
 import instagramLogo from '../images/instagram-logo.svg'
 const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) => {
-  let logo
+  let logo, submarkLogo, alt1logo
   let title = ''
   let pathname = ''
   try {
@@ -28,13 +28,15 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
 
   try {
     logo = siteSettings.logo
+    submarkLogo = siteSettings.submarkLogo
+    alt1logo = siteSettings.alt1logo
   } catch (err) {
     console.log('prevent build error')
   }
 
   return (
     <GlobalStyles siteSettings={siteSettings}>
-      <BurgerMenu siteTitle={title} logo={logo} />
+      <BurgerMenu siteTitle={title} logo={alt1logo} />
       <div id="page-wrap">
         <Header siteTitle={title} logo={logo} />
 
@@ -62,7 +64,7 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
                   {companyInfo.country && <span>, {companyInfo.country}</span>} */}
                   <ReactSVG
                     className={styles.svgWrapper}
-                    src={logo && imageUrlFor(buildImageObj(logo)).url()}
+                    src={submarkLogo && imageUrlFor(buildImageObj(submarkLogo)).url()}
                   />
 
                   {/* {companyInfo.name.toUpperCase()} */}

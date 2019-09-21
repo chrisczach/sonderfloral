@@ -16,12 +16,18 @@ body {
 .footer {
 }
 
+.svgWrapper {
+  display: flex;
+  justify-content: center;
+}
 .svgWrapper div svg {
-  height: 120px;
+  height: 45px;
+
   width: auto;
 }
 
-.svgWrapper div svg g path {
+.svgWrapper div svg g path,
+.svgWrapper div svg path {
   fill: var(--color-accent-dark);
 }
 

@@ -84,7 +84,8 @@
   width: auto;
 }
 /* WHY IS LOGO AND MORPH SHAPE THE SAME!!! */
-.svgWrapper div svg g path {
+.svgWrapper div svg g path,
+.svgWrapper div svg path {
   fill: var(--color-accent-dark);
 }
 
