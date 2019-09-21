@@ -7,19 +7,21 @@ import { imageUrlFor } from '../lib/image-url'
 import styles from './header.module.css'
 import { ScrollContext } from './global-styles'
 
-const Header = ({ siteTitle, logo }) => {
+const Header = ({ siteTitle, logo, pathname }) => {
   const { percentScroll } = useContext(ScrollContext)
-
-  const [homeLarge, setHomeLarge] = useState(false)
+  const [homeLarge, setHomeLarge] = useState(pathname === '/' ? true : false)
   const setHomeSize = () =>
     setHomeLarge(
-      window.innerWidth > window.innerHeight &&
-        window.location.pathname === '/' &&
-        window.innerWidth > 900
+      window.innerWidth > window.innerHeight && pathname === '/' && window.innerWidth > 900
     )
 
-  useEffect(() => {
+  const [prevPath, setPrevPath] = useState(pathname)
+  if (prevPath !== pathname) {
+    setPrevPath(pathname)
     setHomeSize()
+  }
+
+  useEffect(() => {
     window.addEventListener('resize', setHomeSize)
     return () => {
       window.removeEventListener('resize', setHomeSize)

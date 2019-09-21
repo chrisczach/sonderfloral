@@ -38,7 +38,7 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
     <GlobalStyles siteSettings={siteSettings}>
       <BurgerMenu siteTitle={title} logo={alt1logo} />
       <div id="page-wrap">
-        <Header siteTitle={title} logo={logo} />
+        <Header siteTitle={title} logo={logo} pathname={pathname} />
 
         <Transition location={{ pathname }}>
           <>
