@@ -7,8 +7,10 @@
 .container {
   position: relative;
   top: 85vh;
+  margin-bottom: 85vh;
   @media screen and (orientation: portrait) {
     top: 75vw;
+    margin-bottom: 75vh;
   }
 }
 
@@ -17,6 +19,7 @@
   top: calc(var(--burger-size) / 6 * 5 + var(--burger-size) * 2);
   width: 100vw;
   height: 85vh;
+
   @media screen and (orientation: portrait) {
     height: 40vh;
   }

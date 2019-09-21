@@ -5,7 +5,7 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -33%);
   opacity: 0.8;
   background: transparent !important;
 }
@@ -18,7 +18,7 @@
 }
 
 .svgStyle {
-  height: 120px;
+  height: 200px;
   width: auto;
   transform: translateY(36px);
 }
