@@ -17,11 +17,9 @@ const Header = ({ siteTitle, logo }) => {
         window.location.pathname === '/' &&
         window.innerWidth > 900
     )
-  try {
-    setTimeout(setHomeSize, 0)
-  } catch (e) {}
 
   useEffect(() => {
+    setHomeSize()
     window.addEventListener('resize', setHomeSize)
     return () => {
       window.removeEventListener('resize', setHomeSize)
