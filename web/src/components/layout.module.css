@@ -22,7 +22,7 @@ body {
 }
 
 .svgWrapper div svg g path {
-  fill: var(--color-main-dark);
+  fill: var(--color-accent-dark);
 }
 
 .footerWrapper {
@@ -64,7 +64,7 @@ body {
 
 .followSection {
   color: inherit;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   text-decoration: inherit;
   cursor: pointer;
   opacity: 0.75;

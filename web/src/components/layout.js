@@ -65,7 +65,7 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
                     src={logo && imageUrlFor(buildImageObj(logo)).url()}
                   />
 
-                  {companyInfo.name.toUpperCase()}
+                  {/* {companyInfo.name.toUpperCase()} */}
                 </div>
               )}
             </div>

@@ -42,14 +42,15 @@ const Header = ({ siteTitle, logo }) => {
         className={styles.branding}
       >
         <Link className={styles.logoText} to="/">
-          {siteTitle.toUpperCase()}{' '}
+          {/* {siteTitle.toUpperCase()}{' '} */}
+
+          <div className={styles.logo}>
+            <ReactSVG
+              className={styles.svgWrapper}
+              src={logo && imageUrlFor(buildImageObj(logo)).url()}
+            />
+          </div>
         </Link>
-        <div className={styles.logo}>
-          <ReactSVG
-            className={styles.svgWrapper}
-            src={logo && imageUrlFor(buildImageObj(logo)).url()}
-          />
-        </div>
       </h1>
     </div>
   )

@@ -76,7 +76,6 @@
   display: inline-block;
   position: relative;
   z-index: 200;
-  transform: translate(-33%, 50%);
   height: 30px;
 }
 
@@ -86,7 +85,7 @@
 }
 /* WHY IS LOGO AND MORPH SHAPE THE SAME!!! */
 .svgWrapper div svg g path {
-  fill: var(--color-main-dark);
+  fill: var(--color-accent-dark);
 }
 
 .logoText {

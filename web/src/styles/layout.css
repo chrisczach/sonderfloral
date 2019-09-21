@@ -1,9 +1,111 @@
 @import './vars.css';
 @import './hamburgerhelper.css';
 @font-face {
-  font-family: 'dk_lampionregular';
-  src: url('dk_lampion-webfont.woff2') format('woff2'),
-    url('dk_lampion-webfont.woff') format('woff');
+  font-family: 'Butler Stencil';
+  src: url('fonts/ButlerStencil-Medium.woff2') format('woff2'),
+    url('fonts/ButlerStencil-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler Stencil';
+  src: url('fonts/ButlerStencil.woff2') format('woff2'),
+    url('fonts/ButlerStencil.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler Stencil';
+  src: url('fonts/ButlerStencil-ExtraBold.woff2') format('woff2'),
+    url('fonts/ButlerStencil-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler Stencil';
+  src: url('fonts/ButlerStencil-Black.woff2') format('woff2'),
+    url('fonts/ButlerStencil-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler Stencil';
+  src: url('fonts/ButlerStencil-UltraLight.woff2') format('woff2'),
+    url('fonts/ButlerStencil-UltraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler Stencil';
+  src: url('fonts/ButlerStencil-Bold.woff2') format('woff2'),
+    url('fonts/ButlerStencil-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler Stencil';
+  src: url('fonts/ButlerStencil-Light.woff2') format('woff2'),
+    url('fonts/ButlerStencil-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('fonts/Butler-UltraLight.woff2') format('woff2'),
+    url('fonts/Butler-UltraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('fonts/Butler-Medium.woff2') format('woff2'),
+    url('fonts/Butler-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('fonts/Butler-Light.woff2') format('woff2'),
+    url('fonts/Butler-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('fonts/Butler-Black.woff2') format('woff2'),
+    url('fonts/Butler-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('fonts/Butler-Bold.woff2') format('woff2'), url('fonts/Butler-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('fonts/Butler-ExtraBold.woff2') format('woff2'),
+    url('fonts/Butler-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Butler';
+  src: url('fonts/Butler.woff2') format('woff2'), url('fonts/Butler.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
