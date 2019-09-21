@@ -48,7 +48,6 @@
 }
 
 .title {
-  composes: responsiveTitle1 from './typography.module.css';
   position: absolute;
   top: 50%;
   left: 50%;
