@@ -10,7 +10,7 @@ import { ScrollContext } from './global-styles'
 const Header = ({ siteTitle, logo }) => {
   const { percentScroll } = useContext(ScrollContext)
 
-  const [homeLarge, setHomeLarge] = useState(false)
+  const [homeLarge, setHomeLarge] = useState(true)
   const setHomeSize = () =>
     setHomeLarge(
       window.innerWidth > window.innerHeight &&
