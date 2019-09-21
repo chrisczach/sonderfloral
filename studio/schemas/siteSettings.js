@@ -33,8 +33,23 @@ export default {
     },
     {
       name: "logo",
-      title: "Logo",
+      title: "Main Logo",
       type: "mainImage"
+    },
+    {
+      name: "alt1logo",
+      title: "Alt 1 Logo",
+      type: "image"
+    },
+    {
+      name: "alt2logo",
+      title: "Alt 2 Logo",
+      type: "image"
+    },
+    {
+      name: "submarkLogo",
+      title: "Submark Logo",
+      type: "image"
     },
     {
       name: "primaryLight",
