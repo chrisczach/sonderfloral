@@ -7,10 +7,10 @@
 .container {
   position: relative;
   top: 85vh;
-  margin-bottom: 85vh;
+  /* margin-bottom: 85vh; */
   @media screen and (orientation: portrait) {
     top: 75vw;
-    margin-bottom: 75vh;
+    /* margin-bottom: 75vh; */
   }
 }
 
@@ -162,4 +162,11 @@
   /* background: radial-gradient(circle at top, transparent 15%, var(--color-main-light) 40%); */
   /* transition: all 0.0167s linear; */
   z-index: 0;
+}
+
+.spacer {
+  height: 85vh;
+  @media screen and (orientation: portrait) {
+    height: 75vh;
+  }
 }
