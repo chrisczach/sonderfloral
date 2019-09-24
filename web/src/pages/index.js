@@ -205,7 +205,7 @@ const IndexPage = props => {
         </div>
         <Link to="/contact/">
           <div className={styles.contactWrapper}>
-            <h2 className={responsiveTitle2 + ' ' + styles.contactText}>contact us</h2>
+            <h2 className={styles.contactText}>contact us</h2>
           </div>
         </Link>
       </Container>

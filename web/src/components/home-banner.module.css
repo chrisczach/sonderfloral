@@ -53,9 +53,9 @@
   width: calc(100% + 0.5em);
   top: 0.5em;
   left: 0.5em;
-  padding-bottom: calc(66% + 1em);
-  @media screen and (orientation: portrait) {
-    padding-bottom: calc(100% + 0.5em);
+  padding-bottom: calc(100% + 0.5em);
+  @media screen and (orientation: landscape) and (min-width: 900px) {
+    padding-bottom: calc(66% + 1em);
   }
   outline-offset: -0.5em;
   outline: var(--color-accent-light) solid 0.5em;

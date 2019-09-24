@@ -10,9 +10,9 @@ export default function HomeBanner({ image }) {
     useEffect(() => {
       const handler = () => {
         setLandscape(window.innerWidth > window.innerHeight && window.innerWidth > 900)
+        setWidth(window.innerWidth)
       }
       handler()
-      setWidth(window.innerWidth)
       window.addEventListener('resize', handler)
       return () => {
         window.removeEventListener('resize', handler)
