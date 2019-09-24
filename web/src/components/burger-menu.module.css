@@ -20,6 +20,10 @@
 .svgStyle {
   height: 200px;
   width: auto;
+
+  @media screen and (orientation: portrait) {
+    height: 150px;
+  }
   transform: translateY(36px);
 }
 
