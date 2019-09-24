@@ -20,8 +20,8 @@
   width: 100vw;
   height: 85vh;
 
-  @media screen and (orientation: portrait) {
-    height: 40vh;
+  @media screen and (orientation: portrait) and (max-width: 900px) {
+    height: 75vw;
   }
   z-index: -120;
 }
