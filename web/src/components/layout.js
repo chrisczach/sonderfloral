@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactSVG from 'react-svg'
+import { Link } from 'gatsby'
 import Header from './header'
 import BurgerMenu from './burger-menu'
 import '../styles/layout.css'
@@ -62,11 +63,12 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
                   )}
                   {companyInfo.zipCode} {companyInfo.city}
                   {companyInfo.country && <span>, {companyInfo.country}</span>} */}
-                  <ReactSVG
-                    className={styles.svgWrapper}
-                    src={submarkLogo && imageUrlFor(buildImageObj(submarkLogo)).url()}
-                  />
-
+                  <Link to="/">
+                    <ReactSVG
+                      className={styles.svgWrapper}
+                      src={submarkLogo && imageUrlFor(buildImageObj(submarkLogo)).url()}
+                    />
+                  </Link>
                   {/* {companyInfo.name.toUpperCase()} */}
                 </div>
               )}

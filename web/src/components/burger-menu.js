@@ -30,11 +30,13 @@ export default function burgerMenu({ siteTitle, logo }) {
         Contact
       </Link>
       <div className={styles.branding}>
-        <ReactSVG
-          svgClassName={styles.svgStyle}
-          className={styles.svgWrapper}
-          src={logo && imageUrlFor(buildImageObj(logo)).url()}
-        />
+        <Link to="/" onClick={closeMenu}>
+          <ReactSVG
+            svgClassName={styles.svgStyle}
+            className={styles.svgWrapper}
+            src={logo && imageUrlFor(buildImageObj(logo)).url()}
+          />
+        </Link>
         {/* <h2 className={styles.logo}>{siteTitle}</h2> */}
       </div>
     </Menu>

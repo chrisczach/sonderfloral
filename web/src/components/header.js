@@ -22,6 +22,7 @@ const Header = ({ siteTitle, logo, pathname }) => {
   }
 
   useEffect(() => {
+    setHomeSize()
     window.addEventListener('resize', setHomeSize)
     return () => {
       window.removeEventListener('resize', setHomeSize)
@@ -35,6 +36,7 @@ const Header = ({ siteTitle, logo, pathname }) => {
     <div className={styles.wrapper}>
       <h1
         style={{
+          opacity: homeLarge ? Math.min(1 - (scaleCalc - 1.45), 1) : 0.85,
           transform: `scale(${homeLarge ? scaleCalc : 1} ) translateY(${
             homeLarge ? translateCalc : 0
           }%)`
