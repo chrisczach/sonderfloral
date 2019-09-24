@@ -48,24 +48,23 @@
 }
 
 .title {
-  font-size: var(--font-title3-size);
+  pointer-events: none;
+  text-shadow: 2px 2px 4px var(--color-main-dark);
+  font-size: var(--font-title1-size);
+  font-weight: 300;
+  font-family: var(--font-brand);
+  color: var(--color-main-light);
   @media (--media-min-small) {
     font-size: var(--font-title2-size);
     line-height: var(--font-large-line-height);
   }
 
-  @media (--media-min-medium) {
-    font-size: var(--font-title1-size);
-    line-height: var(--font-title1-line-height);
-  }
   position: absolute;
   top: 50%;
   left: 50%;
   margin: 0;
   transform: translate(-50%, -50%);
   white-space: nowrap;
-  font-family: var(--font-main);
-  font-weight: 100;
   color: var(--color-main-light);
   transition: var(--transition-short);
   @media (hover: hover) {
