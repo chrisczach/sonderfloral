@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Chris Czach <hello@chrisczach.com>",
   "scripts": {
+    "build": "sanity build",
     "deploy": "npm run graphql-deploy && npm run sanity-deploy",
     "format": "prettier-eslint --write \"**/*.js\" \"!node_modules/**\"",
     "graphql-deploy": "sanity graphql deploy --playground",
