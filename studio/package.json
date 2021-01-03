@@ -25,7 +25,8 @@
     "@sanity/production-preview": "^2.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.5",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "react-icons": "^4.1.0"
   },
   "devDependencies": {
     "eslint": "^6.2.2",
