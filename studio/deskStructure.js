@@ -43,6 +43,10 @@ export default () =>
                 .child(S.editor().id("aboutPage").schemaType("page").documentId("about"))
                 .icon(FaFileO),
               S.listItem()
+                .title("Elopements")
+                .child(S.editor().id("elopementsPage").schemaType("page").documentId("elopements"))
+                .icon(FaFileO),
+              S.listItem()
                 .title("Contact")
                 .child(S.editor().id("contactPage").schemaType("page").documentId("contact"))
                 .icon(FaFileO),
