@@ -20,15 +20,17 @@ function Project(props) {
     relatedProjects,
     category: {
       slug: { current: categorySlug },
-      title: categoryTitle
-    }
+      title: categoryTitle,
+    },
   } = props
 
   const [listener, { width, height }] = ResizeAware()
-  const [windowHeight, setWindowHeight] = useState(1000)
-  try {
-    setWindowHeight(window.innerHeight)
-  } catch (e) {}
+  const [windowHeight, setWindowHeight] = useState(undefined)
+  if (window === undefined) {
+    try {
+      setWindowHeight(window.innerHeight || 1000)
+    } catch (e) {}
+  }
   const { position } = useContext(ScrollContext)
 
   const portrait = windowHeight > width
@@ -72,7 +74,7 @@ function Project(props) {
                 <div className={styles.relatedProjects}>
                   <h3 className={styles.relatedProjectsHeadline}>Related projects</h3>
                   <ul>
-                    {relatedProjects.map(project => (
+                    {relatedProjects.map((project) => (
                       <li key={`related_${project._id}`}>
                         <Link to={`/project/${project.slug.current}/`}>{project.title}</Link>
                       </li>

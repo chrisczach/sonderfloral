@@ -8,10 +8,12 @@ import styles from './page-card.module.css'
 export default function PageCard({ image, title, children }) {
   const [wrapListener, { width }] = ResizeAware()
   const [contentListener, { height: contentHeight }] = ResizeAware()
-  let [isPortrait, setPortrait] = useState(true)
-  try {
-    setPortrait(window.innerHeight > window.innerWidth)
-  } catch (e) {}
+  let [isPortrait, setPortrait] = useState(undefined)
+  if (isPortrait === undefined) {
+    try {
+      setPortrait(window.innerHeight > window.innerWidth)
+    } catch (e) {}
+  }
   const imageWidth = isPortrait ? width : width / 3
   const imageHeight = Math.ceil(isPortrait ? width : contentHeight)
   console.log(imageHeight)
@@ -26,7 +28,7 @@ export default function PageCard({ image, title, children }) {
             alt={image.alt}
             args={{
               maxWidth: imageWidth,
-              maxHeight: imageWidth * 1.5
+              maxHeight: imageWidth * 1.5,
             }}
           />
         </div>
