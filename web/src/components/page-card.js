@@ -9,11 +9,12 @@ export default function PageCard({ image, title, children }) {
   const [wrapListener, { width }] = ResizeAware()
   const [contentListener, { height: contentHeight }] = ResizeAware()
   let [isPortrait, setPortrait] = useState(undefined)
-  if (isPortrait === undefined) {
-    try {
+
+  try {
+    if (isPortrait === undefined) {
       setPortrait(window.innerHeight > window.innerWidth)
-    } catch (e) {}
-  }
+    }
+  } catch (e) {}
   const imageWidth = isPortrait ? width : width / 3
   const imageHeight = Math.ceil(isPortrait ? width : contentHeight)
   console.log(imageHeight)

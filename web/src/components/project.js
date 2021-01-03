@@ -26,11 +26,11 @@ function Project(props) {
 
   const [listener, { width, height }] = ResizeAware()
   const [windowHeight, setWindowHeight] = useState(undefined)
-  if (window === undefined) {
-    try {
+  try {
+    if (window === undefined) {
       setWindowHeight(window.innerHeight || 1000)
-    } catch (e) {}
-  }
+    }
+  } catch (e) {}
   const { position } = useContext(ScrollContext)
 
   const portrait = windowHeight > width
