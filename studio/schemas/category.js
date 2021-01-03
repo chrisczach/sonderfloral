@@ -1,4 +1,4 @@
-import MdApps from "react-icons/lib/md/apps";
+import { MdApps } from "react-icons/fa";
 
 export default {
   name: "category",
@@ -10,7 +10,7 @@ export default {
       name: "title",
       title: "Title",
       type: "string",
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "slug",
@@ -19,26 +19,26 @@ export default {
       description: "Some frontend will require a slug to be set to be able to show the project",
       options: {
         source: "title",
-        maxLength: 96
+        maxLength: 96,
       },
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "excerpt",
       title: "Excerpt",
-      type: "text"
+      type: "text",
     },
     {
       name: "body",
       title: "Body",
-      type: "blockContent"
+      type: "blockContent",
     },
 
     {
       name: "mainImage",
       title: "Main image",
       type: "mainImage",
-      validation: Rule => Rule.required()
-    }
-  ]
+      validation: (Rule) => Rule.required(),
+    },
+  ],
 };

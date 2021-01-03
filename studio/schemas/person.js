@@ -1,4 +1,4 @@
-import MdPerson from "react-icons/lib/md/person";
+import { MdPerson } from "react-icons/fa";
 
 export default {
   name: "person",
@@ -10,7 +10,7 @@ export default {
     {
       name: "name",
       title: "Name",
-      type: "string"
+      type: "string",
     },
     {
       name: "slug",
@@ -19,22 +19,22 @@ export default {
       description: "Some frontend will require a slug to be set to be able to show the person",
       options: {
         source: "name",
-        maxLength: 96
-      }
+        maxLength: 96,
+      },
     },
     {
       name: "image",
       title: "Image",
       type: "image",
       options: {
-        hotspot: true
-      }
+        hotspot: true,
+      },
     },
     {
       name: "instagram",
       title: "Instagram handle",
       type: "string",
-      description: "Instagram handle without the @ in the start"
+      description: "Instagram handle without the @ in the start",
     },
     {
       name: "bio",
@@ -45,15 +45,15 @@ export default {
           title: "Block",
           type: "block",
           styles: [{ title: "Normal", value: "normal" }],
-          lists: []
-        }
-      ]
-    }
+          lists: [],
+        },
+      ],
+    },
   ],
   preview: {
     select: {
       title: "name",
-      media: "image"
-    }
-  }
+      media: "image",
+    },
+  },
 };

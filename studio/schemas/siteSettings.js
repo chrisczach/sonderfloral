@@ -1,4 +1,4 @@
-import MdSettings from "react-icons/lib/md/settings";
+import { MdSettings } from "react-icons/fa";
 
 export default {
   name: "siteSettings",
@@ -10,12 +10,12 @@ export default {
     {
       name: "title",
       title: "Title",
-      type: "string"
+      type: "string",
     },
     {
       name: "description",
       title: "Description",
-      type: "text"
+      type: "text",
     },
     {
       name: "keywords",
@@ -23,73 +23,73 @@ export default {
       type: "array",
       of: [{ type: "string" }],
       options: {
-        layout: "tags"
-      }
+        layout: "tags",
+      },
     },
     {
       name: "author",
       title: "Author",
-      type: "string"
+      type: "string",
     },
     {
       name: "logo",
       title: "Main Logo",
-      type: "mainImage"
+      type: "mainImage",
     },
     {
       name: "alt1logo",
       title: "Alt 1 Logo",
-      type: "image"
+      type: "image",
     },
     {
       name: "alt2logo",
       title: "Alt 2 Logo",
-      type: "image"
+      type: "image",
     },
     {
       name: "submarkLogo",
       title: "Submark Logo",
-      type: "image"
+      type: "image",
     },
     {
       name: "primaryLight",
       title: "Primary Light",
       type: "color",
       options: {
-        disableAlpha: true
-      }
+        disableAlpha: true,
+      },
     },
     {
       name: "accentLight",
       title: "Accent Light",
       type: "color",
       options: {
-        disableAlpha: true
-      }
+        disableAlpha: true,
+      },
     },
     {
       name: "brandAccent",
       title: "Brand Accent",
       type: "color",
       options: {
-        disableAlpha: true
-      }
+        disableAlpha: true,
+      },
     },
     {
       name: "accentDark",
       title: "Accent Dark",
       type: "color",
       options: {
-        disableAlpha: true
-      }
+        disableAlpha: true,
+      },
     },
     {
       name: "primaryDark",
       title: "Primary Dark",
       type: "color",
       options: {
-        disableAlpha: true
-      }
-    }
-  ]
+        disableAlpha: true,
+      },
+    },
+  ],
 };

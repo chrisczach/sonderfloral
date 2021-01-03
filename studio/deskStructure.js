@@ -1,7 +1,5 @@
 import S from "@sanity/desk-tool/structure-builder";
-import MdBusiness from "react-icons/lib/md/business";
-import MdSettings from "react-icons/lib/md/settings";
-import FaFileO from "react-icons/lib/fa/file-o";
+import { MdBusiness, MdSettings, FaFileO } from "react-icons/fa";
 
 const hiddenTypes = [
   "category",
@@ -10,7 +8,7 @@ const hiddenTypes = [
   "person",
   "post",
   "project",
-  "siteSettings"
+  "siteSettings",
 ];
 
 export default () =>
@@ -19,26 +17,13 @@ export default () =>
     .items([
       S.listItem()
         .title("Site Settings")
-        .child(
-          S.editor()
-            .id("siteSettings")
-            .schemaType("siteSettings")
-            .documentId("siteSettings")
-        )
+        .child(S.editor().id("siteSettings").schemaType("siteSettings").documentId("siteSettings"))
         .icon(MdSettings),
       S.listItem()
         .title("Company Info")
-        .child(
-          S.editor()
-            .id("companyInfo")
-            .schemaType("companyInfo")
-            .documentId("companyInfo")
-        )
+        .child(S.editor().id("companyInfo").schemaType("companyInfo").documentId("companyInfo"))
         .icon(MdBusiness),
-      S.listItem()
-        .title("Projects")
-        .schemaType("project")
-        .child(S.documentTypeList("project")),
+      S.listItem().title("Projects").schemaType("project").child(S.documentTypeList("project")),
       S.listItem()
         .title("Portfolio posts")
         .schemaType("post")
@@ -51,31 +36,16 @@ export default () =>
             .items([
               S.listItem()
                 .title("Home")
-                .child(
-                  S.editor()
-                    .id("homePage")
-                    .schemaType("page")
-                    .documentId("home")
-                )
+                .child(S.editor().id("homePage").schemaType("page").documentId("home"))
                 .icon(FaFileO),
               S.listItem()
                 .title("About")
-                .child(
-                  S.editor()
-                    .id("aboutPage")
-                    .schemaType("page")
-                    .documentId("about")
-                )
+                .child(S.editor().id("aboutPage").schemaType("page").documentId("about"))
                 .icon(FaFileO),
               S.listItem()
                 .title("Contact")
-                .child(
-                  S.editor()
-                    .id("contactPage")
-                    .schemaType("page")
-                    .documentId("contact")
-                )
-                .icon(FaFileO)
+                .child(S.editor().id("contactPage").schemaType("page").documentId("contact"))
+                .icon(FaFileO),
             ])
         ),
       S.listItem()
@@ -86,5 +56,5 @@ export default () =>
         .title("Categories")
         .schemaType("category")
         .child(S.documentTypeList("category").title("Categories")),
-      ...S.documentTypeListItems().filter(listItem => !hiddenTypes.includes(listItem.getId()))
+      ...S.documentTypeListItems().filter((listItem) => !hiddenTypes.includes(listItem.getId())),
     ]);
