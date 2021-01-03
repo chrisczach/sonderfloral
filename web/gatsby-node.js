@@ -1,4 +1,4 @@
-const createPageDependency = require('gatsby/dist/redux/actions/add-page-dependency')
+const { createPageDependency } = require('gatsby/dist/redux/actions/add-page-dependency')
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -73,7 +73,7 @@ async function createProjectPages(graphql, actions, reporter) {
 
   const projectEdges = (result.data.allSanityProject || {}).edges || []
 
-  projectEdges.forEach(edge => {
+  projectEdges.forEach((edge) => {
     const id = edge.node.id
     const categorySlug = edge.node.category.slug.current
     const slug = edge.node.slug.current
@@ -84,7 +84,7 @@ async function createProjectPages(graphql, actions, reporter) {
     createPage({
       path,
       component: require.resolve('./src/templates/project.js'),
-      context: { id }
+      context: { id },
     })
 
     createPageDependency({ path, nodeId: id })
@@ -112,7 +112,7 @@ async function createProjectCategories(graphql, actions, reporter) {
 
   const categoryEdges = (result.data.allSanityCategory || {}).edges || []
 
-  categoryEdges.forEach(edge => {
+  categoryEdges.forEach((edge) => {
     const id = edge.node.id
     const slug = edge.node.slug.current
     const path = `/projects/${slug}/`
@@ -122,7 +122,7 @@ async function createProjectCategories(graphql, actions, reporter) {
     createPage({
       path,
       component: require.resolve('./src/templates/category.js'),
-      context: { id }
+      context: { id },
     })
 
     createPageDependency({ path, nodeId: id })
