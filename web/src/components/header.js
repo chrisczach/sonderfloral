@@ -7,12 +7,15 @@ import { imageUrlFor } from '../lib/image-url'
 import styles from './header.module.css'
 import { ScrollContext } from './global-styles'
 
-const Header = ({ siteTitle, logo, pathname }) => {
+const Header = ({ logo, pathname }) => {
   const { percentScroll } = useContext(ScrollContext)
   const [homeLarge, setHomeLarge] = useState(false)
+  const largePaths = ['/', '/elopements/', '/about/', '/contact/', '/projects/sonder-series/']
   const setHomeSize = () =>
     setHomeLarge(
-      window.innerWidth > window.innerHeight && pathname === '/' && window.innerWidth > 900
+      window.innerWidth > window.innerHeight &&
+        largePaths.includes(pathname) &&
+        window.innerWidth > 900
     )
 
   const [prevPath, setPrevPath] = useState(pathname)
@@ -39,7 +42,7 @@ const Header = ({ siteTitle, logo, pathname }) => {
           opacity: homeLarge ? Math.min(1 - (scaleCalc - 1.45), 1) : 0.85,
           transform: `scale(${homeLarge ? scaleCalc : 1} ) translateY(${
             homeLarge ? translateCalc : 0
-          }%)`
+          }%)`,
         }}
         className={styles.branding}
       >

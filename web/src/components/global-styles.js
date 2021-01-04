@@ -8,8 +8,8 @@ export default function GlobalStyles({
     accentLight: { hex: '#f7f5f1' },
     brandAccent: { hex: '#e1c6d2' },
     accentDark: { hex: '#b87c6e' },
-    primaryDark: { hex: '#5c4841' }
-  }
+    primaryDark: { hex: '#5c4841' },
+  },
 }) {
   var { primaryLight, accentLight, brandAccent, accentDark, primaryDark } = siteSettings
 
@@ -18,21 +18,22 @@ export default function GlobalStyles({
   const globalColors = {
     '--color-main-light': getHex(primaryLight),
     '--color-accent-light': getHex(accentLight),
+    '--color-accent-light2': getHex(accentLight) + '77',
     '--color-brand': getHex(brandAccent),
     '--color-accent-dark': getHex(accentDark),
     '--color-main-dark': getHex(primaryDark),
     // background: 'var(--color-main-light)',
     color: 'var(--color-main-dark)',
-    height: '100%'
+    height: '100%',
   }
   const [scrollProviderValue, setScrollProviderValue] = useState({ position: 0, percentScroll: 0 })
   useEffect(() => {
-    const handler = event => {
+    const handler = (event) => {
       window.requestAnimationFrame(() => {
         const {
           target: {
-            scrollingElement: { scrollTop, scrollHeight, offsetHeight }
-          }
+            scrollingElement: { scrollTop, scrollHeight, offsetHeight },
+          },
         } = event
 
         const scrollObject = {
@@ -40,7 +41,7 @@ export default function GlobalStyles({
           percentScroll: scrollTop / (scrollHeight - offsetHeight),
           scrollHeight,
           offsetHeight,
-          lastTrigger: new Date().getTime()
+          lastTrigger: new Date().getTime(),
         }
         setScrollProviderValue(scrollObject)
       })
@@ -59,7 +60,7 @@ export default function GlobalStyles({
 
 const throttled = (delay, fn) => {
   let lastCall = 0
-  return function(...args) {
+  return function (...args) {
     const now = new Date().getTime()
     if (now - lastCall < delay) {
       return

@@ -23,7 +23,7 @@ export default function burgerMenu({ siteTitle, logo }) {
       >
         Sonder Series
       </Link>
-      <Link id="elopement-packages" className="menu-item" to="/elopements" onClick={closeMenu}>
+      <Link id="elopement-packages" className="menu-item" to="/elopements/" onClick={closeMenu}>
         Elopements
       </Link>
       <Link id="portfolio" className="menu-item" to="/portfolio/" onClick={closeMenu}>

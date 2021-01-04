@@ -4,6 +4,7 @@ import BlockContent from '../components/block-content'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import PeopleGrid from '../components/people-grid'
+import HomeBanner from '../components/home-banner'
 import SEO from '../components/seo'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 
@@ -62,7 +63,7 @@ export const query = graphql`
   }
 `
 
-const AboutPage = props => {
+const AboutPage = (props) => {
   const { data, errors } = props
 
   if (errors) {
@@ -70,7 +71,7 @@ const AboutPage = props => {
   }
 
   const {
-    page: { mainImage, title, _rawBody }
+    page: { mainImage, title, _rawBody },
   } = data && data
   const personNodes =
     data && data.people && mapEdgesToNodes(data.people).filter(filterOutDocsWithoutSlugs)
@@ -85,6 +86,7 @@ const AboutPage = props => {
     <>
       <SEO title={title} />
       <Container>
+        <HomeBanner customHero={true} />
         <PageCard image={mainImage} title={title}>
           <BlockContent blocks={_rawBody || []} />
           {personNodes && personNodes.length > 0 && (

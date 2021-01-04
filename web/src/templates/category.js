@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
+import HomeBanner from '../components/home-banner'
 import SEO from '../components/seo'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 import BlockContent from '../components/block-content'
@@ -51,7 +52,7 @@ export const query = graphql`
   }
 `
 
-const CategoryPageTemplate = props => {
+const CategoryPageTemplate = (props) => {
   const { data, errors } = props
   if (errors) {
     return <GraphQLErrorList errors={errors} />
@@ -62,6 +63,7 @@ const CategoryPageTemplate = props => {
     <>
       <SEO title={data.category.title} />
       <Container>
+        <HomeBanner customHero={true} />
         <h1 className={responsiveTitle1 + ' ' + styles.headerText}>{data.category.title}</h1>
         {data.category._rawBody && (
           <div className={styles.bodyText}>

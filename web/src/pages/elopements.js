@@ -1,11 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import BlockContent from '../components/block-content'
+import { getSerializer } from '../components/block-content'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import PeopleGrid from '../components/people-grid'
+import HomeBanner from '../components/home-banner'
 import SEO from '../components/seo'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
+import styles from './index.module.css'
+import { mapEdgesToNodes, filterOutDocsWithoutSlugs, buildImageObj } from '../lib/helpers'
 
 import PageCard from '../components/page-card'
 
@@ -68,6 +70,7 @@ const ElopementsPage = (props) => {
   if (errors) {
     return <GraphQLErrorList errors={errors} />
   }
+  const serializer = getSerializer({ header: styles.headerText })
 
   const {
     page: { mainImage, title, _rawBody },
@@ -85,12 +88,8 @@ const ElopementsPage = (props) => {
     <>
       <SEO title={title} />
       <Container>
-        <PageCard image={mainImage} title={title}>
-          <BlockContent blocks={_rawBody || []} />
-          {personNodes && personNodes.length > 0 && (
-            <PeopleGrid items={personNodes} title="People" />
-          )}
-        </PageCard>
+        <HomeBanner customHero={true} />
+        <BlockContent blocks={data.page._rawBody || []} customSerializer={serializer} />
       </Container>
     </>
   )
