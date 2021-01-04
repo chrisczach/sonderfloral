@@ -7,7 +7,7 @@ import { imageUrlFor } from '../lib/image-url'
 import { buildImageObj } from '../lib/helpers'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const CustomDefault = () => {
+export const LineBreak = () => {
   const {
     site: { alt2logo },
   } = useStaticQuery(
@@ -69,7 +69,7 @@ export default function HomeBanner({ image, customHero }) {
       </div>
       {customHero ? (
         customHero === true ? (
-          <CustomDefault />
+          <LineBreak />
         ) : (
           customHero
         )

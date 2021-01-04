@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import BlockContent from '../components/block-content'
-import { getSerializer } from '../components/block-content'
+import BlockContent, { getSerializer } from '../components/block-content'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import HomeBanner from '../components/home-banner'
@@ -70,7 +69,7 @@ const ElopementsPage = (props) => {
   if (errors) {
     return <GraphQLErrorList errors={errors} />
   }
-  const serializer = getSerializer({ header: styles.headerText })
+  const serializer = getSerializer({ header: styles.headerText, breakOn: ['h2'] })
 
   const {
     page: { mainImage, title, _rawBody },
@@ -88,7 +87,7 @@ const ElopementsPage = (props) => {
     <>
       <SEO title={title} />
       <Container>
-        <HomeBanner customHero={true} />
+        <HomeBanner customHero={<></>} />
         <BlockContent blocks={data.page._rawBody || []} customSerializer={serializer} />
       </Container>
     </>

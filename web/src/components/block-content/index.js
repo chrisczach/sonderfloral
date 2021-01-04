@@ -2,11 +2,12 @@ import BaseBlockContent from '@sanity/block-content-to-react'
 import React from 'react'
 import Figure from './figure'
 import Slideshow from './slideshow'
+import { LineBreak } from '../home-banner'
 
 import typography from '../typography.module.css'
 
 export const getSerializer = (
-  { header, h1, h2, h3, h4, paragraph } = {
+  { header, h1, h2, h3, h4, paragraph, breakOn = [] } = {
     header: '',
     h1: '',
     h2: '',
@@ -20,30 +21,40 @@ export const getSerializer = (
       switch (props.node.style) {
         case 'h1':
           return (
-            <h1 className={typography.responsiveTitle1 + ' ' + header + ' ' + h1}>
-              {props.children}
-            </h1>
+            <>
+              {breakOn.includes('h1') && <LineBreak />}
+              <h1 className={typography.responsiveTitle1 + ' ' + header + ' ' + h1}>
+                {props.children}
+              </h1>
+            </>
           )
 
         case 'h2':
           return (
-            <h2 className={typography.responsiveTitle2 + ' ' + header + ' ' + h2}>
-              {props.children}
-            </h2>
+            <>
+              {breakOn.includes('h2') && <LineBreak />}
+              <h2 className={typography.responsiveTitle2 + ' ' + header + ' ' + h2}>
+                {props.children}
+              </h2>
+            </>
           )
 
         case 'h3':
           return (
-            <h3 className={typography.responsiveTitle3 + ' ' + header + ' ' + h3}>
-              {props.children}
-            </h3>
+            <>
+              <h3 className={typography.responsiveTitle3 + ' ' + header + ' ' + h3}>
+                {props.children}
+              </h3>
+            </>
           )
 
         case 'h4':
           return (
-            <h4 className={typography.responsiveTitle4 + ' ' + header + ' ' + h4}>
-              {props.children}
-            </h4>
+            <>
+              <h4 className={typography.responsiveTitle4 + ' ' + header + ' ' + h4}>
+                {props.children}
+              </h4>
+            </>
           )
 
         case 'blockquote':
