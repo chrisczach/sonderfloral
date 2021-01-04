@@ -7,3 +7,6 @@
   [headers.values]
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
     cache-control = "max-age=0, must-revalidate, public"
+
+[[headers]]
+  package = "netlify-plugin-gatsby-cache"

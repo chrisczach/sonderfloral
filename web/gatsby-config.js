@@ -1,11 +1,16 @@
 require('dotenv').config()
 const {
-  api: { projectId, dataset }
+  api: { projectId, dataset },
 } = requireConfig('../studio/sanity.json')
 
 module.exports = {
+  flags: {
+    FAST_DEV: true,
+    LAZY_IMAGES: true,
+    FAST_REFRESH: true,
+  },
   siteMetadata: {
-    siteUrl: `https://www.sonderfloral.com`
+    siteUrl: `https://www.sonderfloral.com`,
   },
   plugins: [
     'gatsby-plugin-postcss',
@@ -19,8 +24,8 @@ module.exports = {
         background_color: '#F1F2F1',
         theme_color: '#B87C6E',
         display: 'standalone',
-        icon: 'src/images/logo.png' // This path is relative to the root of the site.
-      }
+        icon: 'src/images/logo.png', // This path is relative to the root of the site.
+      },
     },
     {
       resolve: 'gatsby-source-sanity',
@@ -31,26 +36,26 @@ module.exports = {
         // and add a token with read permissions
         token: process.env.SANITY_TOKEN,
         watchMode: true,
-        overlayDrafts: true
-      }
+        overlayDrafts: true,
+      },
     },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Lato', 'Playfair Display']
-        }
-      }
+          families: ['Lato', 'Playfair Display'],
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: require.resolve(`./src/containers/layout.js`)
-      }
+        component: require.resolve(`./src/containers/layout.js`),
+      },
     },
     `gatsby-plugin-sitemap`,
-    'gatsby-plugin-offline'
-  ]
+    'gatsby-plugin-offline',
+  ],
 }
 
 /**
@@ -70,8 +75,8 @@ function requireConfig(path) {
     return {
       api: {
         projectId: process.env.SANITY_PROJECT_ID || '',
-        dataset: process.env.SANITY_DATASET || ''
-      }
+        dataset: process.env.SANITY_DATASET || '',
+      },
     }
   }
 }
