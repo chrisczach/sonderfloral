@@ -34,12 +34,20 @@ function Project(props) {
   const { position } = useContext(ScrollContext)
 
   const portrait = windowHeight > width
+  const altLandings = ['elopements']
 
   return (
     <>
       <article className={styles.root}>
         {!portrait && (
-          <Link className={styles.categoryLink} to={`/projects/${categorySlug}/`}>
+          <Link
+            className={styles.categoryLink}
+            to={
+              altLandings.includes(categorySlug)
+                ? `/${categorySlug}/`
+                : `/projects/${categorySlug}/`
+            }
+          >
             ← back to {categoryTitle}
           </Link>
         )}

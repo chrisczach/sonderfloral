@@ -3,12 +3,13 @@ import { graphql } from 'gatsby'
 import BlockContent, { getSerializer } from '../components/block-content'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import HomeBanner from '../components/home-banner'
+import HomeBanner, { LineBreak } from '../components/home-banner'
 import SEO from '../components/seo'
 import styles from './index.module.css'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs, buildImageObj } from '../lib/helpers'
-
-import PageCard from '../components/page-card'
+import ProjectPreviewGrid from '../components/project-preview-grid'
+import typography from '../components/typography.module.css'
+import elopement from './elopement.module.css'
 
 export const query = graphql`
   query ElopementsPageQuery {
@@ -60,6 +61,45 @@ export const query = graphql`
         }
       }
     }
+    category: sanityCategory(slug: { current: { eq: "elopements" } }) {
+      id
+      title
+      slug {
+        current
+      }
+      _rawBody
+    }
+    projects: allSanityProject(
+      filter: { category: { slug: { current: { eq: "elopements" } } } }
+      sort: { fields: [publishedAt], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          category {
+            id
+            title
+            slug {
+              current
+            }
+          }
+          mainImage {
+            asset {
+              _id
+              metadata {
+                lqip
+              }
+            }
+            alt
+          }
+          title
+          _rawExcerpt
+          slug {
+            current
+          }
+        }
+      }
+    }
   }
 `
 
@@ -69,13 +109,15 @@ const ElopementsPage = (props) => {
   if (errors) {
     return <GraphQLErrorList errors={errors} />
   }
-  const serializer = getSerializer({ header: styles.headerText, breakOn: ['h2'] })
+  const pageSerializer = getSerializer({ header: styles.headerText, breakOn: ['h2'] })
+  const projectSerializer = getSerializer({ paragraph: elopement.projectParagraphOverride })
 
   const {
     page: { mainImage, title, _rawBody },
-  } = data && data
-  const personNodes =
-    data && data.people && mapEdgesToNodes(data.people).filter(filterOutDocsWithoutSlugs)
+    category,
+  } = data
+  const projectNodes =
+    data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
 
   if (!data.page) {
     throw new Error(
@@ -88,7 +130,10 @@ const ElopementsPage = (props) => {
       <SEO title={title} />
       <Container>
         <HomeBanner customHero={<></>} />
-        <BlockContent blocks={data.page._rawBody || []} customSerializer={serializer} />
+        <BlockContent blocks={_rawBody || []} customSerializer={pageSerializer} />
+        <LineBreak />
+        <BlockContent blocks={category._rawBody || []} customSerializer={projectSerializer} />
+        <ProjectPreviewGrid nodes={projectNodes} />
       </Container>
     </>
   )
