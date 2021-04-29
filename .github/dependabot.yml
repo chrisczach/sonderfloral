@@ -1,0 +1,93 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 10
+  assignees:
+  - chrisczach
+  ignore:
+  - dependency-name: react-svg
+    versions:
+    - "> 9.0.4"
+  - dependency-name: eslint
+    versions:
+    - 7.18.0
+    - 7.19.0
+    - 7.20.0
+    - 7.21.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: "@sanity/desk-tool"
+    versions:
+    - 2.1.6
+    - 2.2.5
+    - 2.3.3
+    - 2.3.6
+    - 2.3.8
+    - 2.4.3
+    - 2.6.1
+    - 2.6.3
+    - 2.7.1
+    - 2.7.4
+  - dependency-name: "@sanity/core"
+    versions:
+    - 2.1.4
+    - 2.2.3
+    - 2.3.3
+    - 2.3.8
+    - 2.4.0
+    - 2.6.1
+    - 2.6.2
+    - 2.7.1
+    - 2.7.4
+  - dependency-name: "@sanity/base"
+    versions:
+    - 2.1.6
+    - 2.2.5
+    - 2.3.3
+    - 2.3.6
+    - 2.3.8
+    - 2.4.3
+    - 2.6.0
+    - 2.6.2
+    - 2.7.1
+    - 2.7.4
+  - dependency-name: "@sanity/default-layout"
+    versions:
+    - 2.1.6
+    - 2.2.5
+    - 2.3.3
+    - 2.3.6
+    - 2.3.8
+    - 2.4.3
+    - 2.6.0
+    - 2.6.2
+    - 2.7.1
+    - 2.7.4
+  - dependency-name: "@sanity/cli"
+    versions:
+    - 2.1.4
+    - 2.2.5
+    - 2.2.6
+    - 2.3.8
+    - 2.4.0
+    - 2.6.0
+    - 2.7.1
+    - 2.7.4
+  - dependency-name: "@sanity/default-login"
+    versions:
+    - 2.1.4
+    - 2.2.6
+    - 2.7.0
+  - dependency-name: "@sanity/color-input"
+    versions:
+    - 2.1.4
+  - dependency-name: "@sanity/production-preview"
+    versions:
+    - 2.1.4
+  - dependency-name: "@sanity/components"
+    versions:
+    - 2.1.4
